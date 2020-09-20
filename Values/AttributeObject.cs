@@ -1,14 +1,26 @@
 ﻿
-using Elebris.Library.Values;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace RPG.CharacterValues
+namespace Elebris.Library.Values
 {
+    public interface IAttributeObject1
+    {
+        void LinkEvent(CharacterValue obj);
+        void UnlinkEvent(CharacterValue obj);
+    }
+
+    public interface IAttributeObject
+    {
+        void LinkEvent(CharacterValue obj);
+        void UnlinkEvent(CharacterValue obj);
+    }
+
     //Save to character, if not found create from AttributeData (In characterSaveData
     [Serializable]
-    public class AttributeObject : CharacterValue, ILinkableValue
+    public class AttributeObject : CharacterValue, IAttributeObject
     {
         public AttributeData attributeType;
         public float attributeValue;

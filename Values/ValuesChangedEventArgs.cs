@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace RPG.CharacterValues
+namespace Elebris.Library.Values
 {
     public class ValuesChangedEventArgs : EventArgs
     {

@@ -1,4 +1,4 @@
-namespace RPG.SceneManagement.Saving
+namespace Elebris.Library.Saving
 {
     public interface ISaveable
     {

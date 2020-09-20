@@ -6,11 +6,11 @@ using RPG.SceneManagement.Saving;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
-using UnityEngine.EventSystems;
 
-namespace RPG.Unit
+namespace Elebris.Library.Units
 {
+    //move to .Unity
+    //Every other component should be pure C#
     [RequireComponent(typeof(CharacterResourceSystem))]
     //[RequireComponent(typeof(TurnBasedCharacter))]
 

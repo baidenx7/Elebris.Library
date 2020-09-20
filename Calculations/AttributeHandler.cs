@@ -1,12 +1,11 @@
-﻿using RPG.CharacterValues;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Elebris.Library.Calculations
 {
-    
-    public static class AttributeHandler
+        public static class AttributeHandler
     {
         private static float DEFAULT_ATTRIBUTE_VALUE = 6;
         private static float MAX_TOTAL_VALUE = 60;
