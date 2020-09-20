@@ -2,37 +2,30 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
-using UnityEngine;
 
 namespace Elebris.Library.Calculations
 {
-    [CreateAssetMenu(menuName = "Stats/AttributeHandler")]
-    public class AttributeHandler : ScriptableObject
+    
+    public static class AttributeHandler
     {
-        private List<AttributeObject> attributeObjectList;
+        private static float DEFAULT_ATTRIBUTE_VALUE = 6;
+        private static float MAX_TOTAL_VALUE = 60;
+        private static float MAX_ATTRIBUTE_VALUE = 15; //May also have this change
 
-        [SerializeField] private ValueDataContainer attributeContainer;
-        [SerializeField] private float DEFAULT_ATTRIBUTE_VALUE = 6;
-        [SerializeField] private float MAX_TOTAL_VALUE = 60;
-        [SerializeField] private float MAX_ATTRIBUTE_VALUE = 15; //May also have this change
-
-        [SerializeField] private float DEFAULT_BIAS_VALUE = 12;
-        [SerializeField] private float DEFAULT_CLASS_BIAS = 9;
-
-        private List<AttributeObject> biasList;
+        private static float DEFAULT_BIAS_VALUE = 12;
+        private static float DEFAULT_CLASS_BIAS = 9;
 
 
-        public List<AttributeObject> GenerateAttributes(HeroClassContainer heroClasses)
+        public static List<AttributeObject> GenerateAttributes(HeroClassContainer heroClasses)
         {
-            attributeObjectList.Clear();
-            biasList.Clear();
+            //attributeObjectList.Clear();
+            //biasList.Clear();
             InitialiseStats();
             InititalizeClassBias(heroClasses);
             //TODO: pass in rarity to change default value and max value
             return RollAttributeSet();
         }
-        public void InitialiseStats()
+        public static void InitialiseStats()
         {
             foreach (AttributeData item in attributeContainer.ValueDataArray)
             {
@@ -52,7 +45,7 @@ namespace Elebris.Library.Calculations
 
         }
 
-        public void AddToClassAttributes(AttributeData classPrimaryAttribute)
+        public static void AddToClassAttributes(AttributeData classPrimaryAttribute)
         {
             for (int i = 0; i < biasList.Count; i++)
             {
@@ -64,7 +57,7 @@ namespace Elebris.Library.Calculations
                 }
             }
         }
-        public List<AttributeObject> RollAttributeSet()
+        public static List<AttributeObject> RollAttributeSet()
         {
             AttributeData[] convertedBiasList = GenerateBiasArray();//Converts object to Data since we only need type
             //Attempting to deal out Attribute points until the total value of all stats combined is
@@ -86,7 +79,7 @@ namespace Elebris.Library.Calculations
 
             return new List<AttributeObject>(attributeObjectList);
         }
-        public AttributeData[] GenerateBiasArray()
+        public static AttributeData[] GenerateBiasArray()
         {
             List<AttributeData> biasDataList = new List<AttributeData>();
 
@@ -106,7 +99,7 @@ namespace Elebris.Library.Calculations
             }
             return biasDataList.ToArray();
         }
-        public void IncreaseStatValue(ref float attributeValue)
+        public static void IncreaseStatValue(ref float attributeValue)
         {
             attributeValue = attributeValue + 1 > MAX_ATTRIBUTE_VALUE ? MAX_ATTRIBUTE_VALUE : attributeValue + 1;
 
