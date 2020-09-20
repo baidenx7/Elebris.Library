@@ -5,11 +5,13 @@ using System.Collections.Generic;
 
 namespace RPG.Calculations
 
-{//handles all calculations
+{
+    //handles all calculations. may need to be split up more effectively later based n relevant use-case
     public static class RPGMath
     {
         public static bool SucceedCheck(float chance, int total = 101)
         {
+            
             Random random = new Random();
             return random.Next(0, total) > chance;
         }

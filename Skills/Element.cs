@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-namespace RPG.Magic
+namespace Elebris.Library.Skills
 {
+    //move to .Unity Project
     [CreateAssetMenu(fileName = "New Element", menuName = "Magic/Element")]
     public class Element : ScriptableObject
     {

@@ -1,7 +1,8 @@
 ﻿using RPG.CharacterValues;
 
-namespace RPG.Unit
+namespace Elebris.Library.Units
 {
+    //every value that functions on a full/empty system should use this, especially health and resources
     public class ValueHolder
     {
         public float currentValue = 10;
@@ -14,7 +15,7 @@ namespace RPG.Unit
             this.maxValue = maxValue;
             this.missingValue = missingValue;
             this.type = type;
-            currentValue = maxValue - missingValue;//Calculated this way to grant some resources on levelup
+            currentValue = maxValue - missingValue;//Calculated this way to grant some resources on levelup but not go through a full-reset method
         }
     }
     

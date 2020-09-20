@@ -3,8 +3,7 @@ using RPG.Unit;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-namespace RPG.CharacterValues
+namespace Elebris.Library.Values
 {
     [Serializable]
     public class SubTypeVariable

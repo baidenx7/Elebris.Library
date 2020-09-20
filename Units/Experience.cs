@@ -1,17 +1,17 @@
-﻿using RPG.SceneManagement.Saving;
+﻿using Elebris.Library.Saving;
 using System;
-using UnityEngine;
 
-namespace RPG.Unit
+namespace Elebris.Library.Units
 {
-    public class Experience : MonoBehaviour, ISaveable
-        {
+    public class Experience :ISaveable
+    {
+        private float experiencePoints = 0;
 
-       
-          [SerializeField] float experiencePoints = 0;
+        public float ExperiencePoints { get => experiencePoints; }
+
         public int GetTotalExperience()
         {
-            return (int)experiencePoints;
+            return (int)ExperiencePoints;
         }
         public event Action onExperienceGained;
 
@@ -23,12 +23,12 @@ namespace RPG.Unit
 
         public float GetPoints()
         {
-            return experiencePoints;
+            return ExperiencePoints;
         }
 
         public object CaptureState()
         {
-            return experiencePoints;
+            return ExperiencePoints;
         }
 
         public void RestoreState(object state)

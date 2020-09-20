@@ -1,12 +1,9 @@
 ﻿
-using RPG.CharacterValues;
-using UnityEngine;
 
-namespace RPG.Unit
+namespace Elebris.Library.Units
 {
 
-    [RequireComponent(typeof(Character))]
-    public class CharacterGear : MonoBehaviour
+    public class CharacterGear
     {
         public EquippedGear equippedWeapon;
         public EquippedGear equippedOffhand;
@@ -21,8 +18,7 @@ namespace RPG.Unit
 
     public class EquippedGear
     {
-
-        public StatData DurabilityData = null;
+        //statdata needs to be passed in to this, but dont use a scriptableobject directly
         private ValueHolder characterGearDurability;
         public ValueHolder CharacterGearDurability
         {

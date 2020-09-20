@@ -1,7 +1,6 @@
-﻿using RPG.SceneManagement.Saving;
-using UnityEngine;
+﻿
 
-namespace RPG.SceneManagement
+namespace Elebris.Library.Saving
 {
     public class SavingWrapper : MonoBehaviour
     {

@@ -1,12 +1,11 @@
-﻿using RPG.CharacterValues;
-
-using UnityEngine;
+﻿
 using System.Collections.Generic;
 using System;
+using Elebris.Library.Values;
 
-namespace RPG.Unit
+namespace Elebris.Library.Units
 {
-    public class CharacterResourceSystem : MonoBehaviour, IDamageable, IHealable
+    public class CharacterResourceSystem : IDamageable, IHealable
     {
 
         //Store all 

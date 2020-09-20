@@ -1,4 +1,4 @@
-﻿namespace RPG.CharacterValues
+﻿namespace Elebris.Library.Values
 {
 
     public enum StatsEnum

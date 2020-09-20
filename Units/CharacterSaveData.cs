@@ -1,4 +1,4 @@
-﻿namespace RPG.Unit
+﻿namespace Elebris.Library.Units
 {
     [System.Serializable]
     public class CharacterSaveData

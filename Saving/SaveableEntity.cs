@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
 
-namespace RPG.SceneManagement.Saving
+
+namespace Elebris.Library.Saving
 {
     [ExecuteAlways]
     public class SaveableEntity : MonoBehaviour

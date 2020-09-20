@@ -1,6 +1,5 @@
-using UnityEngine;
 
-namespace RPG.SceneManagement.Saving
+namespace Elebris.Library.Saving
 {
     [System.Serializable]
     public class SerializableVector3
