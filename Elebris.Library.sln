@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elebris.Library", "Elebris.Library.csproj", "{1FCBAB3C-7EB9-4896-BB00-95B076FA1ABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elebris.Unity", "..\Elebris.Unity\Elebris.Unity.csproj", "{239AC253-3B84-4CAD-968C-203B395B0B64}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
