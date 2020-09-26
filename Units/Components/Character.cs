@@ -4,8 +4,6 @@ namespace Elebris.Library.Units
 {
     public class Character
     {
-        
-
         private CharacterResourceSystem characterResources = null;
         private CharacterGear characterGear = null;
         private Experience characterExperience = null;
