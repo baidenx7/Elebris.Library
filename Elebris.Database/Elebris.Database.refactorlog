@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="11c3aa3a-bce2-4b7b-a07b-464e70a8d7ac" ChangeDateTime="01/02/2021 02:26:33">
+    <Property Name="ElementName" Value="[dbo].[StatTable].[BaseFromAttribute]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[StatTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AttributeScale" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c0195a22-6f20-4d31-ab45-f65de98414e5" ChangeDateTime="01/02/2021 02:28:01">
+    <Property Name="ElementName" Value="[dbo].[StatTable].[GoverningAttribute]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[StatTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="governingAttributeId" />
+  </Operation>
+</Operations>

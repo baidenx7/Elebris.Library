@@ -1,0 +1,26 @@
+﻿<views:MvxWpfView
+    xmlns:views ="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
+    x:Class="MvxElebris.Wpf.Views.ShellView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MvxElebris.Wpf.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File" FontSize="18">
+
+            </MenuItem>
+            <MenuItem Header="_Page" FontSize="18">
+                <!--<Button mvx:Bi.nd="Command AddStatCommand" Margin="0 0 0 15" HorizontalAlignment="Left" VerticalAlignment="Top">Manage Stats</Button>-->
+                <MenuItem x:Name="Stats" Header="_Stats" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <ContentControl x:Name="ActiveItem" Margin="5" />
+        </Grid>
+    </DockPanel>
+</views:MvxWpfView>
