@@ -1,0 +1,14 @@
+{
+  "name": "com.elebris.rpg",
+  "version": "1.0.0",
+  "displayName": "Elebris Rpg",
+  "description": "This is a package for my core rpg mechanics",
+  "unity": "2020.2",
+  "unityRelease": "0b2",
+  
+  "author": {
+    "name": "Elebris",
+    "email": "josh.folsom@yahoo.com",
+    "url": "http://www.studiosoluna.com"
+  }
+}

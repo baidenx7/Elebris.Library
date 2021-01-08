@@ -24,14 +24,14 @@
         <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="48" Margin="0 0 0 20">Login Form</TextBlock>
 
         <TextBlock Grid.Row="1" Grid.Column="1" FontSize="24" Margin="0 0 0 20">UserName:</TextBlock>
-        <TextBox x:Name="userName" Grid.Row="1" Grid.Column="2" MinWidth="150"
+        <TextBox x:Name="UserName" Grid.Row="1" Grid.Column="2" MinWidth="150"
                  Margin="0 0 0 10"/>
 
         <TextBlock Grid.Row="2" Grid.Column="1" FontSize="24" Margin="0 0 0 20">Password:</TextBlock>
-        <PasswordBox x:Name="password" Grid.Row="2" Grid.Column="2" MinWidth="150"
+        <PasswordBox x:Name="Password" Grid.Row="2" Grid.Column="2" MinWidth="150"
                  Margin="0 0 0 10"/>
 
         <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"
-                Padding="20 5" x:Name="loginButton"> Log In</Button>
+                Padding="20 5" x:Name="Login"> Log In</Button>
     </Grid>
 </UserControl>

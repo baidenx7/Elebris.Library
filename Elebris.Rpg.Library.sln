@@ -5,17 +5,28 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{320C110E-C5D0-4472-9A79-37AE37080AD1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elebris.Rpg.Library", "..\Elebris.Rpg.Library\Elebris.Rpg.Library.csproj", "{0747EDB8-13B3-4818-BBF2-F20982D89F81}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elebris.Library.Tests", "Elebris.Library.Tests\Elebris.Library.Tests.csproj", "{95631B99-4928-46DB-B95D-473EF3406842}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BCE9911A-315C-49AB-9E77-BAF58351B176} = {BCE9911A-315C-49AB-9E77-BAF58351B176}
+	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Elebris.Database", "Elebris.Database\Elebris.Database.sqlproj", "{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvxElebris.Core", "MvxElebris.Core\MvxElebris.Core.csproj", "{AFFFA35C-F8F0-492A-977D-1899F590F11C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvxElebris.Core", "MvxElebris.Core\MvxElebris.Core.csproj", "{AFFFA35C-F8F0-492A-977D-1899F590F11C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvxElebris.Wpf", "MvxElebris.Wpf\MvxElebris.Wpf.csproj", "{E435A788-B317-4977-9250-87712D98883D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvxElebris.Wpf", "MvxElebris.Wpf\MvxElebris.Wpf.csproj", "{E435A788-B317-4977-9250-87712D98883D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elebris.Data.Manager", "Elebris.Data.Manager\Elebris.Data.Manager.csproj", "{CB0F49D4-6153-4945-9EB6-0EF5451C2282}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elebris.Rpg.Library", "Elebris.Rpg.Library\Elebris.Rpg.Library.csproj", "{BCE9911A-315C-49AB-9E77-BAF58351B176}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front End", "Front End", "{15F22C59-9A6C-4754-9A2D-A16FBB34CDC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{9C5333CD-8441-4C5E-80A2-A0B4279A8759}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mvvm", "Mvvm", "{9FAE20E3-DA23-49DD-8CFA-9AD1BE1F605C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{8B874FEA-CBE0-492E-9253-AFDFC6EAD710}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +34,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0747EDB8-13B3-4818-BBF2-F20982D89F81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0747EDB8-13B3-4818-BBF2-F20982D89F81}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0747EDB8-13B3-4818-BBF2-F20982D89F81}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0747EDB8-13B3-4818-BBF2-F20982D89F81}.Release|Any CPU.Build.0 = Release|Any CPU
 		{95631B99-4928-46DB-B95D-473EF3406842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95631B99-4928-46DB-B95D-473EF3406842}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95631B99-4928-46DB-B95D-473EF3406842}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,12 +56,22 @@ Global
 		{CB0F49D4-6153-4945-9EB6-0EF5451C2282}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB0F49D4-6153-4945-9EB6-0EF5451C2282}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB0F49D4-6153-4945-9EB6-0EF5451C2282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE9911A-315C-49AB-9E77-BAF58351B176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE9911A-315C-49AB-9E77-BAF58351B176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE9911A-315C-49AB-9E77-BAF58351B176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE9911A-315C-49AB-9E77-BAF58351B176}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{0747EDB8-13B3-4818-BBF2-F20982D89F81} = {320C110E-C5D0-4472-9A79-37AE37080AD1}
+		{95631B99-4928-46DB-B95D-473EF3406842} = {8B874FEA-CBE0-492E-9253-AFDFC6EAD710}
+		{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8} = {9C5333CD-8441-4C5E-80A2-A0B4279A8759}
+		{AFFFA35C-F8F0-492A-977D-1899F590F11C} = {9FAE20E3-DA23-49DD-8CFA-9AD1BE1F605C}
+		{E435A788-B317-4977-9250-87712D98883D} = {9FAE20E3-DA23-49DD-8CFA-9AD1BE1F605C}
+		{CB0F49D4-6153-4945-9EB6-0EF5451C2282} = {9C5333CD-8441-4C5E-80A2-A0B4279A8759}
+		{BCE9911A-315C-49AB-9E77-BAF58351B176} = {320C110E-C5D0-4472-9A79-37AE37080AD1}
+		{9FAE20E3-DA23-49DD-8CFA-9AD1BE1F605C} = {15F22C59-9A6C-4754-9A2D-A16FBB34CDC7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {14CD904C-74BD-4DA3-9FFA-BD0D390BF00F}
