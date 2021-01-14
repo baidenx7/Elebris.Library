@@ -10,4 +10,36 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
+    <Grid>
+        <Grid Background="Black">
+            <!--Navigation Panel-->
+            <Grid x:Name="nav_Panel" HorizontalAlignment="Left"
+                  Width="65"
+                  Background="#2E333A">
+                <StackPanel x:Name="st_Panel">
+                    <!--Menu Toggle Button Grid-->
+                    <Grid Height="90">
+
+                        <!--Toggle Button-->
+                        <ToggleButton x:Name="toggle_Button" Grid.Column="0"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Left"
+                                      Margin="18 -20 0 0"
+                                      Height="30"
+                                      Width="30"
+                                      BorderThickness="0">
+                            <!--Toggle button BG-->
+                            <!--<ToggleButton.Background>
+                                -->
+                            <!--<ImageBrush ImageSource="!!!!"-->
+                            <!--
+                            </ToggleButton.Background>-->
+
+
+                        </ToggleButton>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
 </views:MvxWindow>
