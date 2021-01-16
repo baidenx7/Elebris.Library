@@ -8,6 +8,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MvxElebris.Wpf"
         mc:Ignorable="d"
+        Icon="Assets/ElebrisHourglass.png"
         Title="MainWindow" Height="450" Width="800">
 
 
