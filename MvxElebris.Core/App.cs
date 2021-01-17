@@ -10,7 +10,7 @@ namespace MvxElebris.Core
     {
         public override void Initialize()
         {
-            RegisterAppStart<HomeViewModel>();
+            RegisterAppStart<ShellViewModel>();
         }
     }
 }
