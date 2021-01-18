@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace MvxElebris.Wpf.Views
 {
     /// <summary>
-    /// Interaction logic for ShellView.xaml
+    /// Interaction logic for NavBarView.xaml
     /// </summary>
-    public partial class ShellView : MvxWpfView
+    public partial class NavBarView : MvxWpfView
     {
-        public ShellView()
+        public NavBarView()
         {
             InitializeComponent();
         }

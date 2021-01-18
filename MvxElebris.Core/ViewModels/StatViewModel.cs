@@ -14,7 +14,6 @@ namespace MvxElebris.Core.ViewModels
         public StatViewModel()
         {
             AddStatCommand = new MvxCommand(AddStat);
-
         }
 
         public IMvxCommand AddStatCommand { get; set; }
