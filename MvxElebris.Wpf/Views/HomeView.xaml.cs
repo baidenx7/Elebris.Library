@@ -27,7 +27,7 @@ namespace MvxElebris.Wpf.Views
             InitializeComponent();
         }
 
-
+        //check if logged in.
 
     }
 }

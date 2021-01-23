@@ -1,23 +1,15 @@
-﻿using MvvmCross.Commands;
-using MvvmCross.Logging;
-using MvvmCross.Navigation;
-using MvvmCross.ViewModels;
+﻿using MvvmCross.ViewModels;
 
 namespace MvxElebris.Core.ViewModels
 {
-    public class ShellViewModel : MvxNavigationViewModel
+    public class ShellViewModel : MvxViewModel
     {
-        //ShowDictionaryBindingCommand = new MvxAsyncCommand(async () =>
-        //    await NavigationService.Navigate<DictionaryBindingViewModel>()); WHATTTT DOES THIS MEAN
+        private NavBarViewModel navigationVM;
+        private MvxViewModel displayVM;
 
-        //https://github.com/MvvmCross/MvvmCross/blob/master/Projects/Playground/Playground.Core/ViewModels/Navigation/ChildViewModel.cs
-        public IMvxAsyncCommand ShowNavCommand { get; private set; }
-
-        public IMvxAsyncCommand ShowRootCommand { get; private set; }
-        public ShellViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
-        {
-            ShowNavCommand = new MvxAsyncCommand(async () => await NavigationService.Navigate<NavBarViewModel>());
-
-        }
+        public NavBarViewModel NavigationVM { get => navigationVM; set => navigationVM = value; }
+        public MvxViewModel DisplayVM { get => displayVM; set => displayVM = value; }
     }
 }
+
+

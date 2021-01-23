@@ -10,7 +10,6 @@ namespace MvxElebris.Core.ViewModels
    public class NavBarViewModel : MvxViewModel
     {
 
-
         private readonly IMvxNavigationService _navigationService;
         public IMvxAsyncCommand NavigateLoginCommand { get; private set; }
         public IMvxAsyncCommand NavigateHomeCommand { get; private set; }
@@ -27,5 +26,6 @@ namespace MvxElebris.Core.ViewModels
             NavigateStatCommand = new MvxAsyncCommand(() => _navigationService.Navigate<StatViewModel>());
             NavigateAttributeCommand = new MvxAsyncCommand(() => _navigationService.Navigate<AttributeViewModel>());
         }
+
     }
 }

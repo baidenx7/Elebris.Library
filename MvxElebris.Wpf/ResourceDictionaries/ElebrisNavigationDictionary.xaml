@@ -5,7 +5,7 @@
 
         <!--Toggle Button Style Template-->
         <ImageBrush x:Key="tb_mouse_over"
-                    ImageSource="Assets/cursor1.png" />
+                    ImageSource="pack://application:,,,/Assets/cursor1.png" />
 
         <!--Text font style-->
         <Style x:Key="font_style" TargetType="TextBlock">
@@ -57,7 +57,7 @@
             <Setter Property="Background" Value="#4A5668"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontFamily" Value="Fonts/glimmer of light.otf #Glimmer" />
+            <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/glimmer of light.otf #Glimmer" />
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="PlacementRectangle" Value="60 0 0 0"/>
             <Setter Property="VerticalOffset" Value="6"/>
@@ -68,7 +68,7 @@
         </Style>
 
         <!--App Close Style Template-->
-        <ImageBrush x:Key="Close_Button_MouseOver" ImageSource="Assets/closepressed1.png" />
+    <ImageBrush x:Key="Close_Button_MouseOver" ImageSource="pack://application:,,,/Assets/closepressed1.png" />
 
     <Style x:Key="Close_Button" TargetType="{x:Type Button}">
         <Setter Property="Template">

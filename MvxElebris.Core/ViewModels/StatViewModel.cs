@@ -8,6 +8,8 @@ using System.Text;
 
 namespace MvxElebris.Core.ViewModels
 {
+
+
     public class StatViewModel : MvxViewModel
     {
       

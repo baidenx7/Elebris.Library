@@ -1,6 +1,7 @@
 ﻿using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.Platforms.Wpf.Views;
+using MvvmCross.ViewModels;
 using MvxElebris.Core.ViewModels;
 using System.Windows;
 
@@ -15,6 +16,5 @@ namespace MvxElebris.Wpf
         {
             InitializeComponent();
         }
-
     }
 }

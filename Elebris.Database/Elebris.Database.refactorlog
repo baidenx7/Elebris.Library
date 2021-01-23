@@ -14,4 +14,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="governingAttributeId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="ea81906b-0fe4-4e5a-b42c-6b8fbff687b6" ChangeDateTime="01/20/2021 04:00:28">
+    <Property Name="ElementName" Value="[dbo].[StatTable].[governingAttributeId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[StatTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GoverningAttributeId" />
+  </Operation>
 </Operations>

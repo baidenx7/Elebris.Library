@@ -9,5 +9,33 @@
              xmlns:local="clr-namespace:MvxElebris.Wpf.Views"
              mc:Ignorable="d" Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
+<!--When done testing nav remove the bg-->
 
+
+
+    <!--Application Viewspace-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="15"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--///Navbar///-->
+        <Button Grid.Row="3" Grid.Column="0" Grid.RowSpan="3" mvx:Bi.nd="Show ShowNavCommand" />
+
+
+        <!--///Viewspace///-->
+
+
+
+
+    </Grid>
 </views:MvxWpfView>
