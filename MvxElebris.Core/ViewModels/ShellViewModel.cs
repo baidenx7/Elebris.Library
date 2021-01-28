@@ -4,11 +4,24 @@ namespace MvxElebris.Core.ViewModels
 {
     public class ShellViewModel : MvxViewModel
     {
-        private NavBarViewModel navigationVM;
-        private MvxViewModel displayVM;
 
-        public NavBarViewModel NavigationVM { get => navigationVM; set => navigationVM = value; }
-        public MvxViewModel DisplayVM { get => displayVM; set => displayVM = value; }
+        public ShellViewModel()
+        {
+
+        }
+        //private NavBarViewModel _navigationVM;
+        //private MvxViewModel _displayVM;
+
+        //public NavBarViewModel NavigationVM { get => _navigationVM; set => _navigationVM = value; }
+        //public MvxViewModel DisplayVM { get => _displayVM; set => _displayVM = value; }
+
+        //public ShellViewModel(NavBarViewModel navigationVM, MvxViewModel displayVM)
+        //{
+        //    _navigationVM = navigationVM;
+        //    _displayVM = displayVM;
+        //}
+
+
     }
 }
 

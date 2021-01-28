@@ -6,13 +6,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      
         xmlns:local="clr-namespace:MvxElebris.Wpf.Views"
         mc:Ignorable="d" Background="BurlyWood"
 
         Height="450" Width="800">
-    <Grid>
-        <!--Application Viewspace-->
+    
         <Grid>
+            <!--Application Viewspace-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="65"/>
                 <ColumnDefinition Width="*"/>
@@ -27,26 +28,16 @@
             </Grid.RowDefinitions>
 
             <!--View: Navigation Panel-->
-
+        <StackPanel  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Background="Azure">
             <ContentControl DataContext="{Binding NavigationVM}" />
-
-
-            <!--Button: Close Application-->
-            <!--<Button x:Name="Close_Button"
-                    Grid.Column="2"
-                    Grid.Row="1"
-                    Height="40"
-                    Width="40"
-                    BorderThickness="0"
-                    Style="{StaticResource Close_Button}" Click="Close_Button_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="Assets/close1.png" />
-                </Button.Background>
-            </Button>-->
-            <!--View: Main View Panel-->
-            <ContentControl DataContext="{Binding DisplayVM}" />
+        </StackPanel>
+            
+            <!--View: Display Panel-->
+        <StackPanel  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Background="Black">
+            <ContentControl DataContext="{Binding DisplayVM}"/>
+            
+        </StackPanel>
         </Grid>
 
-    </Grid>
 
 </views:MvxWpfView>

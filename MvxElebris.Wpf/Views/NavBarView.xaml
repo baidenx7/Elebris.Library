@@ -12,9 +12,9 @@
     Background="AliceBlue">
 
 
-    <!--https://stackoverflow.com/questions/11053393/cannot-find-resource-dictionary-in-wpf-application-->
+   
     <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/ResourceDictionaries/ElebrisNavigationDictionary.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/ResourceDictionaries/ElebrisNavigationDictionary.xaml"/> <!--https://stackoverflow.com/questions/11053393/cannot-find-resource-dictionary-in-wpf-application-->
     </UserControl.Resources>
     <Grid x:Name="nav_Panel" HorizontalAlignment="Left" Background="#2E333A">
         <StackPanel x:Name="stack_Panel">
@@ -31,7 +31,7 @@
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Center"
                                    Style="{StaticResource font_style}">
-                            <!--Shaddow Effect-->
+                            <!--Shadow Effect-->
                     <TextBlock.Effect>
                         <DropShadowEffect
                                     BlurRadius="10"

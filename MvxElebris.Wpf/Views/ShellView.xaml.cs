@@ -1,4 +1,9 @@
-﻿using MvvmCross.Platforms.Wpf.Views;
+﻿using MvvmCross.Platforms.Wpf.Presenters.Attributes;
+using MvvmCross.Platforms.Wpf.Views;
+using MvvmCross.Presenters;
+using MvvmCross.Presenters.Attributes;
+using MvvmCross.ViewModels;
+using MvxElebris.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,11 +21,22 @@ namespace MvxElebris.Wpf.Views
     /// <summary>
     /// Interaction logic for ShellView.xaml
     /// </summary>
-    public partial class ShellView : MvxWpfView
+    public partial class ShellView : IMvxOverridePresentationAttribute
     {
         public ShellView()
         {
             InitializeComponent();
+        }
+        public MvxBasePresentationAttribute PresentationAttribute(MvxViewModelRequest request)
+        {
+            var instanceRequest = request as MvxViewModelInstanceRequest;
+            var viewModel = instanceRequest?.ViewModelInstance as ShellViewModel;
+
+            return new MvxContentPresentationAttribute
+            {
+                WindowIdentifier = $"{nameof(ShellView)}.{viewModel}",
+                StackNavigation = false
+            };
         }
     }
 }
