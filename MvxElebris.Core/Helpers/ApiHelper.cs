@@ -11,9 +11,9 @@ namespace MvxElebris.Core.Helpers
     /// working on converting the timco implementation over to a mvvmcross rather tahn caliburn one
     /// not important for now, will work on later if I evewr need to lock down certain aspects of the project
     /// </summary>
-    public class ApiHelper
+    public class ApiHelper : IApiHelper
     {
-        public HttpClient ApiClient { get; set; }
+        private HttpClient apiClient;
         public ApiHelper()
         {
             InitializeClient();
@@ -22,13 +22,13 @@ namespace MvxElebris.Core.Helpers
         private void InitializeClient()
         {
             string api = "get api address";
-            ApiClient = new HttpClient();
-            ApiClient.BaseAddress = new Uri("");
-            ApiClient.DefaultRequestHeaders.Accept.Clear();
-            ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            apiClient = new HttpClient();
+            apiClient.BaseAddress = new Uri("");
+            apiClient.DefaultRequestHeaders.Accept.Clear();
+            apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task Authenticate(string username,string password)
+        public async Task Authenticate(string username, string password)
         {
             var data = new FormUrlEncodedContent(new[]
             {
@@ -39,11 +39,15 @@ namespace MvxElebris.Core.Helpers
                 new KeyValuePair<string, string>("password", password)
             });
 
-            using(HttpResponseMessage response = await ApiClient.PostAsync("/Token", data))
+            using (HttpResponseMessage response = await apiClient.PostAsync("/Token", data))
             {
-                if(response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadAsAsync<string>();
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
                 }
             }
         }

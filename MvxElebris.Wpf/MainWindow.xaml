@@ -8,7 +8,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MvxElebris.Wpf"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="450" Width="800">
+        Icon="pack://application:,,,/Assets/ElebrisHourglass.png"
+        Title="MainWindow" Height="500" Width="800">
 
 
     <Grid>

@@ -1,7 +1,9 @@
 ﻿using MvvmCross.ViewModels;
+using MvxElebris.Core.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MvxElebris.Core.ViewModels
 {
@@ -11,7 +13,12 @@ namespace MvxElebris.Core.ViewModels
         private string _userName;
         private string _password;
 
+        private IApiHelper _apiHelper;
 
+        public LoginViewModel(IApiHelper helper)
+        {
+            _apiHelper = helper;
+        }
         public string UserName
         {
             get { return _userName; }
@@ -45,9 +52,10 @@ namespace MvxElebris.Core.ViewModels
             return output;
         }
 
-        public void LogIn(string userName, string password)
+        public async Task LogIn(string userName, string password)
         {
-            Console.WriteLine();
+            var result = await _apiHelper.Authenticate(userName, password);
+
         }
     }
 }

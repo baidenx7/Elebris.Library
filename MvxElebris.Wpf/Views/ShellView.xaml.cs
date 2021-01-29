@@ -27,7 +27,6 @@ namespace MvxElebris.Wpf.Views
         {
             InitializeComponent();
         }
-        public bool ToggleIsChecked { get; set; }
 
     }
 }

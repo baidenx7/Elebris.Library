@@ -15,6 +15,7 @@ namespace MvxElebris.Core
         protected override Task NavigateToFirstViewModel(object hint = null)
         {
             return NavigationService.Navigate<ShellViewModel>();
+            //create singleton for <IApiHelper, ApiHelper>? one per app, one per page?
         }
     }
 }

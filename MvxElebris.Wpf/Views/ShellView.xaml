@@ -33,10 +33,10 @@
             </Grid.RowDefinitions>
 
             <!--View: Navigation Panel-->
-        <StackPanel  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
             
             <Grid x:Name="nav_Panel" HorizontalAlignment="Left" Background="#2E333A">
-                <StackPanel x:Name="stack_Panel" Height="450">
+                <StackPanel x:Name="stack_Panel">
                     
                     <!--Listview with menu list items-->
                     <ListView x:Name="LV"
@@ -197,7 +197,10 @@
                             </ListViewItem.ToolTip>
                         </ListViewItem>
                         <!--End Item-->
-
+                        <!--Filler-->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0 0 0 5" Height="auto">
+                        </ListViewItem>
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="Template">
@@ -243,7 +246,7 @@
             <!--View: Display Panel-->
         <StackPanel  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0,-10,0,10">
 
-            <ContentControl DataContext="{Binding DisplayVM}"/>
+            <ContentControl DataContext="{Binding DisplayVM}" />
 
         </StackPanel>
     </Grid>

@@ -2,6 +2,7 @@ using System.Web.Http;
 using WebActivatorEx;
 using Elebris.Data.Manager;
 using Swashbuckle.Application;
+using Elebris.Data.Manager.App_Start;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -16,6 +17,9 @@ namespace Elebris.Data.Manager
             GlobalConfiguration.Configuration
                 .EnableSwagger(c =>
                     {
+                        c.DocumentFilter<AuthTokenOperation>(); //added timco vid 4
+                        c.OperationFilter<AuthorizationOperationFilter>(); // also vid 4
+
                         // By default, the service root url is inferred from the request used to access the docs.
                         // However, there may be situations (e.g. proxy and load-balanced environments) where this does not
                         // resolve correctly. You can workaround this by providing your own code to determine the root URL.

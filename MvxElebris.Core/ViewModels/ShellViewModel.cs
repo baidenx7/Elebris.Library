@@ -10,6 +10,9 @@ namespace MvxElebris.Core.ViewModels
         {
            
         }
+
+        public bool ToggleIsChecked { get; set; }
+
         private NavBarViewModel _navigationVM;
         private MvxViewModel _displayVM;
         public NavBarViewModel NavigationVM { get => _navigationVM; set => _navigationVM = value; }
