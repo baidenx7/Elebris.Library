@@ -19,8 +19,7 @@ namespace MvxElebris.Wpf.Views
     /// Interaction logic for NavBarView.xaml
     /// 
     /// 
-    /// 
-    /// helved for now, MvvmVross isnt playing nicely with loading views inside another usercontrol, so that the navbar can stay unaltered between views.
+    /// shelved for now, MvvmVross isnt playing nicely with loading views inside another usercontrol, so that the navbar can stay unaltered between views.
     /// </summary>
     [MvxContentPresentation]
     public partial class NavBarView : MvxWpfView

@@ -11,8 +11,6 @@
              d:DesignHeight="450" d:DesignWidth="65"
     Background="AliceBlue">
 
-
-   
     <UserControl.Resources>
         <ResourceDictionary Source="pack://application:,,,/ResourceDictionaries/ElebrisNavigationDictionary.xaml"/> <!--https://stackoverflow.com/questions/11053393/cannot-find-resource-dictionary-in-wpf-application-->
     </UserControl.Resources>
