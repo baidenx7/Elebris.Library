@@ -1,9 +1,5 @@
 ﻿using MvvmCross.Platforms.Wpf.Presenters.Attributes;
 using MvvmCross.Platforms.Wpf.Views;
-using MvvmCross.Presenters;
-using MvvmCross.Presenters.Attributes;
-using MvvmCross.ViewModels;
-using MvxElebris.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,21 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MvxElebris.Wpf.Views
 {
     /// <summary>
-    /// Interaction logic for ShellView.xaml
+    /// Interaction logic for AttributeView.xaml
     /// </summary>
-
-
-    public partial class ShellView : MvxWpfView
+    [MvxContentPresentation]
+    public partial class AttributeView : MvxWpfView
     {
-        public ShellView()
+        public AttributeView()
         {
             InitializeComponent();
         }
-        
     }
 }

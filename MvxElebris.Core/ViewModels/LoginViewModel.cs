@@ -13,12 +13,12 @@ namespace MvxElebris.Core.ViewModels
         private string _userName;
         private string _password;
 
-        private IApiHelper _apiHelper;
+        //private IApiHelper _apiHelper;
 
-        public LoginViewModel(IApiHelper helper)
-        {
-            _apiHelper = helper;
-        }
+        //public LoginViewModel(IApiHelper helper)
+        //{
+        //    _apiHelper = helper;
+        //}
         public string UserName
         {
             get { return _userName; }
@@ -52,10 +52,10 @@ namespace MvxElebris.Core.ViewModels
             return output;
         }
 
-        public async Task LogIn(string userName, string password)
-        {
-            var result = await _apiHelper.Authenticate(userName, password);
+        //public async Task LogIn(string userName, string password)
+        //{
+        //    var result = await _apiHelper.Authenticate(userName, password);
 
-        }
+        //}
     }
 }

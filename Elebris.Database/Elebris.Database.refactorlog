@@ -21,4 +21,74 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="GoverningAttributeId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="f5416a91-aec9-473e-8d58-7c4f5a41804d" ChangeDateTime="01/29/2021 19:38:15">
+    <Property Name="ElementName" Value="[dbo].[User].[Display]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DisplayName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ad7babb3-f522-456f-924b-36b94840e209" ChangeDateTime="01/29/2021 19:45:10">
+    <Property Name="ElementName" Value="[dbo].[DerivedStatTable].[BaseMultiplier]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DerivedStatTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BaseFromParent" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="735e413b-185e-4bf2-a4b7-0a866346d7be" ChangeDateTime="01/29/2021 19:45:18">
+    <Property Name="ElementName" Value="[dbo].[DerivedStatTable].[ScaleMultiplier]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DerivedStatTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ScaleFromParent" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="73a890ad-223f-496c-9c72-95de6852c124" ChangeDateTime="01/29/2021 19:46:19">
+    <Property Name="ElementName" Value="[dbo].[DerivedStatTable].[StatId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DerivedStatTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ParentValueId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5f883bbe-e29d-43f9-ae1e-44e3c3d3b266" ChangeDateTime="01/29/2021 19:46:33">
+    <Property Name="ElementName" Value="[dbo].[DerivedStatTable].[ParentValueId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DerivedStatTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ParentStatId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="86c9e5ec-5ead-4f62-9500-e9b5b990b45d" ChangeDateTime="01/29/2021 19:49:08">
+    <Property Name="ElementName" Value="[dbo].[ValueTypeTable].[Scaling]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValueTypeTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Percentage" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="75e0749f-1a79-4678-8742-7b09dfb14ae5" ChangeDateTime="01/29/2021 19:49:16">
+    <Property Name="ElementName" Value="[dbo].[ValueTypeTable].[Reduction]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValueTypeTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Multiple" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="01daf220-1413-4c81-9346-b254c46b5018" ChangeDateTime="01/29/2021 19:49:33">
+    <Property Name="ElementName" Value="[dbo].[ValueTypeTable].[Flat]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValueTypeTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Name" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5944e17a-35a2-4d08-acc8-0684e79ec43f" ChangeDateTime="01/29/2021 19:49:37">
+    <Property Name="ElementName" Value="[dbo].[ValueTypeTable].[Percentage]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValueTypeTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Default" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c1b49b07-7856-4f97-b612-b327af0009bc" ChangeDateTime="01/29/2021 19:49:52">
+    <Property Name="ElementName" Value="[dbo].[ValueTypeTable].[Default]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValueTypeTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DefaultValue" />
+  </Operation>
 </Operations>
