@@ -1,9 +1,4 @@
-﻿using MvvmCross.Platforms.Wpf.Presenters.Attributes;
-using MvvmCross.Platforms.Wpf.Views;
-using MvvmCross.Presenters;
-using MvvmCross.Presenters.Attributes;
-using MvvmCross.ViewModels;
-using MvxElebris.Core.ViewModels;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,7 +18,7 @@ namespace MvxElebris.Wpf.Views
     /// </summary>
 
 
-    public partial class ShellView : MvxWpfView
+    public partial class ShellView
     {
         public ShellView()
         {

@@ -1,5 +1,4 @@
-﻿using MvvmCross.Platforms.Wpf.Presenters.Attributes;
-using MvvmCross.Platforms.Wpf.Views;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,8 +17,7 @@ namespace MvxElebris.Wpf.Views
     /// <summary>
     /// Interaction logic for AttributeView.xaml
     /// </summary>
-    [MvxContentPresentation]
-    public partial class AttributeView : MvxWpfView
+    public partial class AttributeView
     {
         public AttributeView()
         {

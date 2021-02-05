@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[DerivedStatTable]
+﻿CREATE TABLE [dbo].[DerivedStats]
 (
 --Based on the value of the obtained parent, inject scaling for the target
 	[Id] INT NOT NULL PRIMARY KEY, 

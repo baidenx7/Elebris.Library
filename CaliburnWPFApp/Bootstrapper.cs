@@ -1,4 +1,7 @@
 ﻿using Caliburn.Micro;
+using CaliburnWPFApp.Helpers;
+using CaliburnWPFApp.Library.Api;
+using CaliburnWPFApp.Library.Models;
 using CaliburnWPFApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -6,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace CaliburnWPFApp
 {
@@ -16,6 +20,10 @@ namespace CaliburnWPFApp
         public Bootstrapper()
         {
             Initialize();
+            ConventionManager.AddElementConvention<PasswordBox>(
+           PasswordBoxHelper.BoundPasswordProperty,
+           "Password",
+           "PasswordChanged");
         }
 
         protected override void Configure()
@@ -24,7 +32,9 @@ namespace CaliburnWPFApp
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
-                .Singleton<IEventAggregator, EventAggregator>();
+                .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>()
+                .Singleton<IApiHelper, ApiHelper>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)

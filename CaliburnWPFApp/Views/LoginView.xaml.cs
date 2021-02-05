@@ -1,5 +1,4 @@
-﻿using MvvmCross.Platforms.Wpf.Presenters.Attributes;
-using MvvmCross.Platforms.Wpf.Views;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,8 +18,7 @@ namespace MvxElebris.Wpf.Views
     /// Interaction logic for LoginView.xaml
     /// </summary>
 
-    [MvxContentPresentation]
-    public partial class LoginView : MvxWpfView
+    public partial class LoginView
     {
         public LoginView()
         {

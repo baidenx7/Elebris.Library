@@ -1,6 +1,4 @@
-﻿using MvvmCross.Platforms.Wpf.Presenters.Attributes;
-using MvvmCross.Platforms.Wpf.Views;
-using MvxElebris.Core.ViewModels;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,8 +17,8 @@ namespace MvxElebris.Wpf.Views
     /// <summary>
     /// Interaction logic for ShellView.xaml
     /// </summary>
-    [MvxContentPresentation(WindowIdentifier = nameof(MainWindow), StackNavigation = false)]
-    public partial class HomeView : MvxWpfView
+   
+    public partial class HomeView
     {
         public HomeView()
         {

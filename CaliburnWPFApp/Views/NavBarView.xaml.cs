@@ -1,5 +1,4 @@
-﻿using MvvmCross.Platforms.Wpf.Presenters.Attributes;
-using MvvmCross.Platforms.Wpf.Views;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,14 +14,7 @@ using System.Windows.Shapes;
 
 namespace MvxElebris.Wpf.Views
 {
-    /// <summary>
-    /// Interaction logic for NavBarView.xaml
-    /// 
-    /// 
-    /// shelved for now, MvvmVross isnt playing nicely with loading views inside another usercontrol, so that the navbar can stay unaltered between views.
-    /// </summary>
-    [MvxContentPresentation]
-    public partial class NavBarView : MvxWpfView
+    public partial class NavBarView
     {
 
         public NavBarView()
