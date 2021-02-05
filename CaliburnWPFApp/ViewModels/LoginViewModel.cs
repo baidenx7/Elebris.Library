@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using CaliburnWPFApp.Library.Api;
+using CaliburnWPFApp.EventModels;
 
 namespace CaliburnWPFApp.ViewModels
 {
@@ -15,10 +16,12 @@ namespace CaliburnWPFApp.ViewModels
         private string _password;
 
         private IApiHelper _apiHelper;
+        private readonly IEventAggregator _events;
 
-        public LoginViewModel(IApiHelper helper)
+        public LoginViewModel(IApiHelper helper, IEventAggregator events)
         {
             _apiHelper = helper;
+            _events = events;
         }
         public string UserName
         {
@@ -98,6 +101,7 @@ namespace CaliburnWPFApp.ViewModels
                 //capture more info about the user
                 await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
 
+                _events.SubscribeOnUIThread(new LogOnEventModel());
             }
             catch (Exception ex)
             {

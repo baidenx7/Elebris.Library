@@ -68,7 +68,7 @@ namespace CaliburnWPFApp.Library.Api
             apiClient.DefaultRequestHeaders.Add("Authorization", $"Bearer { token }");
 
 
-            using (HttpResponseMessage response = await apiClient.GetAsync("/Token"))
+            using (HttpResponseMessage response = await apiClient.GetAsync("/api/User"))
             {
                 if (response.IsSuccessStatusCode)
                 {

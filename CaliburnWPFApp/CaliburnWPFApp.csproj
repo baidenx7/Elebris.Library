@@ -65,8 +65,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Helpers\ApiHelper.cs" />
-    <Compile Include="Helpers\IApiHelper.cs" />
+    <Compile Include="EventModels\LogOnEventModel.cs" />
+    <Compile Include="Helpers\PasswordBoxHelper.cs" />
     <Compile Include="ViewModels\AttributeViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -126,7 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AttributeModel.cs" />
-    <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\StatModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -155,7 +154,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CaliburnWPFApp.Library\CaliburnWPFApp.Library.csproj">
+      <Project>{7310be99-21c1-4d34-95f2-305ec2da75df}</Project>
+      <Name>CaliburnWPFApp.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\action1.png" />
     <Resource Include="Assets\arrow_118.png" />

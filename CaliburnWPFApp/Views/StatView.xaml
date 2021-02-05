@@ -5,19 +5,59 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MvxElebris.Wpf.Views"
-             mc:Ignorable="d"  Background="Blue"
+             mc:Ignorable="d"  Background="WhiteSmoke"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <!--<StackPanel Margin="10">
-            <TextBlock Text="Stat Name" />
-            <TextBox Text="{Binding StatName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 15"/>
-            <TextBlock Text="Stat Name" />
-            <TextBox Text="{Binding GoverningAttribute, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 15"/>
-            <TextBlock Text="Stat Name" />
-            <TextBox Text="{Binding BaseValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 15"/>
-            <Button mvx:Bi.nd="Command AddStatCommand" IsEnabled="{Binding CanAddStat}" Margin="0 0 0 15" >Add Stat</Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--Column 0: Stats-->
+        <TextBlock Text="Stats" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"/>
+        <ListBox x:Name="Stats" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3"
+                 MinHeight="200" MinWidth="150" />
+        <Button x:Name="CreateNewStat" Grid.Row="4" MinWidth="50" Height="25"
+                Margin="5 5" Content="Create New" VerticalAlignment="Center"/>
+        <!--Column 1: Staging/Selected-->
 
-            <DataGrid ItemsSource="{Binding Stats}" AutoGenerateColumns="True"></DataGrid>
-        </StackPanel>-->
+        <TextBlock Text="Staging" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" Margin="20 0 ">
+            <TextBlock Text="Selected" HorizontalAlignment="Center" Background="AntiqueWhite"/>
+            <TextBlock Text="{Binding SelectedStat, FallbackValue='Empty'}" HorizontalAlignment="Center" Margin="10"/>
+        </StackPanel>
+        <Button x:Name="RemoveStat" Grid.Row="4" Grid.Column="1" MinWidth="50" Height="25" 
+                Margin="5 5" Content="Remove" VerticalAlignment="Center"/>
+        <!--Column 2: Controls-->
+        <TextBlock Text="Controls" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" Margin="20 0 ">
+            <StackPanel Orientation="Horizontal" MinHeight="25" Margin="0 0 0 10" >
+                <TextBlock Text="Stat Name" Width="75" VerticalAlignment="Center"/>
+                <TextBox x:Name="StatName" MinWidth="100" Height="25" VerticalAlignment="Center" Margin=" 5 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" MinHeight="25" Margin="0 0 0 10">
+                <TextBlock Text="Base Value" Width="75" VerticalAlignment="Center"/>
+                <TextBox x:Name="BaseValue" MinWidth="100" Height="25" VerticalAlignment="Center" Margin=" 5 0"/>
+            </StackPanel>
+        </StackPanel>
+        <Button x:Name="SetStatValues" Grid.Row="4" Grid.Column="2" MinWidth="50" Height="25"
+                Margin="5 5" Content="Set Values" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

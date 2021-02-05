@@ -2,15 +2,29 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
+using Caliburn.Micro;
 
 namespace CaliburnWPFApp.ViewModels
 {
 
 
-    public class StatViewModel
+    public class StatViewModel : Screen
     {
 
+
+        private BindingList<string> _stats;
+
+        public BindingList<string> Stats
+        {
+            get => _stats;
+            set
+            {
+                _stats = value;
+                NotifyOfPropertyChange(() => Stats);
+            }
+        }
         //public void AddStat()
         //{
         //    StatModel s = new StatModel
@@ -31,16 +45,16 @@ namespace CaliburnWPFApp.ViewModels
 
         //private ObservableCollection<StatModel> _stats = new ObservableCollection<StatModel>();
 
-     
+
 
         //private string _statName;
 
         //private string _governingAttribute;
 
-       
+
         //private float _baseValue;
 
-        
+
 
     }
 }
