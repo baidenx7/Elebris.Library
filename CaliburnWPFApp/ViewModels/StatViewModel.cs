@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using Caliburn.Micro;
+using CaliburnWPFApp.Library.Api;
 
 namespace CaliburnWPFApp.ViewModels
 {
@@ -12,11 +13,15 @@ namespace CaliburnWPFApp.ViewModels
 
     public class StatViewModel : Screen
     {
+        ICharacterStatEndpoint _statEndpoint;
+        public StatViewModel(ICharacterStatEndpoint statEndpoint)
+        {
+            _statEndpoint = statEndpoint;
+            Stats = new BindingList<CharacterStatModel>(_statEndpoint.GetAll());
+        }
+        private BindingList<CharacterStatModel> _stats;
 
-
-        private BindingList<string> _stats;
-
-        public BindingList<string> Stats
+        public BindingList<CharacterStatModel> Stats
         {
             get => _stats;
             set

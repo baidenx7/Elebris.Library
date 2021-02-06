@@ -16,8 +16,10 @@ namespace CaliburnWPFApp.Library.Api
     /// </summary>
     public class ApiHelper : IApiHelper
     {
-        private HttpClient apiClient;
+        private HttpClient _apiClient;
         private ILoggedInUserModel _loggedInUser;
+
+        public HttpClient ApiClient { get => _apiClient; }
 
         public ApiHelper(ILoggedInUserModel loggedInUser)
         {
@@ -28,10 +30,10 @@ namespace CaliburnWPFApp.Library.Api
         private void InitializeClient()
         {
             string api = ConfigurationManager.AppSettings["api"];
-            apiClient = new HttpClient();
-            apiClient.BaseAddress = new Uri("");
-            apiClient.DefaultRequestHeaders.Accept.Clear();
-            apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _apiClient = new HttpClient();
+            _apiClient.BaseAddress = new Uri("");
+            _apiClient.DefaultRequestHeaders.Accept.Clear();
+            _apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public async Task<AuthenticatedUser> Authenticate(string username, string password)
@@ -45,7 +47,7 @@ namespace CaliburnWPFApp.Library.Api
                 new KeyValuePair<string, string>("password", password)
             });
 
-            using (HttpResponseMessage response = await apiClient.PostAsync("/Token", data))
+            using (HttpResponseMessage response = await ApiClient.PostAsync("/Token", data))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -62,13 +64,13 @@ namespace CaliburnWPFApp.Library.Api
         public async Task GetLoggedInUserInfo(string token)
         {
 
-            apiClient.DefaultRequestHeaders.Clear();
-            apiClient.DefaultRequestHeaders.Accept.Clear();
-            apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            apiClient.DefaultRequestHeaders.Add("Authorization", $"Bearer { token }");
+            ApiClient.DefaultRequestHeaders.Clear();
+            ApiClient.DefaultRequestHeaders.Accept.Clear();
+            ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            ApiClient.DefaultRequestHeaders.Add("Authorization", $"Bearer { token }");
 
 
-            using (HttpResponseMessage response = await apiClient.GetAsync("/api/User"))
+            using (HttpResponseMessage response = await ApiClient.GetAsync("/api/User"))
             {
                 if (response.IsSuccessStatusCode)
                 {

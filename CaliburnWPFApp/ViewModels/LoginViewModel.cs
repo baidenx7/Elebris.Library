@@ -101,7 +101,7 @@ namespace CaliburnWPFApp.ViewModels
                 //capture more info about the user
                 await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
 
-                _events.SubscribeOnUIThread(new LogOnEventModel());
+                _events.SubscribeOnUIThread(new LogOnEvent());
             }
             catch (Exception ex)
             {

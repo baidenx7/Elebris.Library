@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:MvxElebris.Wpf.Views"
         mc:Ignorable="d" Background="BurlyWood"
 
-        Height="450" Width="800">
+        Height="600" Width="1000">
             <Window.Resources>
                 <ResourceDictionary Source="pack://application:,,,/ResourceDictionaries/ElebrisNavigationDictionary.xaml"/>
                 <!--https://stackoverflow.com/questions/11053393/cannot-find-resource-dictionary-in-wpf-application-->
@@ -196,7 +196,7 @@
                         <!--End Item-->
                         <!--Filler-->
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0 0 0 5" Height="auto">
+                                      Margin="0 0 0 5" Height="1000">
                         </ListViewItem>
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
@@ -241,7 +241,7 @@
         </StackPanel>
             
             <!--View: Display Panel-->
-        <StackPanel  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0,-10,0,10">
+        <StackPanel  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="5,-10,20,20">
 
             <ContentControl x:Name="ActiveDisplay" Margin="5" DataContext="{Binding DisplayVM}" />
 

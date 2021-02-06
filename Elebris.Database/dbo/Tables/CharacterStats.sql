@@ -4,6 +4,5 @@
 	[Id] INT NOT NULL PRIMARY KEY Identity, 
     [StatName] NVARCHAR(50) NOT NULL, 
     [BaseValue] FLOAT NOT NULL, 
-    [GenericScale] FLOAT NULL DEFAULT 0, 
-    [ValueTypeId] NCHAR(10) NULL 
+    [GenericScale] FLOAT NULL DEFAULT 0 
 )
