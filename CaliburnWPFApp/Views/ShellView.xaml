@@ -1,10 +1,10 @@
 ﻿<Window
-    x:Class="MvxElebris.Wpf.Views.ShellView"
+    x:Class="CaliburnWPFApp.Views.ShellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MvxElebris.Wpf.Views"
+        
         mc:Ignorable="d" Background="BurlyWood"
 
         Height="600" Width="1000">
@@ -243,7 +243,8 @@
             <!--View: Display Panel-->
         <StackPanel  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="5,-10,20,20">
 
-            <ContentControl x:Name="ActiveDisplay" Margin="5" DataContext="{Binding DisplayVM}" />
+            <ContentControl x:Name="ActiveDisplay" Margin="5" DataContext="{Binding DisplayVM}"/>
+            <!--Watching ahead from vid 17, datacontexta bove is broken, searching for the fix-->
 
         </StackPanel>
     </Grid>

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -12,12 +11,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MvxElebris.Wpf.Views
+namespace CaliburnWPFApp.Views
 {
     /// <summary>
     /// Interaction logic for ShellView.xaml
     /// </summary>
-   
+
     public partial class HomeView
     {
         public HomeView()

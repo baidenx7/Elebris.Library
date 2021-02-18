@@ -6,9 +6,16 @@ namespace CaliburnWPFApp.Models
 {
     public class CharacterStatModel
     {
-        int Id { get; set; }
-        string StatName { get; set; }
-        float BaseValue { get; set; }
-        float GenericScale { get; set; }
+        public int Id { get; set; }
+        public string StatName { get; set; }
+        public float BaseValue { get; set; }
+        public float GenericScale { get; set; }
+
+        internal void ResetModel()
+        {
+            StatName = Id.ToString();
+            BaseValue = 0;
+            GenericScale = 0;
+        }
     }
 }

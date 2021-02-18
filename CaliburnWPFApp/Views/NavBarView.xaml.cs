@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -12,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MvxElebris.Wpf.Views
+namespace CaliburnWPFApp.Views
 {
     public partial class NavBarView
     {
@@ -20,7 +19,7 @@ namespace MvxElebris.Wpf.Views
         public NavBarView()
         {
             InitializeComponent();
-         
+
         }
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
@@ -30,10 +29,10 @@ namespace MvxElebris.Wpf.Views
 
         }
         private void BG_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        { 
+        {
             //Toggle button checked = false;
         }
-            
+
         private void toggle_Button_Unchecked(object sender, RoutedEventArgs e)
         {
             //img_bg.Opacity = 1;

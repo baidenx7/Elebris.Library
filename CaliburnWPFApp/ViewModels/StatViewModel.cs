@@ -6,18 +6,32 @@ using System.ComponentModel;
 using System.Text;
 using Caliburn.Micro;
 using CaliburnWPFApp.Library.Api;
+using System.Threading.Tasks;
 
 namespace CaliburnWPFApp.ViewModels
 {
-
+    
 
     public class StatViewModel : Screen
     {
+        private int lastIdIndex = 0;
         ICharacterStatEndpoint _statEndpoint;
         public StatViewModel(ICharacterStatEndpoint statEndpoint)
         {
             _statEndpoint = statEndpoint;
-            Stats = new BindingList<CharacterStatModel>(_statEndpoint.GetAll());
+        }
+
+        protected override async void OnViewLoaded(object view)
+        {
+            base.OnViewLoaded(view);
+            await LoadStats();
+        }
+        //https://www.youtube.com/watch?v=boDpqLwviQc&list=PLLWMQd6PeGY0bEMxObA6dtYXuJOGfxSPx&index=17 
+        //How to work around constructors not allowing async. 1 hour mark
+        private async Task LoadStats()
+        {
+            var statList = await _statEndpoint.GetAll();
+            Stats = new BindingList<CharacterStatModel>();
         }
         private BindingList<CharacterStatModel> _stats;
 
@@ -30,36 +44,93 @@ namespace CaliburnWPFApp.ViewModels
                 NotifyOfPropertyChange(() => Stats);
             }
         }
-        //public void AddStat()
-        //{
-        //    StatModel s = new StatModel
-        //    {
-        //        StatName = StatName,
-        //        GoverningAttribute = GoverningAttribute,
-        //        BaseValue = BaseValue
 
-        //    };
+        public CharacterStatModel SelectedStat 
+        {
+            get 
+            { 
+                return _selectedStat;
+            }
+            set
+            {
+                _selectedStat = value;
+                NotifyOfPropertyChange(() => SelectedStat);
+                NotifyOfPropertyChange(() => UniqueStatStaged);
+                NotifyOfPropertyChange(() => CanResetStat);
+            }
+        }
 
-        //    StatName = string.Empty;
-        //    GoverningAttribute = string.Empty;
-        //    BaseValue = 0;
-        //    Stats.Add(s);
-        //}
+        private CharacterStatModel _selectedStat;
+       
+        public bool CanResetStat
+        {
+            get
+            {
+                bool output = false;
+                if (SelectedStat != null)
+                {
+                    output = true;
+                }
 
-        //public bool CanAddStat => StatName?.Length > 0;
+                return output;
+            }
+        }
 
-        //private ObservableCollection<StatModel> _stats = new ObservableCollection<StatModel>();
+        public bool UniqueStatStaged
+        {
+            get
+            {
+                bool output = true;
+                foreach (var item in Stats)
+                {
+                    if(SelectedStat.StatName == item.StatName)
+                    {
+                        output = false;
+                    }
+                }
 
+                return output;
+            }
+        }
 
+        public void AddNewStat()
+        {
+            CheckLastIdIndex();
+            CharacterStatModel newStat = new CharacterStatModel();
+            Stats.Add(newStat);
+            SelectedStat = newStat;
+        }
 
-        //private string _statName;
+        public void ResetStagedStat()
+        {
+            SelectedStat.ResetModel();
+            NotifyOfPropertyChange(() => SelectedStat);
+            NotifyOfPropertyChange(() => UniqueStatStaged);
+        }
 
-        //private string _governingAttribute;
+        public void AlterExistingStatValues()
+        {
 
-
-        //private float _baseValue;
-
-
-
+        }
+        private int CheckLastIdIndex()
+        {
+            if(lastIdIndex > 0)
+            {
+                lastIdIndex++;
+                return lastIdIndex; 
+            }
+            else
+            {
+                foreach (var item in Stats)
+                {
+                    if (item.Id > lastIdIndex)
+                    {
+                        lastIdIndex = item.Id;
+                    }
+                }
+                lastIdIndex++;
+                return lastIdIndex;
+            }
+        }
     }
 }

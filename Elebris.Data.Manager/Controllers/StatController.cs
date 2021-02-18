@@ -5,7 +5,7 @@ using System.Web.Http;
 
 namespace Elebris.Data.Manager.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class StatController : ApiController
     {
         [HttpGet]

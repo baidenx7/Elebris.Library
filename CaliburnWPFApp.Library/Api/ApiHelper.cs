@@ -31,7 +31,7 @@ namespace CaliburnWPFApp.Library.Api
         {
             string api = ConfigurationManager.AppSettings["api"];
             _apiClient = new HttpClient();
-            _apiClient.BaseAddress = new Uri("");
+            _apiClient.BaseAddress = new Uri(api);
             _apiClient.DefaultRequestHeaders.Accept.Clear();
             _apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }

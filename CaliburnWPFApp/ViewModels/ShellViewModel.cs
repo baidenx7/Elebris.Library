@@ -21,24 +21,14 @@ namespace CaliburnWPFApp.ViewModels
             _events = events;
             _statVM = statVM;
 
-
-
             _events.SubscribeOnPublishedThread(this);
-            ActivateItemAsync(_container.GetInstance<LoginViewModel>());
+            ActivateItemAsync(_container.GetInstance<LoginViewModel>()); //creates a NEW instance so info doesnt need to be manually wiped
         }
 
         public async Task HandleAsync(LogOnEvent message, CancellationToken cancellationToken)
         {
             await ActivateItemAsync(_statVM);
         }
-
-        //public async Task SetUp()
-        //{
-
-        //    await ActiveItemAsync(_loginVM);
-        //}
-
-
     }
 }
 

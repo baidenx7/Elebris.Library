@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MvxElebris.Wpf.Views
+namespace CaliburnWPFApp.Views
 {
     /// <summary>
     /// Interaction logic for StatView.xaml

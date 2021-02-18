@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -11,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MvxElebris.Wpf.Views
+namespace CaliburnWPFApp.Views
 {
     /// <summary>
     /// Interaction logic for ShellView.xaml
@@ -24,6 +23,6 @@ namespace MvxElebris.Wpf.Views
         {
             InitializeComponent();
         }
-        
+
     }
 }
