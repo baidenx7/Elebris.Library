@@ -72,7 +72,7 @@
     <Compile Include="Api\IApiHelper.cs" />
     <Compile Include="Api\ICharacterStatEndpoint.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
-    <Compile Include="Models\CharacterStatModel.cs" />
+    <Compile Include="Models\StagedCharacterStatModel.cs" />
     <Compile Include="Models\ILoggedInUserModel.cs" />
     <Compile Include="Models\LoggedInUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

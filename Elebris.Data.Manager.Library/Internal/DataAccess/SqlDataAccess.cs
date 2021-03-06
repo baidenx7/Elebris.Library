@@ -23,7 +23,8 @@ namespace Elebris.Data.Manager.Library.Internal.DataAccess
             string connectionString = GetConnectionString(connectionStringName);
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                List<T> rows = connection.Query<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure).ToList();
+                List<T> rows = connection.Query<T>(storedProcedure, parameters,
+                    commandType: CommandType.StoredProcedure).ToList();
 
                 return rows;
             }

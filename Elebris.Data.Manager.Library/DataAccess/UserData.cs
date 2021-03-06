@@ -10,7 +10,7 @@ namespace Elebris.Data.Manager.Library.DataAccess
 {
     public class UserData
     {
-        public List<UserModel> GetUserByID(string Id)
+        public List<UserModel> GetUserById(string Id)
         {
             SqlDataAccess sql = new SqlDataAccess();
             var p = new { Id = Id };

@@ -47,6 +47,7 @@ namespace CaliburnWPFApp.Library.Api
                 new KeyValuePair<string, string>("password", password)
             });
 
+            //Code hangs up below when trying to log in
             using (HttpResponseMessage response = await ApiClient.PostAsync("/Token", data))
             {
                 if (response.IsSuccessStatusCode)

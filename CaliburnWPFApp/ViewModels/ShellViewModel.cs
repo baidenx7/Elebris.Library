@@ -10,19 +10,17 @@ namespace CaliburnWPFApp.ViewModels
     {
 
         private StatViewModel _statVM;
-        private SimpleContainer _container;
 
 
         private readonly IEventAggregator _events;
 
-        public ShellViewModel(IEventAggregator events, StatViewModel statVM, SimpleContainer container)
+        public ShellViewModel(IEventAggregator events, StatViewModel statVM)
         {
-            _container = container;
             _events = events;
             _statVM = statVM;
 
             _events.SubscribeOnPublishedThread(this);
-            ActivateItemAsync(_container.GetInstance<LoginViewModel>()); //creates a NEW instance so info doesnt need to be manually wiped
+            ActivateItemAsync(IoC.Get<LoginViewModel>()); //creates a NEW instance so info doesnt need to be manually wiped
         }
 
         public async Task HandleAsync(LogOnEvent message, CancellationToken cancellationToken)

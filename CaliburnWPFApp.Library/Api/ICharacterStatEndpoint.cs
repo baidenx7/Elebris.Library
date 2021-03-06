@@ -6,6 +6,8 @@ namespace CaliburnWPFApp.Library.Api
 {
     public interface ICharacterStatEndpoint
     {
-        Task<List<CharacterStatModel>> GetAll();
+        Task<List<StagedCharacterStatModel>> GetAll();
+
+        Task PostStat(StagedCharacterStatModel statModel);
     }
 }

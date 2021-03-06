@@ -7,10 +7,10 @@ using System.Text;
 using Caliburn.Micro;
 using CaliburnWPFApp.Library.Api;
 using System.Threading.Tasks;
+using CaliburnWPFApp.Library.Models;
 
 namespace CaliburnWPFApp.ViewModels
 {
-    
 
     public class StatViewModel : Screen
     {
@@ -31,11 +31,11 @@ namespace CaliburnWPFApp.ViewModels
         private async Task LoadStats()
         {
             var statList = await _statEndpoint.GetAll();
-            Stats = new BindingList<CharacterStatModel>();
+            Stats = new BindingList<DisplayCharacterStatModel>();
         }
-        private BindingList<CharacterStatModel> _stats;
+        private BindingList<DisplayCharacterStatModel> _stats;
 
-        public BindingList<CharacterStatModel> Stats
+        public BindingList<DisplayCharacterStatModel> Stats
         {
             get => _stats;
             set
@@ -45,7 +45,7 @@ namespace CaliburnWPFApp.ViewModels
             }
         }
 
-        public CharacterStatModel SelectedStat 
+        public DisplayCharacterStatModel SelectedStat 
         {
             get 
             { 
@@ -55,12 +55,12 @@ namespace CaliburnWPFApp.ViewModels
             {
                 _selectedStat = value;
                 NotifyOfPropertyChange(() => SelectedStat);
-                NotifyOfPropertyChange(() => UniqueStatStaged);
+                NotifyOfPropertyChange(() => CanSetStatValues);
                 NotifyOfPropertyChange(() => CanResetStat);
             }
         }
 
-        private CharacterStatModel _selectedStat;
+        private DisplayCharacterStatModel _selectedStat;
        
         public bool CanResetStat
         {
@@ -76,14 +76,14 @@ namespace CaliburnWPFApp.ViewModels
             }
         }
 
-        public bool UniqueStatStaged
+        public bool CanSetStatValues
         {
             get
             {
                 bool output = true;
                 foreach (var item in Stats)
                 {
-                    if(SelectedStat.StatName == item.StatName)
+                    if(SelectedStat.StatName.ToUpper() == item.StatName.ToUpper())
                     {
                         output = false;
                     }
@@ -96,21 +96,31 @@ namespace CaliburnWPFApp.ViewModels
         public void AddNewStat()
         {
             CheckLastIdIndex();
-            CharacterStatModel newStat = new CharacterStatModel();
+            DisplayCharacterStatModel newStat = new DisplayCharacterStatModel();
             Stats.Add(newStat);
             SelectedStat = newStat;
+
+            Stats.ResetBindings();
         }
 
         public void ResetStagedStat()
         {
-            SelectedStat.ResetModel();
-            NotifyOfPropertyChange(() => SelectedStat);
-            NotifyOfPropertyChange(() => UniqueStatStaged);
+            SelectedStat.ResetModelValues();
+            Stats.ResetBindings();
         }
 
-        public void AlterExistingStatValues()
+        public async Task SetStatValues()
         {
+            //Prep frontend Model for backend
+            StagedCharacterStatModel model = new StagedCharacterStatModel(); 
 
+            model.Id = SelectedStat.Id;
+            model.StatName = SelectedStat.StatName;
+            model.BaseValue = SelectedStat.BaseValue;
+            model.GenericScale = SelectedStat.GenericScale;
+            await _statEndpoint.PostStat(model);
+
+            Stats.ResetBindings();
         }
         private int CheckLastIdIndex()
         {

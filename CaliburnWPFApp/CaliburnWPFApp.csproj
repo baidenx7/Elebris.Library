@@ -126,7 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AttributeModel.cs" />
-    <Compile Include="Models\CharacterStatModel.cs" />
+    <Compile Include="Models\DisplayCharacterStatModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

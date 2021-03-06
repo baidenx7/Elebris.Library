@@ -241,12 +241,12 @@
         </StackPanel>
             
             <!--View: Display Panel-->
-        <StackPanel  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="5,-10,20,20">
+            <StackPanel  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="5,-10,20,20">
+            <!--Caliburn Micro used the name ActiveItem to bind ActivateItemAsync() to a particular view(model) -->
+            <ContentControl x:Name="ActiveItem" Margin="5" />
+            
 
-            <ContentControl x:Name="ActiveDisplay" Margin="5" DataContext="{Binding DisplayVM}"/>
-            <!--Watching ahead from vid 17, datacontexta bove is broken, searching for the fix-->
-
-        </StackPanel>
+            </StackPanel>
     </Grid>
 
 

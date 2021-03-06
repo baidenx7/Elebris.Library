@@ -30,6 +30,7 @@ namespace CaliburnWPFApp
         {
             _container.Instance(_container) //set the above container as its own singleton reference
                 .PerRequest<ICharacterStatEndpoint, CharacterStatEndpoint>();
+
             _container
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
