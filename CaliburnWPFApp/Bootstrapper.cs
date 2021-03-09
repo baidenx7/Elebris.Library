@@ -1,7 +1,9 @@
-﻿using Caliburn.Micro;
+﻿using AutoMapper;
+using Caliburn.Micro;
 using CaliburnWPFApp.Helpers;
 using CaliburnWPFApp.Library.Api;
 using CaliburnWPFApp.Library.Models;
+using CaliburnWPFApp.Models;
 using CaliburnWPFApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,9 +28,23 @@ namespace CaliburnWPFApp
            "PasswordChanged");
         }
 
+        private IMapper ConfigureAutomapper()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<StagedCharacterStatModel, DisplayCharacterStatModel>();
+            });
+
+            var output = config.CreateMapper();
+
+            return output;
+        }
+
         protected override void Configure()
         {
-            _container.Instance(_container) //set the above container as its own singleton reference
+            _container.Instance(ConfigureAutomapper());
+
+            _container.Instance(_container) //set the above _container(variable) as its own singleton reference
                 .PerRequest<ICharacterStatEndpoint, CharacterStatEndpoint>();
 
             _container

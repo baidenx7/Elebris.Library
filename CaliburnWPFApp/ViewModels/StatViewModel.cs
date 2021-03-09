@@ -8,6 +8,7 @@ using Caliburn.Micro;
 using CaliburnWPFApp.Library.Api;
 using System.Threading.Tasks;
 using CaliburnWPFApp.Library.Models;
+using AutoMapper;
 
 namespace CaliburnWPFApp.ViewModels
 {
@@ -16,9 +17,11 @@ namespace CaliburnWPFApp.ViewModels
     {
         private int lastIdIndex = 0;
         ICharacterStatEndpoint _statEndpoint;
-        public StatViewModel(ICharacterStatEndpoint statEndpoint)
+        IMapper _mapper;
+        public StatViewModel(ICharacterStatEndpoint statEndpoint, IMapper mapper)
         {
             _statEndpoint = statEndpoint;
+            _mapper = mapper;
         }
 
         protected override async void OnViewLoaded(object view)
@@ -30,8 +33,9 @@ namespace CaliburnWPFApp.ViewModels
         //How to work around constructors not allowing async. 1 hour mark
         private async Task LoadStats()
         {
-            var statList = await _statEndpoint.GetAll();
-            Stats = new BindingList<DisplayCharacterStatModel>();
+            var statList = await _statEndpoint.GetAll(); // get backend format from endpoint
+            var stats = _mapper.Map<List<DisplayCharacterStatModel>>(statList); //map to desired format
+            Stats = new BindingList<DisplayCharacterStatModel>(stats); // fill bindinglist with mapped stats
         }
         private BindingList<DisplayCharacterStatModel> _stats;
 
@@ -108,6 +112,7 @@ namespace CaliburnWPFApp.ViewModels
             SelectedStat.ResetModelValues();
             Stats.ResetBindings();
         }
+
 
         public async Task SetStatValues()
         {

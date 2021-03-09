@@ -176,7 +176,7 @@
                         <!--End Item-->
                         <!--Login/Logout-->
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0 0 0 5">
+                                      Margin="0 0 0 5" Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
                             <StackPanel Orientation="Horizontal"
                                         Width="55">
                                 <Image Source="pack://application:,,,/Assets/login1.png"

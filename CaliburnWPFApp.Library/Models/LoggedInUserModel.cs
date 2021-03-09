@@ -15,5 +15,16 @@ namespace CaliburnWPFApp.Library.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CreatedDate { get; set; }
+
+        public void ResetUserModel()
+        {
+            Token = "";
+            Id = "";
+            DisplayName = "";
+            EmailAddress = "";
+            FirstName = "";
+            LastName = "";
+            CreatedDate = "";
+        }
     }
 }
