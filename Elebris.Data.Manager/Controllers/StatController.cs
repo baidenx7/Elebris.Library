@@ -15,7 +15,15 @@ namespace Elebris.Data.Manager.Controllers
             StatData statData = new StatData();
             return statData.GetStatData();
         }
+        [Route("GetStatById")]
+        public DBCharacterStatModel GetById(int id)
+        {
+            StatData statData = new StatData();
+            return statData.GetStatById(id);
+        }
         [HttpPost]
+
+        [Authorize(Roles = "Admin,Manager")]
         public void Post(DBCharacterStatModel statModel)
         {
             StatData statData = new StatData();

@@ -50,6 +50,8 @@ namespace Elebris.Data.Manager.Library.Internal.DataAccess
             string connectionString = GetConnectionString(connectionStringName);
             _connection = new SqlConnection(connectionString);
             _transaction = _connection.BeginTransaction();
+
+            isClosed = false;
         }
 
         public void SaveDataInTransaction<T>(string storedProcedure, T parameters, string connectionStringName)
@@ -67,20 +69,36 @@ namespace Elebris.Data.Manager.Library.Internal.DataAccess
            
         }
 
+        private bool isClosed = false;
+
         public void CommitTransaction()
         {
             _transaction?.Commit();
             _connection?.Close();
+
+            isClosed = true;
         }
         public void RollBackTransaction()
         {
             _transaction?.Rollback();
             _connection?.Close();
+            isClosed = true;
         }
 
         public void Dispose()
         {
-            CommitTransaction();
+            if(!isClosed)
+            {
+                try
+                {
+
+                    CommitTransaction();
+                }
+                catch (Exception)
+                {
+                    //TODO log this issue
+                }
+            }
         }
     }
 }

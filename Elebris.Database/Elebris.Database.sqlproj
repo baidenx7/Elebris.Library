@@ -75,6 +75,7 @@
     <Build Include="dbo\Stored Procedures\spUserLookup.sql" />
     <Build Include="dbo\Stored Procedures\spStat_GetById.sql" />
     <Build Include="dbo\Stored Procedures\spStat_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spStat_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Elebris.Database.refactorlog" />

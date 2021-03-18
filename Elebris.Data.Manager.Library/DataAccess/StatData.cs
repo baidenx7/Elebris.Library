@@ -8,6 +8,7 @@ namespace Elebris.Data.Manager.Library.DataAccess
 {
     public class StatData
     {
+        //rollback functionality was used here in vid 24. I declined to implement it
         public List<DBCharacterStatModel> GetStatData()
         {
             SqlDataAccess sql = new SqlDataAccess();
@@ -25,8 +26,9 @@ namespace Elebris.Data.Manager.Library.DataAccess
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            sql.SaveData<DBCharacterStatModel>("dbo.spStat_Insert", model, "ElebrisData");
+            sql.SaveData("dbo.spStat_Insert", model, "ElebrisData");
         }
+
     }
 
 }
