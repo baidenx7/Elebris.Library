@@ -10,9 +10,8 @@ namespace CaliburnWPFApp.ViewModels
     public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>
     {
 
-        private StatViewModel _statVM;
         ILoggedInUserModel _user;
-
+        StatViewModel _statView;
         private readonly IEventAggregator _events;
 
         public bool IsLoggedIn
@@ -31,18 +30,19 @@ namespace CaliburnWPFApp.ViewModels
             }
         }
 
-        public ShellViewModel(IEventAggregator events, StatViewModel statVM, ILoggedInUserModel user)
+        public ShellViewModel(IEventAggregator events, ILoggedInUserModel user,
+            StatViewModel statView)
         {
             _events = events;
-            _statVM = statVM;
             _user = user;
             _events.SubscribeOnPublishedThread(this);
+            _statView = statView; //stored this way so it isn't refreshed when the page is left. If i understand correctly IoC would pass in a new copy
             ActivateItemAsync(IoC.Get<LoginViewModel>()); //creates a NEW instance so info doesnt need to be manually wiped
         }
 
         public async Task HandleAsync(LogOnEvent message, CancellationToken cancellationToken)
         {
-            await ActivateItemAsync(_statVM);
+            await ActivateItemAsync(_statView);
             NotifyOfPropertyChange(() => IsLoggedIn);
         }
 
@@ -54,6 +54,7 @@ namespace CaliburnWPFApp.ViewModels
             ActivateItemAsync(IoC.Get<LoginViewModel>());
             NotifyOfPropertyChange(() => IsLoggedIn);
         }
+
     }
 }
 

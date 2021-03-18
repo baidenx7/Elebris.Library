@@ -50,7 +50,6 @@ namespace CaliburnWPFApp.Models
         public event PropertyChangedEventHandler PropertyChanged;
         public void CallPropertyChanged(string property)
         {
-
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
     }

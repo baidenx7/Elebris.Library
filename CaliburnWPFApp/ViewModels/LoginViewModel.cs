@@ -92,7 +92,6 @@ namespace CaliburnWPFApp.ViewModels
 
         public async Task LogIn()
         {
-           
             try
             {
                 ErrorMessage = "";
@@ -101,7 +100,7 @@ namespace CaliburnWPFApp.ViewModels
                 //capture more info about the user
                 await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
 
-                _events.SubscribeOnUIThread(new LogOnEvent());
+                await _events.PublishOnUIThreadAsync(new LogOnEvent());
             }
             catch (Exception ex)
             {

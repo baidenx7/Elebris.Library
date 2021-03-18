@@ -9,7 +9,7 @@ namespace Elebris.Rpg.Library.Config
     {
         public const int DEFAULT_ATTRIBUTE_VALUE = 5;
         public const int DEFAULT_MAX_TOTAL_VALUE = 60;
-        public const int DEFAULT_MAX_ATTRIBUTE_VALUE = 20; //May also have this change to 20
+        public const int DEFAULT_MAX_ATTRIBUTE_VALUE = 20; // this is the naturally reachable value, classes and gear can exceed this value.
         public const int DEFAULT_BIAS_VALUE = 12;
         public const int DEFAULT_CLASS_BIAS = 9;
 
@@ -19,12 +19,17 @@ namespace Elebris.Rpg.Library.Config
         public const int DEFAULT_WEAK_VALUE = -15;
 
 
-        public const float WEAKNESS_MULTIPLER = 0.5f;
+        public const float WEAKNESS_MULTIPLER = 0.5f; //I dont want to change this without seeing what it touches, but currently its additive,, should probably be cahnged to 1.5 (multiplicative)
 
         public const float SUBTYPE_MULTIPLIER = 0.5f;
 
-        public const float REDUCE_CHARGE_MULTIPLIER = 0.8f;
+        public const float REDUCE_CHARGE_MULTIPLIER = 0.8f; //every level of charge reached reduces the time needed to reach the next level.
 
+        public const float GLOBAL_MIN_ATTACK_COOLDOWN = .05f; //use the greater of attack cooldown or this cooldown before next attack is usable
+
+        public const float GLOBAL_MIN_Action_COOLDOWN = .5f;  //use the greater of action cooldown or this cooldown before next action is usable
+    
+    
     }
     //The below code is probably never going to see the light of day. but I dont want to delete it quite yet sicne it makes for a good reference
     public static class ConstantStatPopulator

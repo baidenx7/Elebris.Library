@@ -47,7 +47,6 @@ namespace CaliburnWPFApp.Library.Api
                 new KeyValuePair<string, string>("password", password)
             });
 
-            //Code hangs up below when trying to log in
             using (HttpResponseMessage response = await ApiClient.PostAsync("/Token", data))
             {
                 if (response.IsSuccessStatusCode)
@@ -81,8 +80,8 @@ namespace CaliburnWPFApp.Library.Api
                     _loggedInUser.LastName = result.LastName;
                     _loggedInUser.DisplayName = result.DisplayName;
                     _loggedInUser.EmailAddress = result.EmailAddress;
-                    _loggedInUser.CreatedDate = result.Id;
-                    _loggedInUser.CreatedDate = token;
+                    _loggedInUser.Id = result.Id;
+                    _loggedInUser.Token = token;
                 }
                 else
                 {
