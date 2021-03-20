@@ -47,12 +47,19 @@ namespace CaliburnWPFApp.ViewModels
         }
 
 
-
+        public void UserManagement()
+        {
+            ActivateItemAsync(IoC.Get<UserDisplayViewModel>());
+        }
         public void LogOut()
         {
             _user.ResetUserModel();
             ActivateItemAsync(IoC.Get<LoginViewModel>());
             NotifyOfPropertyChange(() => IsLoggedIn);
+        }
+        public void ExitApplication()
+        {
+            TryCloseAsync();
         }
 
     }

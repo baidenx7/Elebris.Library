@@ -45,7 +45,8 @@ namespace CaliburnWPFApp
             _container.Instance(ConfigureAutomapper());
 
             _container.Instance(_container) //set the above _container(variable) as its own singleton reference
-                .PerRequest<ICharacterStatEndpoint, CharacterStatEndpoint>();
+                .PerRequest<ICharacterStatEndpoint, CharacterStatEndpoint>()
+                .PerRequest<IUserEndpoint, UserEndpoint>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
