@@ -9,11 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elebris.Library.Tests", "El
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Elebris.Database", "Elebris.Database\Elebris.Database.sqlproj", "{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elebris.Data.Manager.Library", "Elebris.Data.Manager.Library\Elebris.Data.Manager.Library.csproj", "{8BAB21C2-92BA-4418-969F-6427CA155951}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elebris.Data.Manager.Library", "Elebris.Data.Manager.Library\Elebris.Data.Manager.Library.csproj", "{8BAB21C2-92BA-4418-969F-6427CA155951}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaliburnWPFApp", "CaliburnWPFApp\CaliburnWPFApp.csproj", "{1DCD92FA-955C-4405-9197-17A58740E369}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaliburnWPFApp.Library", "CaliburnWPFApp.Library\CaliburnWPFApp.Library.csproj", "{7310BE99-21C1-4D34-95F2-305EC2DA75DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaliburnWPFApp.Library", "CaliburnWPFApp.Library\CaliburnWPFApp.Library.csproj", "{7310BE99-21C1-4D34-95F2-305EC2DA75DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elebris.Data.Manager", "Elebris.Data.Manager\Elebris.Data.Manager.csproj", "{CB0F49D4-6153-4945-9EB6-0EF5451C2282}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{2E948236-16F0-4A2A-B20E-379A123A049E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1E587066-5840-4AC7-AD79-4D84284BD653}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElebrisApi", "ElebrisApi\ElebrisApi.csproj", "{0C8890D3-68FF-467A-A58C-E4D9B9E1C808}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{CB0F49D4-6153-4945-9EB6-0EF5451C2282}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB0F49D4-6153-4945-9EB6-0EF5451C2282}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB0F49D4-6153-4945-9EB6-0EF5451C2282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C8890D3-68FF-467A-A58C-E4D9B9E1C808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C8890D3-68FF-467A-A58C-E4D9B9E1C808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C8890D3-68FF-467A-A58C-E4D9B9E1C808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C8890D3-68FF-467A-A58C-E4D9B9E1C808}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{1DCD92FA-955C-4405-9197-17A58740E369} = {9ED203BA-62CE-49B9-916F-9FA82D76DC0E}
 		{7310BE99-21C1-4D34-95F2-305EC2DA75DF} = {9ED203BA-62CE-49B9-916F-9FA82D76DC0E}
 		{CB0F49D4-6153-4945-9EB6-0EF5451C2282} = {2E948236-16F0-4A2A-B20E-379A123A049E}
+		{0C8890D3-68FF-467A-A58C-E4D9B9E1C808} = {2E948236-16F0-4A2A-B20E-379A123A049E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {267A787A-7EF1-4792-B7A5-AC0B2306E506}
