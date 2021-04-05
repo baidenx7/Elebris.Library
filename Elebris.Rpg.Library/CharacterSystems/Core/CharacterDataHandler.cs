@@ -15,68 +15,21 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core
     /// </summary>
     public class CharacterDataHandler
     {
-        CharacterValueContainer container;
+        private CharacterValueContainer container;
         public CharacterDataHandler(CharacterValueContainer container)
         {
             this.container = container;
-            
         }
        
 
-        public void ModifyValue(ResourceStats resources, float value)
+        public void ModifyResourceValue(ResourceStats resources, float value)
         {
             container.StoredResourceBars[resources].CurrentValue += value;
         }
 
         //series of overloaded fucntions for specific purposes
-        public void InsertValue()
-        {
-            //Unit to insert into
-            //type of value
-            //if its a value modifier, what type of modifier
-            //if i need knowledge about a specific piece of gear, what piece, and what value. might need a special return type to grab multiple relevant values at once
-
-            //in some isntances of Insert,if a value already exists i can decide per-item how to handle it (ignore/replace or add to the current value)
-
-        }
-
-        public void InsertValue(string name, BaseStatValue baseVal)
-        {
-            container.StoredBaseValues.Add(name, baseVal);//These values will 
-            container.StoredStats[name].BaseValue = container.StoredBaseValues[name].Get;
-        }
-
-        public void RemoveStat(string name)
-        {
-            //unsubscribe necessary before removing the stat?
-            if (!container.StoredStats.ContainsKey(name)) return;
-           
-            container.StoredStats.Remove(name);
-        }
-
-
-        //unit to retreive from (or more specifically CharacterValueContainer)
-        //type of value to retrieve (attribute, stat, progression value, resource)
-        //
-
-        //Once this is satisfactory turn it into an interface so I can create a mock class to start testing with
-        public object RetrieveValue(Elements element)
-        {
-            return container.StoredWeaknesses[element];
-        }
-        public object RetrieveValue(ResourceStats value)
-        {
-            return container.StoredResourceBars[value].CurrentValue;
-        }
-        public object RetrieveValue(Attributes value)
-        {
-            return container.StoredAttributes[value];
-        }
-        public object RetrieveValue(ProgressionValues value)
-        {
-            return container.StoredProgressionValues[value].GetCurrentPoints();
-        }
-        public object RetrieveValue(string value)
+        
+        public float RetrieveStatValue(Stats value)
         {
             CheckOrCreateStat(value);
             StatValue cur = container.StoredStats[value];
@@ -84,15 +37,15 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core
             return cur.TotalValue;
         }
 
-        private void CheckOrCreateStat(string value)
+        private void CheckOrCreateStat(Stats value)
         {
             if (container.StoredStats[value] == null)
-            {
+            { //replace this with a call to a factory that knows what "default" values to return
                 container.StoredStats.Add(value, new StatValue());
             }
         }
 
-        public StatValue CopyStat(string value)
+        public StatValue CopyStat(Stats value)
         {
             CheckOrCreateStat(value);
             StatValue cur = container.StoredStats[value];
@@ -105,10 +58,6 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core
             return val;
         }
 
-        /// <summary>
-        /// Call Once at start, and then whenever an attribute or level changes
-        /// </summary>
-       
 
 
         public ResourceBarValue RetrieveResourceData(ResourceStats value)
@@ -119,17 +68,17 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core
         public float RetrieveCritChance(ActionDamageType type)
         {
 
-            float value = (float)container.DataHandler.RetrieveValue(Stats.GlobalCritChance.ToString());
+            float value = (float)container.DataHandler.RetrieveStatValue(Stats.GlobalCritChance);
             switch (type)
             {
                 case ActionDamageType.Physical:
-                    value += (float)container.DataHandler.RetrieveValue(Stats.PhysicalCritChance.ToString());
+                    value += (float)container.DataHandler.RetrieveStatValue(Stats.PhysicalCritChance);
                     break;
                 case ActionDamageType.Ranged:
-                    value += (float)container.DataHandler.RetrieveValue(Stats.SpellCritChance.ToString());
+                    value += (float)container.DataHandler.RetrieveStatValue(Stats.SpellCritChance);
                     break;
                 case ActionDamageType.Spell:
-                    value += (float)container.DataHandler.RetrieveValue(Stats.RangedCritChance.ToString());
+                    value += (float)container.DataHandler.RetrieveStatValue(Stats.RangedCritChance);
                     break;
                 default:
                     break;
@@ -139,17 +88,17 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core
         public float RetrieveCritMultiplier(ActionDamageType type)
         {
 
-            float value = (float)container.DataHandler.RetrieveValue(Stats.GlobalCritDamage.ToString());
+            float value = (float)container.DataHandler.RetrieveStatValue(Stats.GlobalCritDamage);
             switch (type)
             {
                 case ActionDamageType.Physical:
-                    value += (float)container.DataHandler.RetrieveValue(Stats.PhysicalCritDamage.ToString());
+                    value += (float)container.DataHandler.RetrieveStatValue(Stats.PhysicalCritDamage);
                     break;
                 case ActionDamageType.Ranged:
-                    value += (float)container.DataHandler.RetrieveValue(Stats.SpellCritDamage.ToString());
+                    value += (float)container.DataHandler.RetrieveStatValue(Stats.SpellCritDamage);
                     break;
                 case ActionDamageType.Spell:
-                    value += (float)container.DataHandler.RetrieveValue(Stats.RangedCritDamage.ToString());
+                    value += (float)container.DataHandler.RetrieveStatValue(Stats.RangedCritDamage);
                     break;
                 default:
                     break;
@@ -159,17 +108,18 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core
 
         public float RetrieveArmorValue(ActionDamageType type)
         {
+            //TODO fix up these
             switch (type)
             {
-                case ActionDamageType.Physical:
-                    string pval = type.ToString() + BaseStatType.Armor.ToString();
-                    return (float)container.DataHandler.RetrieveValue(pval);
-                case ActionDamageType.Ranged:
-                    string rval = type.ToString() + BaseStatType.Armor.ToString();
-                    return (float)container.DataHandler.RetrieveValue(rval);
-                case ActionDamageType.Spell:
-                    string sval = type.ToString() + BaseStatType.Armor.ToString();
-                    return (float)container.DataHandler.RetrieveValue(sval);
+                //case ActionDamageType.Physical:
+                //    string pval = type.ToString() + BaseStatType.Armor.ToString();
+                //    return (float)container.DataHandler.RetrieveStatValue(pval);
+                //case ActionDamageType.Ranged:
+                //    string rval = type.ToString() + BaseStatType.Armor.ToString();
+                //    return (float)container.DataHandler.RetrieveStatValue(rval);
+                //case ActionDamageType.Spell:
+                //    string sval = type.ToString() + BaseStatType.Armor.ToString();
+                //    return (float)container.DataHandler.RetrieveStatValue(sval);
                 default:
                     return 0;
             }
@@ -179,15 +129,15 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core
         {
             switch (type)
             {
-                case ActionDamageType.Physical:
-                    string pval = type.ToString() + BaseStatType.Mitigation.ToString();
-                    return (float)container.DataHandler.RetrieveValue(pval);
-                case ActionDamageType.Ranged:
-                    string rval = type.ToString() + BaseStatType.Mitigation.ToString();
-                    return (float)container.DataHandler.RetrieveValue(rval);
-                case ActionDamageType.Spell:
-                    string sval = type.ToString() + BaseStatType.Mitigation.ToString();
-                    return (float)container.DataHandler.RetrieveValue(sval);
+                //case ActionDamageType.Physical:
+                //    string pval = type.ToString() + BaseStatType.Mitigation.ToString();
+                //    return (float)container.DataHandler.RetrieveValue(pval);
+                //case ActionDamageType.Ranged:
+                //    string rval = type.ToString() + BaseStatType.Mitigation.ToString();
+                //    return (float)container.DataHandler.RetrieveValue(rval);
+                //case ActionDamageType.Spell:
+                //    string sval = type.ToString() + BaseStatType.Mitigation.ToString();
+                //    return (float)container.DataHandler.RetrieveValue(sval);
                 default:
                     return 0;
             }
@@ -195,31 +145,5 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core
         }
 
 
-        internal void PairEvents()
-        {
-            //Link attributes to leveling up as a firing event
-            foreach (var item in container.StoredAttributes)
-            {
-                container.StoredProgressionValues[ProgressionValues.CharacterExperience].onLevelUpGeneric += item.Value.CharacterValuesChanged;
-            }
-            //link base values (that change with attributes) to attributes, when theyre modified
-            foreach (var item in container.StoredBaseValues)
-            {
-                container.StoredAttributes[item.Value.GoverningAttribute].SubjectModified += item.Value.SubjectUpdated;
-            }
-            //Link stats to base values that share a string (or enum if I switch)
-            foreach (var item in container.StoredBaseValues.Keys)
-            {
-                if (container.StoredStats.ContainsKey(item))
-                {
-                    container.StoredBaseValues[item].OnBaseUpdated += container.StoredStats[item].UpdateBaseValue;
-                }
-            }
-
-            container.StoredProgressionValues[ProgressionValues.CharacterExperience].IncreaseLevel();
-            //ResourceBars are currently set at Generation Time
-            //Inititalize 
-
-        }
     }
 }

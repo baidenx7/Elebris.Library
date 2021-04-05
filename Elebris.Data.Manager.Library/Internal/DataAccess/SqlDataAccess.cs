@@ -13,14 +13,14 @@ namespace Elebris.Data.Manager.Library.Internal.DataAccess
 {
     internal class SqlDataAccess : IDisposable
     {
-        public SqlDataAccess(IConfiguration configuration)
+        public SqlDataAccess(IConfiguration config)
         {
-            _configuration = configuration;
+            _config = config;
         }
 
         public string GetConnectionString(string name)
         {
-            return _configuration.GetConnectionString(name);
+            return _config.GetConnectionString(name);
         }
 
         public List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName)
@@ -75,7 +75,7 @@ namespace Elebris.Data.Manager.Library.Internal.DataAccess
         }
 
         private bool isClosed = false;
-        private readonly IConfiguration _configuration;
+        private readonly IConfiguration _config;
 
         public void CommitTransaction()
         {

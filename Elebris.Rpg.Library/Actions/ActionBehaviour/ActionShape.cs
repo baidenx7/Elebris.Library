@@ -1,6 +1,7 @@
 ﻿namespace Elebris.Core.Library.Enums.Tags
 {
-    public enum ActionShape
+    public enum 
+        Shape
     {
         //tags that denote how a skill acts
         AreaOfEffect,

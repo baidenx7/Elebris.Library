@@ -15,9 +15,9 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
 
         //Other characters should not have access to these four actions.
         //these are for the controlling characters own triggers (ex. When healed do x or heal by an additional x, when damaged gain movespeed)
-        public event Action<float> valueModifed;
-        public event Action<float> valueEmpty;
-        public event Action<float> valueFull;
+        public event Action<float> ValueModifed;
+        public event Action<float> ValueEmpty;
+        public event Action<float> ValueFull;
         public float CurrentValue
         {
             get => currentValue;

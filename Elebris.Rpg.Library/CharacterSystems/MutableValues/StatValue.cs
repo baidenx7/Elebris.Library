@@ -21,8 +21,7 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
         protected bool isDirty = true;
         protected float lastBaseValue = float.MinValue;
 
-        public event Action ValueModified;//For observers that only care that something was fired
-        public event Action<float> SubjectModified; //for observers that care exactly what was fired
+
         protected readonly List<ValueModifier> valueModifiers;
         public readonly ReadOnlyCollection<ValueModifier> ValueModifiers;
         public StatValue()
@@ -74,7 +73,6 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
                     lastBaseValue = BaseValue;
                     totalValue = CalculateFinalValue();
                     AddedValue = totalValue = BaseValue;
-                    CharacterValuesChanged();
                     isDirty = false;
                 }
                 return totalValue;
@@ -151,12 +149,6 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
             return (float)Math.Round(finalValue, 4);
         }
 
-        public void UpdateBaseValue(float val) => BaseValue = val;//Updated by baseValue's event
-        public void CharacterValuesChanged()
-        {
-            //called when character levels, or this value is "dirty"
-            if (ValueModified != null) ValueModified();
-            if (SubjectModified != null) SubjectModified(totalValue);
-        }
+
     }
 }

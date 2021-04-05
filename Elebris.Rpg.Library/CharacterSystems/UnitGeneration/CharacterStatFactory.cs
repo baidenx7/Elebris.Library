@@ -10,10 +10,10 @@ using System.Text;
 
 namespace Elebris.Rpg.Library.StatGeneration
 {
-    public static class CharacterGenerationHandler
+    public static class CharacterStatFactory
     {
-        private static Dictionary<string, BaseStatValue> storedDefaultBaseStats;
-        private static Dictionary<string, StatValue> storedDefaultStats;
+        private static List<ITriggerableValue> StoredManipulationValues;
+        private static Dictionary<Stats, StatValue> storedDefaultStats;
         public static CharacterValueContainer CreateCharacterValues() //
         {
             CharacterValueContainer container = new CharacterValueContainer();
@@ -38,11 +38,10 @@ namespace Elebris.Rpg.Library.StatGeneration
                 container.StoredAttributes.Add(attrib, new StatValue(attributeSet[item]));
             }
 
-            container.StoredBaseValues = PopulateScalingStats(container);
+            container.StoredManipulationValues = PopulateScalingStats(container);
             container.StoredStats = PopulateDefaultStats();
             GenerateResourceBars(container);
             GenerateProgressionValues(container);
-            container.DataHandler.PairEvents();
         }
 
         private static void GenerateResourceBars(CharacterValueContainer container)
@@ -104,7 +103,7 @@ namespace Elebris.Rpg.Library.StatGeneration
             return AttributeSetGenerator.GenerateClassAttributeSet(classAttributes.ToArray());
         }
 
-        private static Dictionary<string, StatValue> PopulateDefaultStats()
+        private static Dictionary<Stats, StatValue> PopulateDefaultStats()
         {
 
             if (storedDefaultStats != null && storedDefaultStats.Count > 0)
@@ -114,19 +113,19 @@ namespace Elebris.Rpg.Library.StatGeneration
             storedDefaultStats = new Dictionary<string, StatValue>();
             foreach (var item in Enum.GetValues(typeof(Stats)))
             {
-                storedDefaultStats.Add(item.ToString(), new StatValue(0));
+                storedDefaultStats.Add(item, new StatValue(0));
             }
             return storedDefaultStats;
         }
 
-        private static Dictionary<string, BaseStatValue> PopulateScalingStats(CharacterValueContainer container)
+        private static Dictionary<string, StatManipulationValues> PopulateScalingStats(CharacterValueContainer container)
         {
             if (storedDefaultBaseStats != null && storedDefaultBaseStats.Count > 0)
             {
                 return storedDefaultBaseStats;
             }
 
-            storedDefaultBaseStats = new Dictionary<string, BaseStatValue>();
+            storedDefaultBaseStats = new Dictionary<string, StatManipulationValues>();
             storedDefaultBaseStats.Add(Stats.StaminaRegeneration.ToString(), new BaseStatValue(container, Attributes.Agility, 1, .005f, .005f, .1f));
             storedDefaultBaseStats.Add(Stats.ManaRegeneration.ToString(), new BaseStatValue(container, Attributes.Intelligence, 1, .005f, .005f, .1f));
             storedDefaultBaseStats.Add(Stats.SpiritRegeneration.ToString(), new BaseStatValue(container, Attributes.Expertise, 1, .005f, .005f, .1f));

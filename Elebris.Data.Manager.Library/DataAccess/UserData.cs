@@ -11,15 +11,15 @@ namespace Elebris.Data.Manager.Library.DataAccess
 {
     public class UserData
     {
-        private readonly IConfiguration _configuration;
+        private readonly IConfiguration _config;
 
-        public UserData(IConfiguration configuration)
+        public UserData(IConfiguration config)
         {
-            _configuration = configuration;
+            _config = config;
         }
         public List<UserModel> GetUserById(string Id)
         {
-            SqlDataAccess sql = new SqlDataAccess(_configuration);
+            SqlDataAccess sql = new SqlDataAccess(_config);
             var p = new { Id = Id };
             var output = sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "ElebrisData");
             return output;

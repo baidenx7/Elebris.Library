@@ -17,7 +17,7 @@ namespace Elebris.Library.Tests
         public CharacterGenerationTests(ITestOutputHelper output)
         {
             this.output = output;
-            characterContainer = CharacterGenerationHandler.CreateCharacterValues();
+            characterContainer = CharacterStatFactory.CreateCharacterValues();
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace Elebris.Library.Tests
 
             //Act: 
 
-            float actual = (float)characterContainer.DataHandler.RetrieveValue(stat.ToString());
+            float actual = (float)characterContainer.DataHandler.RetrieveStatValue(stat);
 
             output.WriteLine($"value of {stat} is {actual}");
             //Assert: "This should be the outcome"
@@ -84,7 +84,7 @@ namespace Elebris.Library.Tests
             //Arrange:Prepare test
 
             //Act: 
-            float actual = characterContainer.StoredBaseValues.Count;
+            float actual = characterContainer.StoredManipulationValues.Count;
 
             output.WriteLine($"total stats: {actual}");
             //Assert: "This should be the outcome"

@@ -10,7 +10,7 @@ namespace Elebris.Data.Manager.Controllers
     public class StatController : ApiController
     {
         [HttpGet]
-        public List<DBCharacterStatModel> Get()
+        public List<DBCharacterStatModel> Get(IConfiguration config)
         {
             StatData statData = new StatData();
             return statData.GetStatData();

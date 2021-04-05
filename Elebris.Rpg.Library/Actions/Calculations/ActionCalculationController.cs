@@ -19,11 +19,11 @@ namespace Elebris.Rpg.Library.Actions.Calculations
             //get the value here, 
             if(!ExceededBarrier(ref action.value, (float)target.DataHandler.RetrieveValue(ResourceStats.BarrierResource), action.Subtype == ActionSubtype.Energy))
             {
-                target.DataHandler.ModifyValue(ResourceStats.BarrierResource, -action.value);
+                target.DataHandler.ModifyResourceValue(ResourceStats.BarrierResource, -action.value);
             }
             else
             {
-                target.DataHandler.ModifyValue(ResourceStats.BarrierResource, -(float)target.DataHandler.RetrieveValue(ResourceStats.BarrierResource));
+                target.DataHandler.ModifyResourceValue(ResourceStats.BarrierResource, -(float)target.DataHandler.RetrieveValue(ResourceStats.BarrierResource));
             }
             CheckCritical(ref action.value, action.ActionCritChance.TotalValue, action.ActionCritMultipler.TotalValue);
 
@@ -36,7 +36,7 @@ namespace Elebris.Rpg.Library.Actions.Calculations
             CheckWeakness(ref action.value, (WeaknessValue)target.DataHandler.RetrieveValue(action.Element));
 
             //modify armor durability
-            target.DataHandler.ModifyValue(ResourceStats.HealthResource, -action.value);
+            target.DataHandler.ModifyResourceValue(ResourceStats.HealthResource, -action.value);
         }
 
 

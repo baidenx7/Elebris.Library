@@ -2,6 +2,7 @@
 using Elebris.Data.Manager.Library.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +16,21 @@ namespace ElebrisApi.Controllers
     [Authorize]
     public class StatController : ControllerBase
     {
+        IConfiguration _config;
+        public StatController(IConfiguration config)
+        {
+            _config = config;
+        }
         [HttpGet]
         public List<DBCharacterStatModel> Get()
         {
-            StatData statData = new StatData();
+            StatData statData = new StatData(_config);
             return statData.GetStatData();
         }
         [Route("GetStatById")]
         public DBCharacterStatModel GetById(int id)
         {
-            StatData statData = new StatData();
+            StatData statData = new StatData(_config);
             return statData.GetStatById(id);
         }
         [HttpPost]
@@ -32,7 +38,7 @@ namespace ElebrisApi.Controllers
         [Authorize(Roles = "Admin,Manager")]
         public void Post(DBCharacterStatModel statModel)
         {
-            StatData statData = new StatData();
+            StatData statData = new StatData(_config);
 
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             statData.SaveCharacterStat(statModel, userId);
