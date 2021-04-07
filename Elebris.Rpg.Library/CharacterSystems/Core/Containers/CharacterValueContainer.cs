@@ -11,35 +11,27 @@ using System.Text;
 
 namespace Elebris.Rpg.Library.CharacterValues
 {
+
     public class CharacterValueContainer
     {
         public CharacterValueContainer()
         {
             DataHandler = new CharacterDataHandler(this);
-            TriggerHandler = new UnitTriggerHandler();
-            
-            StoredResourceBars = new Dictionary<ResourceStats, ResourceBarValue>();
-            StoredAttributes = new Dictionary<Attributes, StatValue>();
-            StoredStats = new Dictionary<Stats, StatValue>();
-            StoredProgressionValues = new Dictionary<ProgressionValues, ProgressionValue>();
+            TriggerHandler = new CharacterEventAggregator();
+            ResourceHandler = new CharacterResourceHandler(this);
+            ProgressionHandler = new CharacterProgressionHandler(this);
+            BioHandler = new CharacterBioHandler(this);
 
-            StoredWeaknesses = new Dictionary<Elements, WeaknessValue>();
-            StoredClasses = new Dictionary<string, CharacterClassHolder>();
-            StoredProfessions = new Dictionary<string, CharacterProfessionHolder>();
-            StoredManipulationValues = new List<ITriggerableValue>();
+
         }
 
-        public CharacterDataHandler DataHandler { get; set; } 
-        public UnitTriggerHandler TriggerHandler { get; set; }
-        internal Dictionary<ResourceStats, ResourceBarValue> StoredResourceBars { get; set; }
-        internal Dictionary<Attributes, StatValue> StoredAttributes { get; set; }
-        internal Dictionary<Stats, StatValue> StoredStats { get; set; }
-        internal List<ITriggerableValue> StoredManipulationValues { get; set; }
-        internal Dictionary<ProgressionValues, ProgressionValue> StoredProgressionValues { get; set; }
-        internal Dictionary<Elements, WeaknessValue> StoredWeaknesses { get; set; }
-        internal Dictionary<string, CharacterClassHolder> StoredClasses { get; set; }
-        internal Dictionary<string, CharacterProfessionHolder> StoredProfessions { get; set; }
+        public CharacterDataHandler DataHandler { get; set; }
+        public CharacterEventAggregator TriggerHandler { get; set; }
 
+        public CharacterResourceHandler ResourceHandler { get; set; }
+        public CharacterProgressionHandler ProgressionHandler { get; set; }
+        public CharacterBioHandler BioHandler { get; set; }
+      
 
 
     }

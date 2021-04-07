@@ -1,23 +1,22 @@
-﻿using System;
+﻿using Elebris.Rpg.Library.CharacterSystems.Core.UnitTriggers;
+using Elebris.Rpg.Library.Enums;
+using System;
 
 namespace Elebris.Core.Library.CharacterValues.Mutable
 {
-    /// <summary>
-    /// Used primarily for values that have a max, minimum and need to be tracked
-    /// </summary>
-    public class ResourceBarValue
+    public class ResourceBarValue 
     {
         private float currentValue = 10;
         private float maxValue = 10;
         private float missingValue = 0;
-        public string type; // not type-safe at the moment, get from the dictionary on a unit
 
-
-        //Other characters should not have access to these four actions.
-        //these are for the controlling characters own triggers (ex. When healed do x or heal by an additional x, when damaged gain movespeed)
-        public event Action<float> ValueModifed;
-        public event Action<float> ValueEmpty;
-        public event Action<float> ValueFull;
+        public ResourceBarValue(float maxValue, float missingValue = 0) 
+        {
+            MaxValue = maxValue;
+            this.missingValue = missingValue;
+        }
+      
+       
         public float CurrentValue
         {
             get => currentValue;
@@ -26,12 +25,12 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
                 if (currentValue >= MaxValue)
                 {
                     currentValue = MaxValue;
-                    //trigger valueFull event?
                 }
-                if (currentValue <= 0)
+                else if (currentValue <= 0)
                 {
-                    //trigger valueEmpty event?
+                    currentValue = 0;
                 }
+               
                 currentValue = value;
             }
         }
@@ -53,12 +52,6 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
             float missing = MissingValue;
             float MaxValue = maxVal;
             currentValue = MaxValue - missing;
-        }
-
-        public ResourceBarValue(float maxValue, float missingValue = 0)
-        {
-            MaxValue = maxValue;
-            this.missingValue = missingValue;
         }
 
         public float CurrentValuePercent => currentValue / maxValue;

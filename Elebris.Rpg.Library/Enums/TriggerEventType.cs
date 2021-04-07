@@ -10,10 +10,20 @@ namespace Elebris.Rpg.Library.Enums
         ResourceFull,
         ResourceIncreased,
         ResourceReduced,
+        ResourceSet,
+        ResourceRegenerating,
+        ResourceDraining,
+        ResourceReserved,
 
         CombatEntered,
         CombatExited,
 
         LevelUp,
+
+        GearChange,
+
+        StatusChange,
+        BuffChange,
+
     }
 }

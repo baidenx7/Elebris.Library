@@ -1,18 +1,20 @@
 ﻿using Elebris.Rpg.Library.Enums;
+using Elebris.UnitCreation.Library.StatGeneration;
 
 namespace Elebris.Rpg.Library.CharacterSystems.Core.UnitTriggers
 {
-    public struct TriggerEventModel
+    public struct TriggerResourceEventModel
     {
-        public TriggerEventModel(TriggerEventState eventState, TriggerEventType eventType)
+        public TriggerResourceEventModel(TriggerEventState eventState, TriggerEventType eventType, ResourceStats resource)
         {
             EventState = eventState;
             EventType = eventType;
+            Resource = resource;
         }
 
         public TriggerEventState EventState { get; set; }
         public TriggerEventType EventType { get; set; }
-        //Trigger enum for target? (Self, Enemy, Ally)
+        public ResourceStats Resource { get; set; }
     }
 
 }

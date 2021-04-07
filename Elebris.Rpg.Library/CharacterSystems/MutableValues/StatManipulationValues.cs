@@ -16,11 +16,6 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
 
         }
 
-        public virtual void UpdateValues()
-        {
-
-        }
-
 
     }
 }

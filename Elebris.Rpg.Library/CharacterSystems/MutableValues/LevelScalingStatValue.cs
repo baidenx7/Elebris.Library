@@ -5,7 +5,13 @@ using System;
 
 namespace Elebris.Core.Library.CharacterValues.Mutable
 {
-    public class LevelScalingStatValue : StatManipulationValues
+
+    public interface IManipulationValue
+    {
+        void UpdateLinkedValue();
+    }
+
+    public class LevelScalingStatValue : StatManipulationValues, IManipulationValue
     {
         private readonly StatValue _affectedValue;
 
@@ -33,18 +39,18 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
             this.attributeScale = attributeScale;
         }
 
-        public override void UpdateValues()
+        public void UpdateLinkedValue()
         {
-            if(_affectedValue != null) _affectedValue.RemoveAllModifiersFromSource(this);
-            float level = _container.StoredProgressionValues[ProgressionValues.CharacterExperience].Level;
+            if (_affectedValue != null) _affectedValue.RemoveAllModifiersFromSource(this);
+            float level = _container.ProgressionHandler.StoredProgressionValues[ProgressionValues.CharacterExperience].Level;
             float val = (BonusPerLevel * level) + BonusFlat;
             ValueModifier mod = new ValueModifier(val, ValueModEnum.Flat);
             _affectedValue.AddModifier(mod);
         }
 
-        private float BonusPerLevel => (_container.StoredAttributes[GoverningAttribute].TotalValue * attributeScale) + genericScale;
+        private float BonusPerLevel => (_container.DataHandler.StoredAttributes[GoverningAttribute].TotalValue * attributeScale) + genericScale;
 
-        private float BonusFlat => (_container.StoredAttributes[GoverningAttribute].TotalValue * initialScale) + genericBase;
+        private float BonusFlat => (_container.DataHandler.StoredAttributes[GoverningAttribute].TotalValue * initialScale) + genericBase;
       
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Elebris.Core.Library.Components;
 using Elebris.Core.Library.Saving;
+using Elebris.Rpg.Library.CharacterValues;
 using System;
 
 namespace Elebris.Core.Library.CharacterValues.Mutable
@@ -7,7 +8,7 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
     /// <summary>
     /// This is a very Elebris-Specific class. 
     /// </summary>
-    public class ProgressionValue : ISaveable
+    public class ProgressionValue : CharacterHandler, ISaveable
     {
         //stored and temporary experience, sanity, Profession Skill
 
@@ -17,6 +18,10 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
         private int level;
         public int Level { get => level; set => level = value; }
 
+        public ProgressionValue(CharacterValueContainer container) : base(container)
+        {
+
+        }
         public int GetTotalExperience()
         {
             return (int)ExperiencePoints;
@@ -24,7 +29,6 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
         public event Action onExperienceGained;
         public event Action<int> onLevelGained;
 
-        public event Action onLevelUpGeneric; //generic no value version
 
         public void GainExperience(float experience)
         {
@@ -36,7 +40,6 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
         {
             Level++;
             if(onLevelGained != null)onLevelGained(Level);
-            onLevelUpGeneric();
         }
         public float GetCurrentPoints()
         {
