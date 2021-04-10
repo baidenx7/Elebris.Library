@@ -15,51 +15,26 @@
         //Leech
         //PercentMitigation
         ChargeReduction,
-        ChargeMoveSpeedIncrease,
+        ChargeMoveSpeedModifier,
         //ChargeValueIncrease,
+
         ReserveCost,
-        HealthRegeneration,
-        StaminaRegeneration,
-        SpiritRegeneration,
-        ManaRegeneration,
+        GlobalResourceRegeneration,
+        GlobalResourceRegenerationRate,
+
         MoveSpeed,
         OverBurdenedPenaltyScale,
         WeightLimit,
+        //Replace with capacity + slot like Idleon?
     
         AttackSpeed,
         MaxAttackSpeed,
 
-        GlobalCritChance,
-        RangedCritChance,
-        SpellCritChance,
-        PhysicalCritChance,
-
-        GlobalCritDamage,
-        RangedCritDamage,
-        SpellCritDamage,
-        PhysicalCritDamage,
-
-        RangedDamage,
-        SpellDamage,
-        PhysicalDamage,
-
-        RangedArmor,
-        SpellArmor,
-        PhysicalArmor,
-
-        RangedResistance,
-        SpellResistance,
-        PhysicalResistance,
-
         MaxResistance,
 
-        OutgoingHealShieldEffectScale,
-        IncomingHealShieldScale,
 
         ActionLockScale,
-        WeaponDurabilityLossChance,
-        ArmorDurabilityLossChance,
-        IncreasedDurabilityDamage,
+        
         MaxSummonCapacity,
         BoostedMinionDamage,
         BoostedMinionDuration,
@@ -68,8 +43,6 @@
         WorkResourcesRecovered,
         ItemCooldownReduction,
 
-        StatusEffectReduction,
-        StatusTimeReduction,
         MaxCastSpeed,
         MaxChannelSpeed,
 
@@ -78,35 +51,16 @@
 
         ProjectileSpeed,
 
-        SkillAreaSize,
-        AttackRange,
+        ActionRange,
+        WeaponRange,
 
         SkillDuration,
         //ActionDamage,
         CostReduction,
-        SpiritResource,
-        StaminaResource,
-        ManaResource,
-        HealthResource,
-        BarrierResource,
-    }
 
-    public enum DerivedStats
-    {
         Brawn,
         Ability,
         Dexterity
-    }
-
-    //For specification not inserting
-
-    public enum BaseStatType
-    {
-        Damage,
-        Armor,
-        Resource,
-        Chance,
-        Mitigation
     }
 
 }

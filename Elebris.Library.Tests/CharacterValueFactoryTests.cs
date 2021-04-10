@@ -1,16 +1,6 @@
-﻿using Elebris.Rpg.Library.CharacterSystems.UnitGeneration;
-using Elebris.Rpg.Library.Config;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
-
-namespace Elebris.Library.Tests
+﻿namespace Elebris.Library.Tests
 {
-
-    public class CharacterAttributeTests
+    public class CharacterValueFactoryTests
     {
         [Fact]
         public void GenerateClassAttributeSet_ShouldReturnDict()
@@ -61,11 +51,11 @@ namespace Elebris.Library.Tests
 
             Assert.Equal(expected, actual);
         }
-            //[Theory]
-            //[InlineData](params)
-            //[InlineData](params)
-            //[InlineData](params)
-            //[InlineData](params)
-            //Method(params)
+        //[Theory]
+        //[InlineData](params)
+        //[InlineData](params)
+        //[InlineData](params)
+        //[InlineData](params)
+        //Method(params)}
+
     }
-}

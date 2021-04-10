@@ -1,5 +1,7 @@
 ﻿using Elebris.Core.Library.CharacterValues.Mutable;
+using Elebris.Rpg.Library.CharacterSystems.MutableValues;
 using Elebris.Rpg.Library.CharacterValues;
+using Elebris.Rpg.Library.Enums;
 using Elebris.UnitCreation.Library.StatGeneration;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ namespace Elebris.Rpg.Library.StatGeneration
 {
     public static class TestPopulator
     {
-        public static void PopulateUnit(ref CharacterValueContainer container)
+        public static void PopulateUnit(ref Character container)
         {
             FillAttributes(ref container);
 
@@ -16,23 +18,23 @@ namespace Elebris.Rpg.Library.StatGeneration
             FillResources(ref container);
         }
 
-        private static void FillAttributes(ref CharacterValueContainer container)
+        private static void FillAttributes(ref Character container)
         {
-            container.StoredAttributes = new Dictionary<Attributes, StatValue>();
+            container.ValueHandler.StoredAttributes = new Dictionary<Attributes, StatValue>();
             foreach (var item in Enum.GetNames(typeof(Attributes)))
             {
-                container.StoredAttributes.Add((Attributes)Enum.Parse(typeof(Attributes), item),new StatValue(6));
+                container.ValueHandler.StoredAttributes.Add((Attributes)Enum.Parse(typeof(Attributes), item),new StatValue(6));
             }
         }
 
-        private static void FillResources(ref CharacterValueContainer container, float val = 10)
+        private static void FillResources(ref Character container, float val = 10)
         {
 
-            container.StoredResourceBars = new Dictionary<ResourceStats, ResourceBarValue>();
+            container.ResourceHandler.StoredResourceBars = new Dictionary<Resource, ResourceBarValue>();
 
-            foreach (var item in Enum.GetNames(typeof(ResourceStats)))
+            foreach (var item in Enum.GetNames(typeof(Resource)))
             {
-                container.StoredResourceBars.Add((ResourceStats)Enum.Parse(typeof(ResourceStats),item), new ResourceBarValue(val));
+                container.ResourceHandler.StoredResourceBars.Add((Resource)Enum.Parse(typeof(Resource),item), new ResourceBarValue(val));
             }
         }
     }

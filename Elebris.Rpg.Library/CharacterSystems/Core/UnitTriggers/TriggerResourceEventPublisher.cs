@@ -31,4 +31,4 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core.UnitTriggers
         }
     }
 
-}
+

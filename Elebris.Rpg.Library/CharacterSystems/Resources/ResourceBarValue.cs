@@ -1,4 +1,5 @@
 ﻿using Elebris.Rpg.Library.CharacterSystems.Core.UnitTriggers;
+using Elebris.Rpg.Library.CharacterSystems.MutableValues;
 using Elebris.Rpg.Library.Enums;
 using System;
 
@@ -7,12 +8,15 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
     public class ResourceBarValue 
     {
         private float currentValue = 10;
-        private float maxValue = 10;
+        private StatValue maxValue = new StatValue(10);
         private float missingValue = 0;
+
+        private StatValue _regenerationValue;
+        private StatValue _reserveAmount;
 
         public ResourceBarValue(float maxValue, float missingValue = 0) 
         {
-            MaxValue = maxValue;
+            MaxValue = new StatValue(maxValue);
             this.missingValue = missingValue;
         }
       
@@ -22,9 +26,9 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
             get => currentValue;
             set
             {
-                if (currentValue >= MaxValue)
+                if (currentValue >= MaxValue.TotalValue)
                 {
-                    currentValue = MaxValue;
+                    currentValue = MaxValue.TotalValue;
                 }
                 else if (currentValue <= 0)
                 {
@@ -34,7 +38,7 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
                 currentValue = value;
             }
         }
-        public float MaxValue
+        public StatValue MaxValue
         {
             get
             {
@@ -54,10 +58,12 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
             currentValue = MaxValue - missing;
         }
 
-        public float CurrentValuePercent => currentValue / maxValue;
+        public float CurrentValuePercent => currentValue / maxValue.TotalValue;
 
-        public float MissingValuePercent => (maxValue - currentValue) / maxValue;
-        public float MissingValue => maxValue - currentValue;
+        public float MissingValuePercent => (maxValue.TotalValue - currentValue) / maxValue.TotalValue;
+        public float MissingValue => maxValue.TotalValue - currentValue;
 
+        public StatValue RegenerationValue { get => _regenerationValue; set => _regenerationValue = value; }
+        public StatValue ReserveAmount { get => _reserveAmount; set => _reserveAmount = value; }
     }
 }

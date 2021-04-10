@@ -7,4 +7,6 @@ namespace Elebris.Core.Library.Enums.Tags
         Ranged,
         Spell,
     }
+
+
 }

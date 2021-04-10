@@ -8,7 +8,7 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
     /// <summary>
     /// This is a very Elebris-Specific class. 
     /// </summary>
-    public class ProgressionValue : CharacterHandler, ISaveable
+    public class ProgressionValue : ISaveable
     {
         //stored and temporary experience, sanity, Profession Skill
 
@@ -18,10 +18,6 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
         private int level;
         public int Level { get => level; set => level = value; }
 
-        public ProgressionValue(CharacterValueContainer container) : base(container)
-        {
-
-        }
         public int GetTotalExperience()
         {
             return (int)ExperiencePoints;

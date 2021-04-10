@@ -1,4 +1,4 @@
-﻿namespace Elebris.Core.Library.Components
+﻿namespace Elebris.Rpg.Library.CharacterSystems.Core.Containers
 {
     public enum BindableActions
     {

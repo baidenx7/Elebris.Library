@@ -5,7 +5,7 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core.UnitTriggers
 {
     public struct TriggerResourceEventModel
     {
-        public TriggerResourceEventModel(TriggerEventState eventState, TriggerEventType eventType, ResourceStats resource)
+        public TriggerResourceEventModel(TriggerEventState eventState, TriggerEventType eventType, Resource resource)
         {
             EventState = eventState;
             EventType = eventType;
@@ -14,7 +14,7 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core.UnitTriggers
 
         public TriggerEventState EventState { get; set; }
         public TriggerEventType EventType { get; set; }
-        public ResourceStats Resource { get; set; }
+        public Resource Resource { get; set; }
     }
 
 }

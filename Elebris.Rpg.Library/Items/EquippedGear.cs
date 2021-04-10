@@ -62,12 +62,12 @@ namespace Elebris.Core.Library.Items
             }
         }
 
-        public virtual void OnEquip(CharacterValueContainer character)
+        public virtual void OnEquip(Character character)
         {
             
         }
 
-        public virtual void OnUnEquip(CharacterValueContainer character)
+        public virtual void OnUnEquip(Character character)
         {
            
         }

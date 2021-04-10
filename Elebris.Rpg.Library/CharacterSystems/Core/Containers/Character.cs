@@ -1,4 +1,5 @@
 ﻿using Elebris.Core.Library.CharacterValues.Mutable;
+using Elebris.Core.Library.Components;
 using Elebris.Core.Library.Enums;
 using Elebris.Core.Library.Objects;
 using Elebris.Rpg.Library.CharacterSystems.Core;
@@ -12,27 +13,26 @@ using System.Text;
 namespace Elebris.Rpg.Library.CharacterValues
 {
 
-    public class CharacterValueContainer
+    public class Character
     {
-        public CharacterValueContainer()
+        public Character()
         {
-            DataHandler = new CharacterDataHandler(this);
-            TriggerHandler = new CharacterEventAggregator();
+            //Should my factories be directly hooked up here?
+            ValueHandler = new CharacterValueHandler(this);
+            EventHandler = new CharacterEventAggregator();
             ResourceHandler = new CharacterResourceHandler(this);
             ProgressionHandler = new CharacterProgressionHandler(this);
-            BioHandler = new CharacterBioHandler(this);
+            DataHandler = new CharacterDataHandler(this);
+            GearHandler = new CharacterGearHandler(this);
 
-
+            //UpdateManipulators
         }
 
-        public CharacterDataHandler DataHandler { get; set; }
-        public CharacterEventAggregator TriggerHandler { get; set; }
-
+        public CharacterValueHandler ValueHandler { get; set; }
+        public CharacterEventAggregator EventHandler { get; set; }
         public CharacterResourceHandler ResourceHandler { get; set; }
         public CharacterProgressionHandler ProgressionHandler { get; set; }
-        public CharacterBioHandler BioHandler { get; set; }
-      
-
-
+        public CharacterDataHandler DataHandler { get; set; }
+        public CharacterGearHandler GearHandler { get; set; }
     }
 }

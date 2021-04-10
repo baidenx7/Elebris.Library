@@ -13,30 +13,30 @@ namespace Elebris.Rpg.Library.Actions.Calculations
 {
     public static partial class ActionCalculationController
     {
-        public static void CalculateDamageAction(CharacterValueContainer target, DamageAction action)
+        public static void CalculateDamageAction(Character target, DamageAction action)
         {
 
             //get the value here, 
-            if(!ExceededBarrier(ref action.value, (float)target.DataHandler.RetrieveValue(ResourceStats.BarrierResource), action.Subtype == ActionSubtype.Energy))
+            if(!ExceededBarrier(ref action.value, target.ResourceHandler.StoredResourceBars[Resource.Barrier].CurrentValue, action.Subtype == ActionSubtype.Energy))
             {
-                target.DataHandler.ModifyResourceValue(ResourceStats.BarrierResource, -action.value);
+                target.ResourceHandler.ModifyResourceValue(Resource.Barrier, -action.value);
             }
             else
             {
-                target.DataHandler.ModifyResourceValue(ResourceStats.BarrierResource, -(float)target.DataHandler.RetrieveValue(ResourceStats.BarrierResource));
+                target.ResourceHandler.ModifyResourceValue(Resource.Barrier, -target.ResourceHandler.StoredResourceBars[Resource.Barrier].CurrentValue);
             }
             CheckCritical(ref action.value, action.ActionCritChance.TotalValue, action.ActionCritMultipler.TotalValue);
 
-            CheckDamageReductionPercent(ref action.value, target.DataHandler.RetrieveArmorValue(action.Type)); //deal damage agains the relevant armor type
+            CheckDamageReductionPercent(ref action.value, target.ValueHandler.RetrieveArmorValue(action.Type)); //deal damage agains the relevant armor type
 
             CheckUnprotected(ref action.value); //if targetted armor is broken deal more dmg
 
-            DamageReductionFlat(ref action.value, target.DataHandler.RetrieveMitigation(action.Type));
+            DamageReductionFlat(ref action.value, target.ValueHandler.RetrieveMitigation(action.Type));
 
-            CheckWeakness(ref action.value, (WeaknessValue)target.DataHandler.RetrieveValue(action.Element));
+            CheckWeakness(ref action.value, target.ValueHandler.RetrieveWeaknessValue(action.Element));
 
             //modify armor durability
-            target.DataHandler.ModifyResourceValue(ResourceStats.HealthResource, -action.value);
+            target.ResourceHandler.ModifyResourceValue(Resource.Health, -action.value);
         }
 
 

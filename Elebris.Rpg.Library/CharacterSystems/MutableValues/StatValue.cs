@@ -1,9 +1,10 @@
-﻿using Elebris.Core.Library.Enums;
+﻿using Elebris.Core.Library.CharacterValues.Mutable;
+using Elebris.Core.Library.Enums;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Elebris.Core.Library.CharacterValues.Mutable
+namespace Elebris.Rpg.Library.CharacterSystems.MutableValues
 {
     /// <summary>
     /// https://forum.unity.com/threads/tutorial-character-stats-aka-attributes-system.504095/

@@ -8,9 +8,9 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
     public class StatManipulationValues
     {
 
-        internal CharacterValueContainer _container;
+        internal Character _container;
 
-        internal StatManipulationValues(CharacterValueContainer container)
+        internal StatManipulationValues(Character container)
         {
             _container = container;
 

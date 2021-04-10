@@ -1,6 +1,7 @@
 ﻿using Elebris.Rpg.Library.CharacterValues;
 using Elebris.Core.Library.CharacterValues.Mutable;
 using System.Collections.Generic;
+using Elebris.Rpg.Library.CharacterSystems.Core.Containers;
 
 namespace Elebris.Rpg.Library.CharacterSystems.Core
 {
@@ -10,14 +11,15 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core
     /// </summary>
     /// 
 
-    public class CharacterBioHandler : CharacterHandler
+    public class CharacterDataHandler : CharacterHandler
     {
 
         public Dictionary<string, CharacterClassHolder> StoredClasses { get; set; }
         public Dictionary<string, CharacterProfessionHolder> StoredProfessions { get; set; }
-        public CharacterBioHandler(CharacterValueContainer container) : base(container)
+        public CharacterDataHandler(Character container) : base(container)
         {
-
+            StoredClasses = new Dictionary<string, CharacterClassHolder>();
+            StoredProfessions = new Dictionary<string, CharacterProfessionHolder>();
         }
 
     }

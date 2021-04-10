@@ -1,4 +1,4 @@
-namespace Elebris.UnitCreation.Library.StatGeneration
+namespace Elebris.Rpg.Library.Enums
 {
     //this is not my recommended way of enforcing types, I would recommend passing "StatData" references around from Scriptable objects(in unity) if possible.
 

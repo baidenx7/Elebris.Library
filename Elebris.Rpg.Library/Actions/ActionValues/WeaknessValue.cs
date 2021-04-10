@@ -17,18 +17,21 @@ namespace Elebris.Core.Library.Objects
         }
         public WeaknessValue(float value = 0)
         {
-            Value = value;
+           _value = value;
         }
-
-        public float Value { get; set; }
+        private float _value;
+        public float Value()
+        {
+            return _value;
+        }
         public WeaknessScale Resistance
         {
             get
             {
-                if (Value >= Constants.DEFAULT_IMMUNE_VALUE) return WeaknessScale.Immune;
-                else if (Value >= Constants.DEFAULT_RESIST_VALUE) return WeaknessScale.Resist;
-                else if (Value >= Constants.DEFAULT_NEUTRAL_VALUE) return WeaknessScale.Neutral;
-                else if (Value >= Constants.DEFAULT_WEAK_VALUE) return WeaknessScale.Weak;
+                if (_value >= Constants.DEFAULT_IMMUNE_VALUE) return WeaknessScale.Immune;
+                else if (_value >= Constants.DEFAULT_RESIST_VALUE) return WeaknessScale.Resist;
+                else if (_value >= Constants.DEFAULT_NEUTRAL_VALUE) return WeaknessScale.Neutral;
+                else if (_value >= Constants.DEFAULT_WEAK_VALUE) return WeaknessScale.Weak;
                 else return WeaknessScale.Dire;
 
             }

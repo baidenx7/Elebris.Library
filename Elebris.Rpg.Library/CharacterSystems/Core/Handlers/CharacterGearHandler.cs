@@ -7,13 +7,13 @@ using System.Collections.Generic;
 
 namespace Elebris.Core.Library.Components
 {
-    public class CharacterGearContainer
+    public class CharacterGearHandler : CharacterHandler
     {
-        CharacterValueContainer characterContainer;
+        Character characterContainer;
         //switch to list later? should work fine for now
         Dictionary<EquipSlot, IEquippable> EquippedGear = new Dictionary<EquipSlot, IEquippable>();
 
-        public CharacterGearContainer(CharacterValueContainer container)
+        public CharacterGearHandler(Character container) : base(container)
         {
             characterContainer = container;
             //EquippedGear.Add(EquipSlot.WieldedLeft, new GearHolder(characterContainer));

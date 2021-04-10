@@ -2,9 +2,9 @@
 {
     public class CharacterHandler
     {
-        internal readonly CharacterValueContainer _container;
+        internal readonly Character _container;
 
-        public CharacterHandler(CharacterValueContainer container)
+        public CharacterHandler(Character container)
         {
             _container = container;
         }

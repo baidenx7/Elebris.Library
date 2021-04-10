@@ -1,5 +1,5 @@
-﻿using Elebris.Core.Library.CharacterValues.Mutable;
-using Elebris.Core.Library.Enums.Tags;
+﻿using Elebris.Core.Library.Enums.Tags;
+using Elebris.Rpg.Library.CharacterSystems.MutableValues;
 using Elebris.UnitCreation.Library.StatGeneration;
 using System;
 using System.Collections.Generic;
@@ -26,10 +26,16 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core.Models
 
         public StatValue ArmorValue { get; set; }
         public StatValue MitigationValue { get; set; }
+
+        //ArmorReduction
+        //ArmorPierce/Penetration
         public StatValue DamageValue { get; set; }
+
         public StatValue CritDamage { get; set; }
         public StatValue CritChance { get; set; }
 
 
     }
+
+
 }

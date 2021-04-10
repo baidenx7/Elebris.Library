@@ -9,6 +9,7 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core.UnitEvents
     {
         public HashSet<TriggerEventPublisher> TriggerVoidEventSet = new HashSet<TriggerEventPublisher>();
         public HashSet<TriggerResourceEventPublisher> TriggerResourceEventSet = new HashSet<TriggerResourceEventPublisher>();
+
         public void SubscribeToEvent(TriggerEventModel model, TriggerEventSubscriber subscriber)
         {
             bool wasFound = false;

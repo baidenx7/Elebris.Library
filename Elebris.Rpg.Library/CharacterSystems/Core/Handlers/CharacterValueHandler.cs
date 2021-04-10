@@ -9,47 +9,55 @@ using Elebris.Rpg.Library.StatGeneration;
 using System.Collections.Generic;
 using Elebris.Core.Library.Objects;
 using Elebris.Rpg.Library.CharacterSystems.Core.Models;
+using Elebris.Rpg.Library.Enums;
+using Elebris.Rpg.Library.CharacterSystems.MutableValues;
 
 namespace Elebris.Rpg.Library.CharacterSystems.Core
 {
-    public class CharacterDataHandler : CharacterHandler
+
+    public class CharacterValueHandler : CharacterHandler
     {
-        internal Dictionary<Attributes, StatValue> StoredAttributes { get; set; }
-        internal Dictionary<Stats, StatValue> StoredStats { get; set; }
-        internal List<IManipulationValue> StoredManipulationValues { get; set; }
-        internal Dictionary<Elements, WeaknessValue> StoredWeaknesses { get; set; }
-        internal List<DamageModel> DamageModels { get; set; } //Link these to Stored Stats
-        public CharacterDataHandler(CharacterValueContainer container) : base(container)
+        public Dictionary<Attributes, StatValue> StoredAttributes { get; set; }
+        public Dictionary<Stats, StatValue> StoredStats { get; set; }
+        public List<IManipulationValue> StoredManipulationValues { get; set; }
+        public Dictionary<Elements, WeaknessValue> StoredWeaknesses { get; set; }
+        public List<DamageModel> DamageModels { get; set; } //Link these to Stored Stats
+        public CharacterValueHandler(Character container) : base(container)
         {
-            //init dicts and lists?
+            StoredAttributes = new Dictionary<Attributes, StatValue>();
+            StoredStats = new Dictionary<Stats, StatValue>();
+            StoredManipulationValues = new List<IManipulationValue>();
+            DamageModels = new List<DamageModel>();
+
         }
 
-        public float RetrieveStatValue(Stats stat)
+        public float RetrieveValue(Stats stat)
         {
-            CheckOrCreateStat(stat);
             StatValue cur = StoredStats[stat];
 
             return cur.TotalValue;
         }
-
-        private void CheckOrCreateStat(Stats stat)
+        public float RetrieveValue(Attributes attribute)
         {
-            if (StoredStats[stat] == null)
-            { //replace this with a call to a factory that knows what "default" values to return
-                StoredStats.Add(stat, new StatValue());
-            }
+            if (attribute == Attributes.None) return 0;
+            StatValue cur = StoredAttributes[attribute];
+
+            return cur.TotalValue;
         }
 
+        public WeaknessValue RetrieveWeaknessValue(Elements element)
+        {
+            return StoredWeaknesses[element];
+        }
+        
         public StatValue CopyStat(Stats stat)
         {
-            CheckOrCreateStat(stat);
             StatValue cur = StoredStats[stat];
             StatValue val = new StatValue(cur.BaseValue);
             foreach (var modifier in cur.ValueModifiers)
             {
                 val.AddModifier(modifier);
             }
-
             return val;
         }
 
@@ -112,6 +120,8 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core
             }
             return 0;
         }
+
+
 
     }
 }

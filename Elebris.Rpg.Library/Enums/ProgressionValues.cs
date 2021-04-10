@@ -3,7 +3,6 @@
     public enum ProgressionValues
     {
         CharacterExperience,
-        ProfessionExperience,
         SanityLevel,
     }
 

@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1E587066
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElebrisApi", "ElebrisApi\ElebrisApi.csproj", "{0C8890D3-68FF-467A-A58C-E4D9B9E1C808}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElebrisConsole", "ElebrisConsole\ElebrisConsole.csproj", "{74C25F37-917F-4D83-A155-13570664402A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{0C8890D3-68FF-467A-A58C-E4D9B9E1C808}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C8890D3-68FF-467A-A58C-E4D9B9E1C808}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C8890D3-68FF-467A-A58C-E4D9B9E1C808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C25F37-917F-4D83-A155-13570664402A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C25F37-917F-4D83-A155-13570664402A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C25F37-917F-4D83-A155-13570664402A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C25F37-917F-4D83-A155-13570664402A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{1DCD92FA-955C-4405-9197-17A58740E369} = {9ED203BA-62CE-49B9-916F-9FA82D76DC0E}
 		{7310BE99-21C1-4D34-95F2-305EC2DA75DF} = {9ED203BA-62CE-49B9-916F-9FA82D76DC0E}
 		{0C8890D3-68FF-467A-A58C-E4D9B9E1C808} = {2E948236-16F0-4A2A-B20E-379A123A049E}
+		{74C25F37-917F-4D83-A155-13570664402A} = {1E587066-5840-4AC7-AD79-4D84284BD653}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {267A787A-7EF1-4792-B7A5-AC0B2306E506}

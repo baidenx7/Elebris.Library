@@ -1,19 +1,17 @@
-﻿using Elebris.Core.Library.Enums;
+﻿
+using Elebris.Core.Library.CharacterValues.Mutable;
+using Elebris.Core.Library.Enums;
 using Elebris.Rpg.Library.CharacterValues;
+using Elebris.Rpg.Library.Enums;
 using Elebris.UnitCreation.Library.StatGeneration;
 using System;
 
-namespace Elebris.Core.Library.CharacterValues.Mutable
+namespace Elebris.Rpg.Library.CharacterSystems.MutableValues
 {
-
-    public interface IManipulationValue
-    {
-        void UpdateLinkedValue();
-    }
 
     public class LevelScalingStatValue : StatManipulationValues, IManipulationValue
     {
-        private readonly StatValue _affectedValue;
+        private readonly Stats _affectedValue;
 
         //private bool roundDown;
         private float genericBase; //regardless of attributes, the value will initialize here
@@ -24,33 +22,44 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
         private float attributeScale;
 
         public Attributes GoverningAttribute { get; } //allows Characters to know what attribute(key) to send in (value)
+    
 
-
-        LevelScalingStatValue(CharacterValueContainer container, StatValue affectedValue,
-            Attributes GoverningAttribute = Attributes.None, float genericBase = 0, float genericScale = 0,
-            float attributeScale = 0, float initialScale = 0) :base(container)
+        public LevelScalingStatValue(
+              Character container
+            , Stats affectedValue
+            , Attributes GoverningAttribute = Attributes.None
+            , float genericBase = 0
+            , float genericScale = 0
+            , float attributeScale = 0
+            , float initialScale = 0
+            ) : base(container)
         {
-            
+
             _affectedValue = affectedValue;
             this.GoverningAttribute = GoverningAttribute;
             this.genericBase = genericBase;
             this.genericScale = genericScale;
             this.initialScale = initialScale;
             this.attributeScale = attributeScale;
+
+            //link to event at construction
         }
 
         public void UpdateLinkedValue()
         {
-            if (_affectedValue != null) _affectedValue.RemoveAllModifiersFromSource(this);
+            if (!_container.ValueHandler.StoredStats.ContainsKey(_affectedValue)) return;
+            
+            _container.ValueHandler.StoredStats[_affectedValue].RemoveAllModifiersFromSource(this);
+            
             float level = _container.ProgressionHandler.StoredProgressionValues[ProgressionValues.CharacterExperience].Level;
-            float val = (BonusPerLevel * level) + BonusFlat;
+            float val = BonusPerLevel * level + BonusFlat;
             ValueModifier mod = new ValueModifier(val, ValueModEnum.Flat);
-            _affectedValue.AddModifier(mod);
+            _container.ValueHandler.StoredStats[_affectedValue].AddModifier(mod);
         }
 
-        private float BonusPerLevel => (_container.DataHandler.StoredAttributes[GoverningAttribute].TotalValue * attributeScale) + genericScale;
+        private float BonusPerLevel => _container.ValueHandler.RetrieveValue(GoverningAttribute) * attributeScale + genericScale;
 
-        private float BonusFlat => (_container.DataHandler.StoredAttributes[GoverningAttribute].TotalValue * initialScale) + genericBase;
-      
+        private float BonusFlat => _container.ValueHandler.RetrieveValue(GoverningAttribute) * initialScale + genericBase;
+
     }
 }

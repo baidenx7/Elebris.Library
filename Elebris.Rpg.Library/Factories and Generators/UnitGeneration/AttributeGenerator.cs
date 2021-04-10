@@ -1,62 +1,63 @@
 ﻿using Elebris.Core.Library.CharacterValues.Mutable;
+using Elebris.Rpg.Library.CharacterSystems.MutableValues;
+using Elebris.Rpg.Library.CharacterValues;
 using Elebris.Rpg.Library.Config;
-using Elebris.UnitCreation.Library.StatGeneration;
+using Elebris.Rpg.Library.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Elebris.Rpg.Library.CharacterSystems.UnitGeneration
 {
-    //internal or public?
-    public static class AttributeSetGenerator
+    //internal ?
+    public static class AttributeGenerator
     {
-        public static Dictionary<string, int> GenerateClassAttributeSet()
+        public static void GenerateClassAttributeSet(Character container)
         {
-            Dictionary<string, int> characterBiasAttributes = new Dictionary<string, int>();
+            Dictionary<Attributes, int> characterBiasAttributes = new Dictionary<Attributes, int>();
             PopulateDictionary(ref characterBiasAttributes, Constants.DEFAULT_BIAS_VALUE);
-            Dictionary<string, int> characterAttributes = RollAttributes(characterBiasAttributes);
-            Dictionary<string, int> modifiedAttributes = new Dictionary<string, int>();
+            Dictionary<Attributes, int> characterAttributes = RollAttributes(characterBiasAttributes);
             foreach (var item in characterAttributes.Keys)
             {
-                modifiedAttributes.Add(item, characterAttributes[item]);
+                StatValue val = new StatValue(characterAttributes[item]);
+                container.ValueHandler.StoredAttributes.Add(item, val);
             }
-            return modifiedAttributes;
+
         }
-        public static Dictionary<string, int> GenerateClassAttributeSet(params string[] classAttributes)
+        public static void GenerateClassAttributeSet(Dictionary<Attributes, StatValue> attributedict, params Attributes[] classAttributes)
         {
             //Set default values
-            Dictionary<string, int> characterBiasAttributes = new Dictionary<string, int>();
+            Dictionary<Attributes, int> characterBiasAttributes = new Dictionary<Attributes, int>();
             PopulateDictionary(ref characterBiasAttributes, Constants.DEFAULT_BIAS_VALUE);
 
             //add modifiers by class to values
             GenerateCharacterBias(ref characterBiasAttributes, classAttributes);
             //Take the values, create a biaslist to be randomly selected from
             //then roll until (max) values are assigned
-            Dictionary<string, int> characterAttributes = RollAttributes(characterBiasAttributes);
-            Dictionary<string, int> modifiedAttributes = new Dictionary<string, int>();
+            Dictionary<Attributes, int> characterAttributes = RollAttributes(characterBiasAttributes);
             foreach (var item in characterAttributes.Keys)
             {
-                modifiedAttributes.Add(item, characterAttributes[item]);
+                StatValue val = new StatValue(characterAttributes[item]);
+                attributedict.Add(item, val);
             }
-            return modifiedAttributes;
         }
 
-        private static void PopulateDictionary(ref Dictionary<string, int> characterBiasAttributes, int value)
+        private static void PopulateDictionary(ref Dictionary<Attributes, int> characterBiasAttributes, int value)
         {
-            characterBiasAttributes.Add(Attributes.Agility.ToString(), value);
-            characterBiasAttributes.Add(Attributes.Expertise.ToString(), value);
-            characterBiasAttributes.Add(Attributes.Intelligence.ToString(), value);
-            characterBiasAttributes.Add(Attributes.Wisdom.ToString(), value);
-            characterBiasAttributes.Add(Attributes.Strength.ToString(), value);
-            characterBiasAttributes.Add(Attributes.Constitution.ToString(), value);
+            characterBiasAttributes.Add(Attributes.Agility, value);
+            characterBiasAttributes.Add(Attributes.Expertise, value);
+            characterBiasAttributes.Add(Attributes.Intelligence, value);
+            characterBiasAttributes.Add(Attributes.Wisdom, value);
+            characterBiasAttributes.Add(Attributes.Strength, value);
+            characterBiasAttributes.Add(Attributes.Constitution, value);
         }
 
-        private static void GenerateCharacterBias(ref Dictionary<string, int> characterBiasAttributes, params string[] classAttributes)
+        private static void GenerateCharacterBias(ref Dictionary<Attributes, int> characterBiasAttributes, params Attributes[] classAttributes)
         {
             //For each matching attribute
-            foreach (string charItem in characterBiasAttributes.Keys.ToList())
+            foreach (var charItem in characterBiasAttributes.Keys.ToList())
             {
-                foreach (string classItem in classAttributes)
+                foreach (var classItem in classAttributes)
                 {
                     if (charItem == classItem)
                     {
@@ -66,14 +67,14 @@ namespace Elebris.Rpg.Library.CharacterSystems.UnitGeneration
             }
         }
 
-        private static Dictionary<string, int> RollAttributes(Dictionary<string, int> attributeBias)
+        private static Dictionary<Attributes, int> RollAttributes(Dictionary<Attributes, int> attributeBias)
         {
             Random rand = new Random();
-            Dictionary<string, int> attributes = new Dictionary<string, int>(); //what does this do
+            Dictionary<Attributes, int> attributes = new Dictionary<Attributes, int>(); //what does this do
 
             PopulateDictionary(ref attributes, Constants.DEFAULT_ATTRIBUTE_VALUE);
 
-            string[] convertedBiasList = GenerateBiasArray(attributeBias);
+            Attributes[] convertedBiasList = GenerateBiasArray(attributeBias);
             while (attributes.Sum(item => item.Value) < Constants.DEFAULT_MAX_TOTAL_VALUE)
             {
                 //for each attribute check if the random roll returned value matches, if it does add one to that particular attribute
@@ -82,7 +83,7 @@ namespace Elebris.Rpg.Library.CharacterSystems.UnitGeneration
                 {
                     if (attributes.ElementAt(i).Key == convertedBiasList[randomRoll])
                     {
-                        string current = convertedBiasList[randomRoll];
+                        Attributes current = convertedBiasList[randomRoll];
                         attributes[current] = attributes[current] + 1 > Constants.DEFAULT_MAX_ATTRIBUTE_VALUE ? Constants.DEFAULT_MAX_ATTRIBUTE_VALUE : attributes[current] + 1;
                         break;
                     }
@@ -91,9 +92,9 @@ namespace Elebris.Rpg.Library.CharacterSystems.UnitGeneration
             return attributes;
         }
 
-        private static string[] GenerateBiasArray(Dictionary<string, int> biasList)
+        private static Attributes[] GenerateBiasArray(Dictionary<Attributes, int> biasList)
         {
-            List<string> biasDataList = new List<string>();
+            List<Attributes> biasDataList = new List<Attributes>();
 
             if (biasList != null)
             {
@@ -108,12 +109,6 @@ namespace Elebris.Rpg.Library.CharacterSystems.UnitGeneration
             //returns a large list filled with different enum values
             return biasDataList.ToArray();
         }
-
-    }
-
-
-    public static class StatCreator
-    {
 
     }
 
