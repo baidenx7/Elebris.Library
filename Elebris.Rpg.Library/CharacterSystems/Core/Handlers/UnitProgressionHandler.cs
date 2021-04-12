@@ -6,10 +6,10 @@ using System.Collections.Generic;
 namespace Elebris.Rpg.Library.CharacterSystems.Core
 {
 
-    public class CharacterProgressionHandler : CharacterHandler
+    public class UnitProgressionHandler : CharacterHandler
     {
         public Dictionary<ProgressionValues, ProgressionValue> StoredProgressionValues { get; set; }
-        public CharacterProgressionHandler(Character container) : base(container)
+        public UnitProgressionHandler(Unit container) : base(container)
         {
             StoredProgressionValues = new Dictionary<ProgressionValues, ProgressionValue>();
         }

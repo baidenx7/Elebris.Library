@@ -38,12 +38,12 @@ namespace Elebris.Core.Library.Items
         public enum WeaponCategory {Sword, Axe, Bow, Dagger, Staff, Fist  } //Later populate this via scriptableobject or database instead
 
 
-        public override void OnEquip(Character character)
+        public override void OnEquip(Unit character)
         {
 
         }
 
-        public override void OnUnEquip(Character character)
+        public override void OnUnEquip(Unit character)
         {
 
         }

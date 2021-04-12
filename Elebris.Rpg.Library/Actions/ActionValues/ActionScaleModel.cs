@@ -22,7 +22,7 @@ namespace Elebris.Actions.Library.Actions.Core
             this.scale = scale;
         }
 
-        public float ReturnValue(Character container)
+        public float ReturnValue(Unit container)
         {
             if(scaleStat != null)
             {
@@ -30,7 +30,7 @@ namespace Elebris.Actions.Library.Actions.Core
             }
             return 0;
         }
-        public float ReturnValue(Character container, float value)
+        public float ReturnValue(Unit container, float value)
         {
             return flat + (scale * value);
           

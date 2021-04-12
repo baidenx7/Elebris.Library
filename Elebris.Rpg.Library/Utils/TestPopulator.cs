@@ -10,7 +10,7 @@ namespace Elebris.Rpg.Library.StatGeneration
 {
     public static class TestPopulator
     {
-        public static void PopulateUnit(ref Character container)
+        public static void PopulateUnit(ref Unit container)
         {
             FillAttributes(ref container);
 
@@ -18,7 +18,7 @@ namespace Elebris.Rpg.Library.StatGeneration
             FillResources(ref container);
         }
 
-        private static void FillAttributes(ref Character container)
+        private static void FillAttributes(ref Unit container)
         {
             container.ValueHandler.StoredAttributes = new Dictionary<Attributes, StatValue>();
             foreach (var item in Enum.GetNames(typeof(Attributes)))
@@ -27,7 +27,7 @@ namespace Elebris.Rpg.Library.StatGeneration
             }
         }
 
-        private static void FillResources(ref Character container, float val = 10)
+        private static void FillResources(ref Unit container, float val = 10)
         {
 
             container.ResourceHandler.StoredResourceBars = new Dictionary<Resource, ResourceBarValue>();

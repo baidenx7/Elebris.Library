@@ -16,6 +16,9 @@
     <None Remove="Events\**" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="Generation\Units\ManipulatorSetFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="TagSystem\EnumGenerator.tt" />
   </ItemGroup>
 
@@ -24,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Generation\Units\Modules\" />
     <Folder Include="Internal\" />
   </ItemGroup>
 

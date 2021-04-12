@@ -10,12 +10,12 @@ namespace Elebris.Core.Library.CharacterValues.Mutable
     /// </summary>
     /// 
 
-    public class CharacterResourceHandler: CharacterHandler
+    public class UnitResourceHandler: CharacterHandler
     {
         /// 4/6/21 whatif I create a resource handler isntead of having each resource track itself, and just pass damage through the handler, 
         /// managing event calls there rather than in the resourcebalue itself
         internal Dictionary<Resource, ResourceBarValue> StoredResourceBars { get; set; }
-        public CharacterResourceHandler(Character container) : base(container)
+        public UnitResourceHandler(Unit container) : base(container)
         {
             
             StoredResourceBars = new Dictionary<Resource, ResourceBarValue>();

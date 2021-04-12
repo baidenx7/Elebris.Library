@@ -1,11 +1,9 @@
 ﻿using Elebris.Rpg.Library.CharacterSystems.Core.UnitTriggers;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Elebris.Rpg.Library.CharacterSystems.Core.UnitEvents
+namespace Elebris.Rpg.Library.CharacterSystems.UnitGeneration
 {
-    public class CharacterEventAggregator
+    public class UnitEventHandler
     {
         public HashSet<TriggerEventPublisher> TriggerVoidEventSet = new HashSet<TriggerEventPublisher>();
         public HashSet<TriggerResourceEventPublisher> TriggerResourceEventSet = new HashSet<TriggerResourceEventPublisher>();
@@ -65,7 +63,7 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core.UnitEvents
                 SubscribeToEvent(model, subscriber);//Run once more to add subsccriber to the newly created publisher
             }
         }
-       
+
         internal void TriggerEvent(TriggerResourceEventModel model)
         {
             foreach (var item in TriggerResourceEventSet)

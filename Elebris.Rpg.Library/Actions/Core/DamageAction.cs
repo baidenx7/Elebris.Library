@@ -16,7 +16,7 @@ namespace Elebris.Actions.Library.Actions.Core
 
         public StatValue PreparedValue;
         ActionScaleModel calc;
-        public Character User { get; set; }
+        public Unit User { get; set; }
 
         public DamageAction(ActionScaleModel valueCalculator, ActionDamageType type, ActionSubtype subtype, Elements element, float actionCritChance, float actionMultipler = 0)
         {
@@ -35,13 +35,13 @@ namespace Elebris.Actions.Library.Actions.Core
         public StatValue ActionCritChance { get; set; } //constructed by character using the action + any base from the DamageActionBehaviour
         public StatValue ActionCritMultipler { get; set; } //constructed by character using the action
         
-        public void Execute(Character target)
+        public void Execute(Unit target)
         {
             value = PreparedValue.TotalValue;
             ActionCalculationController.CalculateDamageAction(target, this);
         }
 
-        public void DefineAction(Character user)
+        public void DefineAction(Unit user)
         {
             User = user;
             PreparedValue.BaseValue = calc.ReturnValue(User);
@@ -55,11 +55,11 @@ namespace Elebris.Actions.Library.Actions.Core
     {
         public float value;
 
-        public void Execute(Character target)
+        public void Execute(Unit target)
         {
 
         }
-        public void DefineAction(Character user)
+        public void DefineAction(Unit user)
         {
 
         }
@@ -67,11 +67,11 @@ namespace Elebris.Actions.Library.Actions.Core
     public class BuffAction : ICoreAction
     {
 
-        public void Execute(Character target)
+        public void Execute(Unit target)
         {
 
         }
-        public void DefineAction(Character user)
+        public void DefineAction(Unit user)
         {
 
         }
@@ -79,11 +79,11 @@ namespace Elebris.Actions.Library.Actions.Core
     public class DebuffAction : ICoreAction
     {
 
-        public void Execute(Character target)
+        public void Execute(Unit target)
         {
 
         }
-        public void DefineAction(Character user)
+        public void DefineAction(Unit user)
         {
 
         }
@@ -91,8 +91,8 @@ namespace Elebris.Actions.Library.Actions.Core
 
     public interface ICoreAction
     {
-        void Execute(Character target);
-        void DefineAction(Character user);
+        void Execute(Unit target);
+        void DefineAction(Unit user);
         //check if any passives apply to the particular action-type based on what action type it is, what kind of damage it deals etc
 
 

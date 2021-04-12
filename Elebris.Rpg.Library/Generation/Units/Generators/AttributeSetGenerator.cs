@@ -10,9 +10,9 @@ using System.Linq;
 namespace Elebris.Rpg.Library.CharacterSystems.UnitGeneration
 {
     //internal ?
-    public static class AttributeGenerator
+    internal static class AttributeSetGenerator
     {
-        public static void GenerateClassAttributeSet(Character container)
+        public static void GenerateClassAttributeSet(Unit container)
         {
             Dictionary<Attributes, int> characterBiasAttributes = new Dictionary<Attributes, int>();
             PopulateDictionary(ref characterBiasAttributes, Constants.DEFAULT_BIAS_VALUE);

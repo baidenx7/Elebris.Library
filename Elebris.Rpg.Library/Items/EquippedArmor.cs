@@ -20,14 +20,14 @@ namespace Elebris.Core.Library.Items
         }
         //if value <= 0 hide it
 
-        public override void OnEquip(Character container)
+        public override void OnEquip(Unit container)
         {
             //container.StoredStats.UpsertFlatValue(SpellValue.type.ToString() + "Armor", SpellValue.Value.TotalValue);
             //container.CharacterDefensiveResources.UpsertFlatValue(PhysicalValue.type.ToString() + "Armor", PhysicalValue.Value.TotalValue);
             //container.CharacterDefensiveResources.UpsertFlatValue(RangedValue.type.ToString() + "Armor", RangedValue.Value.TotalValue);
         }
 
-        public override void OnUnEquip(Character container)
+        public override void OnUnEquip(Unit container)
         {
             //container.CharacterDefensiveResources.RemoveAllModsFromSource(this);
         }

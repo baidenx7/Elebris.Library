@@ -9,7 +9,7 @@ namespace ElebrisConsole
     {
         static void Main(string[] args)
         {
-            Character character = CharacterFactory.CreateCharacter();
+            Unit character = UnitFactory.CreateUnit();
 
 
             Console.WriteLine("CharacterCreated");

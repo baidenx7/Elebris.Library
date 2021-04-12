@@ -13,12 +13,12 @@ namespace Elebris.Library.Tests
     public class CharacterResourceHandlerTests
     {
         private readonly ITestOutputHelper _output;
-        private Character _characterContainer;
+        private Unit _characterContainer;
 
         public CharacterResourceHandlerTests(ITestOutputHelper output)
         {
             _output = output;
-            _characterContainer = CharacterFactory.CreateCharacter();
+            _characterContainer = UnitFactory.CreateUnit();
         }
         [Fact]
         public void CreateCharacterValues_ResourceBarsFilled()

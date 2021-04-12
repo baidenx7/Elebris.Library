@@ -8,12 +8,12 @@ namespace Elebris.Library.Tests
     public class CharacterProgressionHandlerTests
     {
         private readonly ITestOutputHelper _output;
-        private Character _characterContainer;
+        private Unit _characterContainer;
 
         public CharacterProgressionHandlerTests(ITestOutputHelper output)
         {
             _output = output;
-            _characterContainer = CharacterFactory.CreateCharacter();
+            _characterContainer = UnitFactory.CreateUnit();
         }
 
         [Fact]

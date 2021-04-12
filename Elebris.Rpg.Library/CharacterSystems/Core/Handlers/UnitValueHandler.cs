@@ -15,14 +15,14 @@ using Elebris.Rpg.Library.CharacterSystems.MutableValues;
 namespace Elebris.Rpg.Library.CharacterSystems.Core
 {
 
-    public class CharacterValueHandler : CharacterHandler
+    public class UnitValueHandler : CharacterHandler
     {
         public Dictionary<Attributes, StatValue> StoredAttributes { get; set; }
         public Dictionary<Stats, StatValue> StoredStats { get; set; }
         public List<IManipulationValue> StoredManipulationValues { get; set; }
         public Dictionary<Elements, WeaknessValue> StoredWeaknesses { get; set; }
         public List<DamageModel> DamageModels { get; set; } //Link these to Stored Stats
-        public CharacterValueHandler(Character container) : base(container)
+        public UnitValueHandler(Unit container) : base(container)
         {
             StoredAttributes = new Dictionary<Attributes, StatValue>();
             StoredStats = new Dictionary<Stats, StatValue>();

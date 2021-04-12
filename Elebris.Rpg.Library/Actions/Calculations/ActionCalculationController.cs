@@ -13,7 +13,7 @@ namespace Elebris.Rpg.Library.Actions.Calculations
 {
     public static partial class ActionCalculationController
     {
-        public static void CalculateDamageAction(Character target, DamageAction action)
+        public static void CalculateDamageAction(Unit target, DamageAction action)
         {
 
             //get the value here, 

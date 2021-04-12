@@ -25,7 +25,7 @@ namespace Elebris.Rpg.Library.CharacterSystems.MutableValues
     
 
         public LevelScalingStatValue(
-              Character container
+              Unit container
             , Stats affectedValue
             , Attributes GoverningAttribute = Attributes.None
             , float genericBase = 0

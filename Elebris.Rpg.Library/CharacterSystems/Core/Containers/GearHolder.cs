@@ -8,9 +8,9 @@ namespace Elebris.Core.Library.Components
     {
         public EquippedGear gear;
 
-        public Character container;
+        public Unit container;
 
-        public GearHolder(Character container)
+        public GearHolder(Unit container)
         {
             this.container = container;
         }

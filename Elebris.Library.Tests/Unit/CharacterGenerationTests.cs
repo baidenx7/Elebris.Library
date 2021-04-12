@@ -14,12 +14,12 @@ namespace Elebris.Library.Tests
     public class CharacterGenerationTests
     {
         private readonly ITestOutputHelper _output;
-        private Character _characterContainer;
+        private Unit _characterContainer;
 
         public CharacterGenerationTests(ITestOutputHelper output)
         {
             _output = output;
-            _characterContainer = CharacterFactory.CreateCharacter();
+            _characterContainer = UnitFactory.CreateUnit();
         }
 
         [Fact]
@@ -96,7 +96,7 @@ namespace Elebris.Library.Tests
             //Arrange:Prepare test
 
             //Act: 
-            Assert.NotNull(_characterContainer.GearHandler);
+            Assert.NotNull(_characterContainer.EquipmentHandler);
 
 
             //Assert: "This should be the outcome"

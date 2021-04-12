@@ -7,8 +7,8 @@ namespace Elebris.Core.Library.Items.Equipment
     {
         bool CanEquip { get; }
 
-        void OnEquip(Character character);//pass in all values to the character
-        void OnUnEquip(Character character); // remove any values that were added
+        void OnEquip(Unit character);//pass in all values to the character
+        void OnUnEquip(Unit character); // remove any values that were added
         int Grade
         {
             get;

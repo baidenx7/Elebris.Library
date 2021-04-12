@@ -11,12 +11,12 @@ namespace Elebris.Rpg.Library.CharacterSystems.Core
     /// </summary>
     /// 
 
-    public class CharacterDataHandler : CharacterHandler
+    public class UnitDataHandler : CharacterHandler
     {
 
         public Dictionary<string, CharacterClassHolder> StoredClasses { get; set; }
         public Dictionary<string, CharacterProfessionHolder> StoredProfessions { get; set; }
-        public CharacterDataHandler(Character container) : base(container)
+        public UnitDataHandler(Unit container) : base(container)
         {
             StoredClasses = new Dictionary<string, CharacterClassHolder>();
             StoredProfessions = new Dictionary<string, CharacterProfessionHolder>();

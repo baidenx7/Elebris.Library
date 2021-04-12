@@ -15,12 +15,12 @@ namespace Elebris.Library.Tests
     {
 
         private readonly ITestOutputHelper _output;
-        private Character _character;
+        private Unit _character;
 
         public CharacterValueHandlerTests(ITestOutputHelper output)
         {
             this._output = output;
-            _character = CharacterFactory.CreateCharacter();
+            _character = UnitFactory.CreateUnit();
             _output.WriteLine($"Created Character {_character}");
         }
         [Theory]
