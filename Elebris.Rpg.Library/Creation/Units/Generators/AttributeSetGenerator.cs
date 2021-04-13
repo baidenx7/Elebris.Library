@@ -12,19 +12,13 @@ namespace Elebris.Rpg.Library.CharacterSystems.UnitGeneration
     //internal ?
     internal static class AttributeSetGenerator
     {
-        public static void GenerateClassAttributeSet(Unit container)
+        public static Dictionary<Attributes, StatValue> GenerateClassAttributeSet()
         {
-            Dictionary<Attributes, int> characterBiasAttributes = new Dictionary<Attributes, int>();
-            PopulateDictionary(ref characterBiasAttributes, Constants.DEFAULT_BIAS_VALUE);
-            Dictionary<Attributes, int> characterAttributes = RollAttributes(characterBiasAttributes);
-            foreach (var item in characterAttributes.Keys)
-            {
-                StatValue val = new StatValue(characterAttributes[item]);
-                container.ValueHandler.StoredAttributes.Add(item, val);
-            }
+            Attributes[] arr = { }; //pass no bias arguments
+           return GenerateClassAttributeSet(arr);
 
         }
-        public static void GenerateClassAttributeSet(Dictionary<Attributes, StatValue> attributedict, params Attributes[] classAttributes)
+        public static Dictionary<Attributes, StatValue> GenerateClassAttributeSet(params Attributes[] classAttributes)
         {
             //Set default values
             Dictionary<Attributes, int> characterBiasAttributes = new Dictionary<Attributes, int>();
@@ -35,11 +29,15 @@ namespace Elebris.Rpg.Library.CharacterSystems.UnitGeneration
             //Take the values, create a biaslist to be randomly selected from
             //then roll until (max) values are assigned
             Dictionary<Attributes, int> characterAttributes = RollAttributes(characterBiasAttributes);
+            Dictionary<Attributes, StatValue> attributeDict = new Dictionary<Attributes, StatValue>();
             foreach (var item in characterAttributes.Keys)
             {
                 StatValue val = new StatValue(characterAttributes[item]);
-                attributedict.Add(item, val);
+                attributeDict.Add(item, val);
             }
+
+            return attributeDict;
+
         }
 
         private static void PopulateDictionary(ref Dictionary<Attributes, int> characterBiasAttributes, int value)

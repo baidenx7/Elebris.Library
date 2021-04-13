@@ -3,7 +3,6 @@ using Elebris.Rpg.Library.CharacterSystems.MutableValues;
 using Elebris.Rpg.Library.CharacterSystems.UnitGeneration;
 using Elebris.Rpg.Library.CharacterValues;
 using Elebris.Rpg.Library.Enums;
-using Elebris.Rpg.Library.Factories.UnitGeneration;
 using Elebris.Rpg.Library.Utils;
 using Elebris.UnitCreation.Library.StatGeneration;
 using System;

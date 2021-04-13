@@ -14,10 +14,7 @@ namespace Elebris.Rpg.Library.CharacterSystems.UnitGeneration
 
         private void Populate(UnitValueHandler handler)
         {
-            //Dictionary<Stats, StatValue> dict = new Dictionary<Stats, StatValue>();
-            //handler.StoredStats = _storedDefaultBaseStats.ToDictionary(entry => entry.Key,
-            //    entry => entry.Value);
-            //return dict;
+            
         }
     }
 

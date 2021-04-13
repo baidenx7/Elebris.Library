@@ -9,13 +9,13 @@ namespace Elebris.Core.Library.Components
 {
     public class UnitEquipmentHandler : CharacterHandler
     {
-        Unit characterContainer;
+        Unit _unit;
         //switch to list later? should work fine for now
         Dictionary<EquipSlot, IEquippable> EquippedGear = new Dictionary<EquipSlot, IEquippable>();
 
         public UnitEquipmentHandler(Unit container) : base(container)
         {
-            characterContainer = container;
+            _unit = container;
             //EquippedGear.Add(EquipSlot.WieldedLeft, new GearHolder(characterContainer));
             //EquippedGear.Add(EquipSlot.WieldedRight, new GearHolder(characterContainer));
             //EquippedGear.Add(EquipSlot.Head, new GearHolder(characterContainer));
