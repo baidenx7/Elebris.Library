@@ -15,19 +15,47 @@
     <EmbeddedResource Remove="Events\**" />
     <None Remove="Events\**" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Creation\Units\ManipulatorSetFactory.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="TagSystem\EnumGenerator.tt" />
-  </ItemGroup>
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Unit\Actions\Handlers\" />
+    <Folder Include="Unit\Actions\Resolving\" />
+    <Folder Include="Unit\Combat\Containers\" />
+    <Folder Include="Unit\Combat\Creation\Factories\" />
+    <Folder Include="Unit\Combat\Enforcing\" />
+    <Folder Include="Unit\Combat\Processing\" />
+    <Folder Include="Unit\Data\Creation\Factories\" />
+    <Folder Include="Unit\Data\Enforcing\" />
+    <Folder Include="Unit\Data\Models\" />
+    <Folder Include="Unit\Data\Processing\" />
+    <Folder Include="Unit\Equipment\Creation\Factories\" />
+    <Folder Include="Unit\Equipment\Processing\" />
     <Folder Include="Internal\" />
+    <Folder Include="Unit\Progression\Creation\Factories\" />
+    <Folder Include="Unit\Progression\Enforcing\" />
+    <Folder Include="Unit\Progression\Processing\" />
+    <Folder Include="Unit\Resources\Containers\" />
+    <Folder Include="Unit\Resources\Creation\Factories\" />
+    <Folder Include="Unit\Resources\Processing\" />
+    <Folder Include="Unit\Social\Containers\" />
+    <Folder Include="Unit\Social\Creation\Factories\" />
+    <Folder Include="Unit\Social\Enforcing\" />
+    <Folder Include="Unit\Social\Processing\" />
+    <Folder Include="Unit\UnitClasses\Handlers\" />
+    <Folder Include="Unit\UnitClasses\Creation\Factories\" />
+    <Folder Include="Unit\UnitClasses\Enforcing\" />
+    <Folder Include="Unit\UnitClasses\Models\" />
+    <Folder Include="Unit\UnitClasses\Processing\" />
+    <Folder Include="Unit\Values\Containers\" />
+    <Folder Include="Unit\Values\Creation\Factories\" />
+    <Folder Include="Unit\Values\Processing\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.1.0" />
   </ItemGroup>
 
 </Project>

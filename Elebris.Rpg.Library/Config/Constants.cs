@@ -1,11 +1,10 @@
 ﻿using Elebris.Rpg.Library.Enums;
 using Elebris.UnitCreation.Library.StatGeneration;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Elebris.Rpg.Library.Config
 {
+
+    //Switch to Environment file?
     public static class Constants
     {
         public const int DEFAULT_ATTRIBUTE_VALUE = 5;
