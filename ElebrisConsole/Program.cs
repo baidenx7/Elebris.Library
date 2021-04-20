@@ -1,6 +1,6 @@
-﻿using Elebris.Rpg.Library.CharacterValues;
-using Elebris.Rpg.Library.Factories;
-using Elebris.UnitCreation.Library.StatGeneration;
+﻿
+using Autofac;
+using Elebris.Rpg.Library.AutoFac;
 using System;
 
 namespace ElebrisConsole
@@ -10,13 +10,13 @@ namespace ElebrisConsole
         static void Main(string[] args)
         {
 
-            Console.WriteLine("CharacterCreated");
-            bool contained = character.ValueHandler.StoredStats.ContainsKey(Stats.MoveSpeed);
+            var container = ContainerConfig.Configure();
 
-            Console.WriteLine($"Found movespeed {contained}");
-
-            float actual = character.ValueHandler.RetrieveValue(Stats.MoveSpeed);
-            Console.WriteLine($"Found movespeed {actual}");
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var app = scope.Resolve<IApplication>();
+                app.Run();
+            }
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using CaliburnWPFApp.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CaliburnWPFApp.ViewModels
+﻿namespace CaliburnWPFApp.ViewModels
 {
     public class NavBarViewModel
     {

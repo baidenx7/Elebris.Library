@@ -1,26 +1,22 @@
-﻿
-using Elebris.Rpg.Library.CharacterValues;
-using Elebris.Rpg.Library.Config;
-using Elebris.Rpg.Library.Enums;
-using Elebris.Rpg.Library.Factories;
-using Elebris.UnitCreation.Library.StatGeneration;
-using System.Collections.Generic;
+﻿using Elebris.Rpg.Library.Unit.Core.Containers;
+using Elebris.Rpg.Library.Units.Core.Creation;
+using Elebris.Rpg.Library.Units.Values.Enforcing;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace Elebris.Library.Tests
 {
-   
+
     public class CharacterValueHandlerTests
     {
 
         private readonly ITestOutputHelper _output;
-        private Unit _character;
+        private Character _character;
 
         public CharacterValueHandlerTests(ITestOutputHelper output)
         {
             this._output = output;
-            _character = UnitFactory.CreateUnit();
+            _character = CharacterFactory.CreateUnit();
             _output.WriteLine($"Created Character {_character}");
         }
         [Theory]

@@ -1,15 +1,13 @@
-﻿using CaliburnWPFApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Text;
+﻿using AutoMapper;
 using Caliburn.Micro;
 using CaliburnWPFApp.Library.Api;
-using System.Threading.Tasks;
 using CaliburnWPFApp.Library.Models;
-using AutoMapper;
+using CaliburnWPFApp.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Dynamic;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace CaliburnWPFApp.ViewModels
@@ -75,9 +73,9 @@ namespace CaliburnWPFApp.ViewModels
             var statList = await _statEndpoint.GetAll(); // get backend format from endpoint
             var stats = _mapper.Map<List<DisplayCharacterStatModel>>(statList); //map to desired format
             Stats = new BindingList<DisplayCharacterStatModel>(stats); // fill bindinglist with mapped stats
-           
-                
-            
+
+
+
         }
         private BindingList<DisplayCharacterStatModel> _stats;
 
@@ -93,10 +91,10 @@ namespace CaliburnWPFApp.ViewModels
 
         public DisplayCharacterStatModel SelectedStat
         {
-         
-            get 
+
+            get
             {
-               
+
 
                 return _selectedStat;
             }
@@ -110,7 +108,7 @@ namespace CaliburnWPFApp.ViewModels
         }
 
         private DisplayCharacterStatModel _selectedStat;
-       
+
         public bool CanResetStat
         {
             get
@@ -130,7 +128,7 @@ namespace CaliburnWPFApp.ViewModels
             get
             {
                 bool output = true;
-                
+
                 foreach (var item in Stats)
                 {
                     if (SelectedStat != null && SelectedStat.StatName.ToUpper() == item.StatName.ToUpper())
@@ -162,7 +160,7 @@ namespace CaliburnWPFApp.ViewModels
         public async Task SetStatValues()
         {
             //Prep frontend Model for backend
-            StagedCharacterStatModel model = new StagedCharacterStatModel(); 
+            StagedCharacterStatModel model = new StagedCharacterStatModel();
 
             model.Id = SelectedStat.Id;
             model.StatName = SelectedStat.StatName;
@@ -174,10 +172,10 @@ namespace CaliburnWPFApp.ViewModels
         }
         private int CheckLastIdIndex()
         {
-            if(lastIdIndex > 0)
+            if (lastIdIndex > 0)
             {
                 lastIdIndex++;
-                return lastIdIndex; 
+                return lastIdIndex;
             }
             else
             {

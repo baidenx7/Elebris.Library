@@ -2,12 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Elebris.Data.Manager.Library.Internal.DataAccess
 {
@@ -61,17 +58,17 @@ namespace Elebris.Data.Manager.Library.Internal.DataAccess
 
         public void SaveDataInTransaction<T>(string storedProcedure, T parameters, string connectionStringName)
         {
-                _connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure, transaction:_transaction);
+            _connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure, transaction: _transaction);
 
         }
         public List<T> LoadDataInTransaction<T, U>(string storedProcedure, U parameters, string connectionStringName)
         {
-            
-                List<T> rows = _connection.Query<T>(storedProcedure, parameters,
-                    commandType: CommandType.StoredProcedure, transaction: _transaction).ToList();
 
-                return rows;
-           
+            List<T> rows = _connection.Query<T>(storedProcedure, parameters,
+                commandType: CommandType.StoredProcedure, transaction: _transaction).ToList();
+
+            return rows;
+
         }
 
         private bool isClosed = false;
@@ -93,7 +90,7 @@ namespace Elebris.Data.Manager.Library.Internal.DataAccess
 
         public void Dispose()
         {
-            if(!isClosed)
+            if (!isClosed)
             {
                 try
                 {

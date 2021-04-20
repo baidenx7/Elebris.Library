@@ -1,10 +1,5 @@
-﻿using Elebris.Core.Library.CharacterValues.Mutable;
-using Elebris.Rpg.Library.CharacterSystems.MutableValues;
-using Elebris.Rpg.Library.CharacterValues;
-using Elebris.Rpg.Library.Factories;
-using Elebris.Rpg.Library.StatGeneration;
-using Elebris.UnitCreation.Library.StatGeneration;
-using System.Collections.Generic;
+﻿using Elebris.Rpg.Library.Unit.Core.Containers;
+using Elebris.Rpg.Library.Units.Core.Creation;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -14,12 +9,12 @@ namespace Elebris.Library.Tests
     public class CharacterGenerationTests
     {
         private readonly ITestOutputHelper _output;
-        private Unit _characterContainer;
+        private Character _characterContainer;
 
         public CharacterGenerationTests(ITestOutputHelper output)
         {
             _output = output;
-            _characterContainer = UnitFactory.CreateUnit();
+            _characterContainer = CharacterFactory.CreateUnit();
         }
 
         [Fact]
@@ -67,7 +62,7 @@ namespace Elebris.Library.Tests
 
             //Assert: "This should be the outcome"
         }
-        
+
         [Fact]
         public void Character_CharacterProgressionHandlerNotNull()
         {

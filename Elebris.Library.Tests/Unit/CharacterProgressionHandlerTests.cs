@@ -1,5 +1,5 @@
-﻿using Elebris.Rpg.Library.CharacterValues;
-using Elebris.Rpg.Library.Factories;
+﻿using Elebris.Rpg.Library.Unit.Core.Containers;
+using Elebris.Rpg.Library.Units.Core.Creation;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -8,12 +8,12 @@ namespace Elebris.Library.Tests
     public class CharacterProgressionHandlerTests
     {
         private readonly ITestOutputHelper _output;
-        private Unit _characterContainer;
+        private Character _characterContainer;
 
         public CharacterProgressionHandlerTests(ITestOutputHelper output)
         {
             _output = output;
-            _characterContainer = UnitFactory.CreateUnit();
+            _characterContainer = CharacterFactory.CreateUnit();
         }
 
         [Fact]

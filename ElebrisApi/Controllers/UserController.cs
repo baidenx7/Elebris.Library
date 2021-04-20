@@ -3,12 +3,9 @@ using Elebris.Data.Manager.Library.Models;
 using ElebrisApi.Data;
 using ElebrisApi.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -46,7 +43,7 @@ namespace ElebrisApi.Controllers
         {
 
             List<ApplicationUserModel> output = new List<ApplicationUserModel>();
-          
+
             var users = _context.Users.ToList();
             //From the user* roles(admin, manager etc) join with Roles on Ids and return a list of all matching users/roles
             var userRoles = from ur in _context.UserRoles
@@ -70,7 +67,7 @@ namespace ElebrisApi.Controllers
                 output.Add(u);
 
             }
-            
+
             return output;
         }
 
@@ -79,10 +76,10 @@ namespace ElebrisApi.Controllers
         [Route("User/Admin/GetAllUsers")]
         public Dictionary<string, string> GetAllRoles()
         {
-                var roles = _context.Roles.ToDictionary(k => k.Id, v => v.Name);
+            var roles = _context.Roles.ToDictionary(k => k.Id, v => v.Name);
 
-                return roles;
-            
+            return roles;
+
         }
 
 

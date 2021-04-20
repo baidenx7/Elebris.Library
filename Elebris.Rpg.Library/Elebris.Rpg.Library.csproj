@@ -21,41 +21,42 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Unit\Actions\Handlers\" />
-    <Folder Include="Unit\Actions\Resolving\" />
-    <Folder Include="Unit\Combat\Containers\" />
-    <Folder Include="Unit\Combat\Creation\Factories\" />
-    <Folder Include="Unit\Combat\Enforcing\" />
-    <Folder Include="Unit\Combat\Processing\" />
-    <Folder Include="Unit\Data\Creation\Factories\" />
-    <Folder Include="Unit\Data\Enforcing\" />
-    <Folder Include="Unit\Data\Models\" />
-    <Folder Include="Unit\Data\Processing\" />
-    <Folder Include="Unit\Equipment\Creation\Factories\" />
-    <Folder Include="Unit\Equipment\Processing\" />
+    <Folder Include="Units\Actions\Containers\" />
+    <Folder Include="Units\Actions\Handlers\" />
+    <Folder Include="Units\Combat\Containers\" />
+    <Folder Include="Units\Combat\Enforcing\" />
+    <Folder Include="Units\Combat\Processing\" />
+    <Folder Include="Units\Data\Models\" />
+    <Folder Include="Units\Data\Processing\" />
+    <Folder Include="Units\Equipment\Processing\" />
     <Folder Include="Internal\" />
-    <Folder Include="Unit\Progression\Creation\Factories\" />
-    <Folder Include="Unit\Progression\Enforcing\" />
-    <Folder Include="Unit\Progression\Processing\" />
-    <Folder Include="Unit\Resources\Containers\" />
-    <Folder Include="Unit\Resources\Creation\Factories\" />
-    <Folder Include="Unit\Resources\Processing\" />
-    <Folder Include="Unit\Social\Containers\" />
-    <Folder Include="Unit\Social\Creation\Factories\" />
-    <Folder Include="Unit\Social\Enforcing\" />
-    <Folder Include="Unit\Social\Processing\" />
-    <Folder Include="Unit\UnitClasses\Handlers\" />
-    <Folder Include="Unit\UnitClasses\Creation\Factories\" />
-    <Folder Include="Unit\UnitClasses\Enforcing\" />
-    <Folder Include="Unit\UnitClasses\Models\" />
-    <Folder Include="Unit\UnitClasses\Processing\" />
-    <Folder Include="Unit\Values\Containers\" />
-    <Folder Include="Unit\Values\Creation\Factories\" />
-    <Folder Include="Unit\Values\Processing\" />
+    <Folder Include="Units\Factions\Containers\" />
+    <Folder Include="Units\Factions\Creation\" />
+    <Folder Include="Units\Factions\Handlers\" />
+    <Folder Include="Units\Factions\Models\" />
+    <Folder Include="Units\Factions\Processing\" />
+    <Folder Include="Units\InputResponse\Hotbar\" />
+    <Folder Include="Units\Progression\Enforcing\" />
+    <Folder Include="Units\Progression\Processing\" />
+    <Folder Include="Units\Resources\Containers\" />
+    <Folder Include="Units\Resources\Processing\" />
+    <Folder Include="Units\Social\Containers\" />
+    <Folder Include="Units\Social\Creation\" />
+    <Folder Include="Units\Social\Enforcing\" />
+    <Folder Include="Units\Social\Processing\" />
+    <Folder Include="Units\Values\Containers\" />
+    <Folder Include="Units\Values\Processing\" />
+    <Folder Include="Units\VerticalTemplate\Containers\" />
+    <Folder Include="Units\VerticalTemplate\Creation\" />
+    <Folder Include="Units\VerticalTemplate\Enforcing\" />
+    <Folder Include="Units\VerticalTemplate\Handlers\" />
+    <Folder Include="Units\VerticalTemplate\Models\" />
+    <Folder Include="Units\VerticalTemplate\Processing\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
   </ItemGroup>
 
 </Project>

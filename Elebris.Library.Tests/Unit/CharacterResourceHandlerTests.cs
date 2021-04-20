@@ -1,9 +1,6 @@
-﻿using Elebris.Rpg.Library.CharacterValues;
-using Elebris.Rpg.Library.Factories;
-using System;
+﻿using Elebris.Rpg.Library.Unit.Core.Containers;
+using Elebris.Rpg.Library.Units.Core.Creation;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -13,12 +10,12 @@ namespace Elebris.Library.Tests
     public class CharacterResourceHandlerTests
     {
         private readonly ITestOutputHelper _output;
-        private Unit _characterContainer;
+        private Character _characterContainer;
 
         public CharacterResourceHandlerTests(ITestOutputHelper output)
         {
             _output = output;
-            _characterContainer = UnitFactory.CreateUnit();
+            _characterContainer = CharacterFactory.CreateUnit();
         }
         [Fact]
         public void CreateCharacterValues_ResourceBarsFilled()

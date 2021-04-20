@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 
 namespace CaliburnWPFApp.Models
 {
-    public class DisplayCharacterStatModel: INotifyPropertyChanged
+    public class DisplayCharacterStatModel : INotifyPropertyChanged
     {
         public int Id { get; set; }
         private string _statName;
@@ -13,7 +10,8 @@ namespace CaliburnWPFApp.Models
         public string StatName
         {
             get { return _statName; }
-            set {
+            set
+            {
                 _statName = value;
                 CallPropertyChanged(nameof(StatName));
             }
@@ -23,7 +21,8 @@ namespace CaliburnWPFApp.Models
         public float BaseValue
         {
             get { return _baseValue; }
-            set {
+            set
+            {
                 _baseValue = value;
 
                 CallPropertyChanged(nameof(BaseValue));
@@ -34,7 +33,8 @@ namespace CaliburnWPFApp.Models
         public float GenericScale
         {
             get { return _genericScale; }
-            set {
+            set
+            {
                 _genericScale = value;
 
                 CallPropertyChanged(nameof(GenericScale));

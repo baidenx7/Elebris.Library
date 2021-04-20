@@ -1,4 +1,4 @@
-﻿namespace Elebris.Core.Library.Saving
+﻿namespace Elebris.Rpg.Library.Saving
 {
     public interface ISaveable
     {

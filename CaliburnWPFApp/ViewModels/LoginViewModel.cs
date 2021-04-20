@@ -1,12 +1,9 @@
 ﻿
 using Caliburn.Micro;
-using CaliburnWPFApp.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using CaliburnWPFApp.Library.Api;
 using CaliburnWPFApp.EventModels;
+using CaliburnWPFApp.Library.Api;
+using System;
+using System.Threading.Tasks;
 
 namespace CaliburnWPFApp.ViewModels
 {
@@ -51,16 +48,16 @@ namespace CaliburnWPFApp.ViewModels
 
         public bool IsErrorVisible
         {
-            get 
+            get
             {
                 bool output = false;
-                if(ErrorMessage?.Length > 0)
+                if (ErrorMessage?.Length > 0)
                 {
                     output = true;
                 }
                 return output;
             }
-           
+
         }
         private string _errorMessage;
 

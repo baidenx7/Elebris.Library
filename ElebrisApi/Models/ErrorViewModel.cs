@@ -1,5 +1,3 @@
-using System;
-
 namespace ElebrisApi.Models
 {
     public class ErrorViewModel

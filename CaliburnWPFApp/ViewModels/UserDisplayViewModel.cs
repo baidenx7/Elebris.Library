@@ -2,17 +2,15 @@
 using CaliburnWPFApp.Library.Api;
 using CaliburnWPFApp.Library.Models;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
 namespace CaliburnWPFApp.ViewModels
 {
-    public class UserDisplayViewModel: Screen
+    public class UserDisplayViewModel : Screen
     {
         private readonly StatusInfoViewModel _status;
         private readonly IWindowManager _window;
@@ -77,7 +75,9 @@ namespace CaliburnWPFApp.ViewModels
         public string SelectedAvailableRole
         {
             get { return _selectedAvailableRole; }
-            set { _selectedAvailableRole = value;
+            set
+            {
+                _selectedAvailableRole = value;
 
                 NotifyOfPropertyChange(() => SelectedAvailableRole);
             }
@@ -87,7 +87,9 @@ namespace CaliburnWPFApp.ViewModels
         public string SelectedUserRole
         {
             get { return _selectedUserRole; }
-            set { _selectedUserRole = value;
+            set
+            {
+                _selectedUserRole = value;
                 NotifyOfPropertyChange(() => SelectedUserRole);
             }
         }
@@ -116,7 +118,7 @@ namespace CaliburnWPFApp.ViewModels
             base.OnViewLoaded(view);
             try
             {
-              
+
                 await LoadUsers();
             }
             catch (Exception ex)

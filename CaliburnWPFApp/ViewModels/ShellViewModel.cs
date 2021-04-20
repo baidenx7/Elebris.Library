@@ -26,7 +26,7 @@ namespace CaliburnWPFApp.ViewModels
                 }
 
 
-                    return output;
+                return output;
             }
         }
 
