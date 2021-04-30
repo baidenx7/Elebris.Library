@@ -1,9 +1,7 @@
 ﻿
 using Autofac;
-using Elebris.Rpg.Library.AutoFac;
-using System;
 
-namespace ElebrisConsole
+namespace Elebris
 {
     class Program
     {
@@ -18,5 +16,6 @@ namespace ElebrisConsole
                 app.Run();
             }
         }
+
     }
 }

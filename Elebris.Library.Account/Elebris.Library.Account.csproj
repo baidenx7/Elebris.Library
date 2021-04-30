@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Progression\" />
+    <Folder Include="Reputation\Factions\Containers\" />
+    <Folder Include="Reputation\Factions\Creation\" />
+    <Folder Include="Reputation\Factions\Handlers\" />
+    <Folder Include="Reputation\Factions\Models\" />
+    <Folder Include="Reputation\Factions\Processing\" />
+  </ItemGroup>
+
+</Project>

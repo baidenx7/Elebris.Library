@@ -6,7 +6,7 @@
 AS
 	begin
 	set nocount on;
-	insert into dbo.CharacterStats(StatName, BaseValue, GenericScale)
+	insert into dbo.CharacterStats(StatName, BaseValue)
 	values(@StatName, @BaseValue, @GenericScale);
 
 	select @Id = @@IDENTITY;

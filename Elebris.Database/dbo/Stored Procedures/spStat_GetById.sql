@@ -4,7 +4,7 @@ AS
  begin
 	set nocount on;
 
-	SELECT Id, StatName, BaseValue, GenericScale
+	SELECT Id, StatName, BaseValue
 	from [dbo].[CharacterStats]
 	Where Id = @Id;
 

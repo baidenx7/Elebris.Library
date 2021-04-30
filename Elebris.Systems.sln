@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Elebris.Database", "Elebris.Database\Elebris.Database.sqlproj", "{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{36C907BD-5774-4651-862E-4C6490640A58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{94219CBE-0E3B-4638-9B0E-599C42BE2B90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1E587066-5840-4AC7-AD79-4D84284BD653}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{D5AC1B30-4EEC-4F24-B2DF-4710D7B706D7}"
+	ProjectSection(SolutionItems) = preProject
+		Elebris.Rpg.Library\README.md = Elebris.Rpg.Library\README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elebris.Console", "ElebrisConsole\Elebris.Console.csproj", "{A1378996-EF0C-4E7F-8584-DAB11BC42FAF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elebris.Library.Units", "Elebris.Library.Units\Elebris.Library.Units.csproj", "{AE44B817-9102-4197-A9BF-C50E603E6A2B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elebris.Library.Items", "Elebris.Library.Items\Elebris.Library.Items.csproj", "{07B781AA-43C0-475F-97FE-7C4DE6BFA6EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elebris.Database.Manager", "Elebris.Database.Manager\Elebris.Database.Manager.csproj", "{E60F967B-F47E-4EFA-A137-8B61D5C5C399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elebris.Library.Account", "Elebris.Library.Account\Elebris.Library.Account.csproj", "{F2934D24-CEEE-4AE2-ADA2-C76E51975A8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elebris.Tests", "Elebris.Tests\Elebris.Tests.csproj", "{9E7915A2-CBFF-45BA-9EF2-79EEEB454FBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23B6D81A-8A50-4F17-B30F-560948CB4675}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A1378996-EF0C-4E7F-8584-DAB11BC42FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1378996-EF0C-4E7F-8584-DAB11BC42FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1378996-EF0C-4E7F-8584-DAB11BC42FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1378996-EF0C-4E7F-8584-DAB11BC42FAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE44B817-9102-4197-A9BF-C50E603E6A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE44B817-9102-4197-A9BF-C50E603E6A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE44B817-9102-4197-A9BF-C50E603E6A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE44B817-9102-4197-A9BF-C50E603E6A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07B781AA-43C0-475F-97FE-7C4DE6BFA6EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07B781AA-43C0-475F-97FE-7C4DE6BFA6EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07B781AA-43C0-475F-97FE-7C4DE6BFA6EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07B781AA-43C0-475F-97FE-7C4DE6BFA6EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E60F967B-F47E-4EFA-A137-8B61D5C5C399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E60F967B-F47E-4EFA-A137-8B61D5C5C399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E60F967B-F47E-4EFA-A137-8B61D5C5C399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E60F967B-F47E-4EFA-A137-8B61D5C5C399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2934D24-CEEE-4AE2-ADA2-C76E51975A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2934D24-CEEE-4AE2-ADA2-C76E51975A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2934D24-CEEE-4AE2-ADA2-C76E51975A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2934D24-CEEE-4AE2-ADA2-C76E51975A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E7915A2-CBFF-45BA-9EF2-79EEEB454FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E7915A2-CBFF-45BA-9EF2-79EEEB454FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E7915A2-CBFF-45BA-9EF2-79EEEB454FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E7915A2-CBFF-45BA-9EF2-79EEEB454FBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8} = {94219CBE-0E3B-4638-9B0E-599C42BE2B90}
+		{A1378996-EF0C-4E7F-8584-DAB11BC42FAF} = {D5AC1B30-4EEC-4F24-B2DF-4710D7B706D7}
+		{AE44B817-9102-4197-A9BF-C50E603E6A2B} = {36C907BD-5774-4651-862E-4C6490640A58}
+		{07B781AA-43C0-475F-97FE-7C4DE6BFA6EE} = {36C907BD-5774-4651-862E-4C6490640A58}
+		{E60F967B-F47E-4EFA-A137-8B61D5C5C399} = {94219CBE-0E3B-4638-9B0E-599C42BE2B90}
+		{F2934D24-CEEE-4AE2-ADA2-C76E51975A8C} = {36C907BD-5774-4651-862E-4C6490640A58}
+		{9E7915A2-CBFF-45BA-9EF2-79EEEB454FBA} = {1E587066-5840-4AC7-AD79-4D84284BD653}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {267A787A-7EF1-4792-B7A5-AC0B2306E506}
+	EndGlobalSection
+EndGlobal
