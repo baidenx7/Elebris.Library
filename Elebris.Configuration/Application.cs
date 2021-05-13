@@ -1,5 +1,8 @@
 ﻿
+using Elebris.Configuration.Components;
+using Elebris.Database.Manager;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System;
@@ -21,16 +24,22 @@ namespace Elebris.Configuration
                 .CreateLogger();
             #endregion
             Log.Logger.Information("Application Starting");
-                #region Hosting
-                var host = Host.CreateDefaultBuilder()
-                    .ConfigureServices((context, services) =>
-                    {
-                        //services.AddTransient<interface, concrete class>();
-                    })
-                    .UseSerilog()
-                    .Build();
+            #region Hosting
+            var host = Host.CreateDefaultBuilder()
+                .ConfigureServices((context, services) =>
+                {
+                    //services.AddTransient<interface, concrete class>();
+                    services.AddTransient<IUnitService, UnitService>();
+                    services.AddTransient<ISqlDataAccess, SqlDataAccess>();
+                    services.AddTransient<IStatData, StatData>();
+                })
+                .UseSerilog()
+                .Build();
 
             #endregion
+            var svc = ActivatorUtilities.CreateInstance<UnitService>(host.Services);
+            svc.Run();
+
         }
 
         private static void ConfigureBuilder(IConfigurationBuilder configBuilder)
@@ -52,16 +61,11 @@ namespace Elebris.Configuration
     }
 }
 
-//builder.RegisterType<Application>().As<IApplication>();
-//builder.RegisterType<UnitLogic>().As<IUnitLogic>();
 
-//builder.RegisterType<SqlDataAccess>().As<ISqlDataAccess>();
-//builder.RegisterType<StatData>().As<IStatData>();
-
+//From my autofac code, reimplement for above?
 
 ////nameof(Library.Units) fails, but the string below works.
 ////Could not load file or assembly 'Units, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
 //builder.RegisterAssemblyTypes(Assembly.Load("Elebris.Library.Units"))
 //    .Where(t => t.Namespace.Contains("Creation"))
 //    .As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == "I" + t.Name));
-//return builder;

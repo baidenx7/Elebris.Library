@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Elebris.Configuration.Components
 {
-    public class UnitService
+    public class UnitService : IUnitService
     {
         private readonly ILogger<UnitService> _log;
         private readonly IConfiguration _config;
@@ -17,6 +17,12 @@ namespace Elebris.Configuration.Components
         {
             _log = log;
             _config = config;
+        }
+
+        public void Run()
+        {
+            _log.LogInformation($"The entry point for this Application is {_config.GetValue<string>("EntryPoint")}");
+           
         }
     }
 }

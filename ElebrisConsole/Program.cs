@@ -1,10 +1,5 @@
 ﻿
 using Elebris.Configuration;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Serilog;
-using System;
-using System.IO;
 
 namespace Elebris
 {
@@ -17,3 +12,4 @@ namespace Elebris
 
     }
 }
+//https://www.meziantou.net/visual-studio-tips-and-tricks-multi-line-and-multi-cursor-editing.htm
