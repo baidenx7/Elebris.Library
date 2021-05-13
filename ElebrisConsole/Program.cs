@@ -1,5 +1,10 @@
 ﻿
-using Autofac;
+using Elebris.Configuration;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Serilog;
+using System;
+using System.IO;
 
 namespace Elebris
 {
@@ -7,14 +12,7 @@ namespace Elebris
     {
         static void Main(string[] args)
         {
-
-            var container = ContainerConfig.Configure();
-
-            using (var scope = container.BeginLifetimeScope())
-            {
-                var app = scope.Resolve<IApplication>();
-                app.Run();
-            }
+            Application.Run();
         }
 
     }
