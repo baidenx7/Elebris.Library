@@ -1,16 +1,15 @@
 ﻿using Elebris.Core.Library.Enums;
-using Elebris.Library.Units.Containers;
-using Elebris.Library.Units.Creation;
 using Elebris.Rpg.Library.Units.Actions.Models;
 using Elebris.Rpg.Library.Units.Combat.Models;
 using Elebris.Rpg.Library.Units.Core.Handlers;
+using Elebris.Rpg.Library.Units.Values.Handlers;
 using System.Collections.Generic;
 
 namespace Elebris.Rpg.Library.Units.Combat.Handlers
 {
-    public class CombatHandler : CharacterHandler
+    public class CombatHandler : ValueHandlerInteractor
     {
-        public CombatHandler(Character container, Dictionary<string, WeaknessValue> weaknessSet) : base(container)
+        public CombatHandler(ValueHandler valuehandler, Dictionary<string, WeaknessValue> weaknessSet) : base(valuehandler)
         {
             StoredWeaknesses = weaknessSet;
         }

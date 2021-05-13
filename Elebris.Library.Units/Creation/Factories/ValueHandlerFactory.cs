@@ -13,9 +13,9 @@ namespace Elebris.Library.Units.Creation
             _statFactory = defaultStatFactory;
         }
 
-        public ICharacterValueHandler ReturnHandler(Character character)
+        public IValueHandler ReturnHandler()
         {
-            CharacterValueHandler handler = new(character, _attributeFactory.Retrieve(), _statFactory.Retrieve());
+            ValueHandler handler = new(_statFactory.Retrieve());
 
             return handler;
         }

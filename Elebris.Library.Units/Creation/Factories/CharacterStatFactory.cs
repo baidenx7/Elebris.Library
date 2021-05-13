@@ -12,8 +12,9 @@ namespace Elebris.Library.Units.Creation
         {
             _builder = builder;
         }
-        public Dictionary<string, StatValue> Retrieve()
-        {
+        public Dictionary<string, CharacterStatValue> Retrieve()
+        {   
+            //Insert Attributes here
             return _builder.GenerateStatSet();
         }
     }

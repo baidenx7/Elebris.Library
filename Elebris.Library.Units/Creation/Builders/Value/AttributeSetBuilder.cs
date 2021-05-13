@@ -10,13 +10,13 @@ namespace Elebris.Library.Units.Creation
     //internal ?
     public class AttributeSetBuilder : IAttributeSetBuilder
     {
-        public Dictionary<string, StatValue> GenerateClassAttributeSet()
+        public Dictionary<string, CharacterStatValue> GenerateClassAttributeSet()
         {
             CharacterAttributes[] arr = Array.Empty<CharacterAttributes>(); //pass no bias arguments
             return GenerateClassAttributeSet(arr);
 
         }
-        public Dictionary<string, StatValue> GenerateClassAttributeSet(params CharacterAttributes[] classAttributes)
+        public Dictionary<string, CharacterStatValue> GenerateClassAttributeSet(params CharacterAttributes[] classAttributes)
         {
             //Set default values
             Dictionary<CharacterAttributes, int> characterBiasAttributes = new();
@@ -27,10 +27,10 @@ namespace Elebris.Library.Units.Creation
             //Take the values, create a biaslist to be randomly selected from
             //then roll until (max) values are assigned
             Dictionary<CharacterAttributes, int> characterAttributes = RollAttributes(characterBiasAttributes);
-            Dictionary<string, StatValue> attributeDict = new();
+            Dictionary<string, CharacterStatValue> attributeDict = new();
             foreach (var item in characterAttributes.Keys)
             {
-                StatValue val = new(characterAttributes[item]);
+                CharacterStatValue val = new(characterAttributes[item]);
                 attributeDict.Add(item.ToString(), val);
             }
 

@@ -1,17 +1,24 @@
 ﻿using Dapper;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace Elebris.Database.Manager.Helpers
+namespace Elebris.Database.Manager
 {
-    internal class SqlDataAccess
+    public class SqlDataAccess : ISqlDataAccess
     {
+        private readonly IConfiguration _conn;
+
+        public SqlDataAccess(IConfiguration conn)
+        {
+            _conn = conn;
+        }
         public string GetConnectionString(string name)
         {
-            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+            return _conn.GetConnectionString(name);
         }
 
         public List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName)

@@ -6,7 +6,7 @@ namespace Elebris.Library.Units.Creation
 {
     public interface IAttributeSetBuilder
     {
-        Dictionary<string, StatValue> GenerateClassAttributeSet();
-        Dictionary<string, StatValue> GenerateClassAttributeSet(params CharacterAttributes[] classAttributes);
+        Dictionary<string, CharacterStatValue> GenerateClassAttributeSet();
+        Dictionary<string, CharacterStatValue> GenerateClassAttributeSet(params CharacterAttributes[] classAttributes);
     }
 }

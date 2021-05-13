@@ -1,6 +1,8 @@
-﻿using Elebris.Database.Manager.DataAccess;
-using Elebris.Database.Manager.Models;
+﻿
+using Elebris.Database;
+using Elebris.Database.Manager;
 using Elebris.Rpg.Library.Units.Core.Models;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,24 +10,30 @@ namespace Elebris.Library.Units.Creation
 {
     public class StatSetBuilder : IStatSetBuilder
     {
-        readonly Dictionary<string, StatValue> _defaultStats;
+        readonly Dictionary<string, CharacterStatValue> _defaultCharacterStats;
+        private readonly IStatData _statData;
 
-        public StatSetBuilder()
+        public StatSetBuilder(IStatData data)
         {
-            DefaultCharacterStatData statData = new();
-            List<DefaultStatModel> list = statData.GetAllStatModels();
-            _defaultStats = list.ToDictionary(entry => entry.Name,
-                entry => new StatValue(entry.Value));
 
+            _statData = data;
+            _defaultCharacterStats = Populate();
         }
-        //EnemyDict = new Dictionary<Stats, StatValue>(); ?
-        public Dictionary<string, StatValue> GenerateStatSet()
+        private Dictionary<string, CharacterStatValue> Populate()
+        {
+            List<DBStatModel> list = _statData.GetAllStatModels();
+             return list.ToDictionary(entry => entry.Name,
+                entry => new CharacterStatValue(entry.Value));
+        }
+        public Dictionary<string, CharacterStatValue> GenerateStatSet()
         {
 
-            Dictionary<string, StatValue> dict = new();
-            dict = _defaultStats.ToDictionary(entry => entry.Key,
+            Dictionary<string, CharacterStatValue> dict = new();
+            dict = _defaultCharacterStats.ToDictionary(entry => entry.Key,
                entry => entry.Value);
             return dict;
         }
+
+
     }
 }

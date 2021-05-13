@@ -5,7 +5,7 @@ namespace Elebris.Library.Units.Creation
 {
     public interface IValueHandlerFactory
     {
-        ICharacterValueHandler ReturnHandler(Character character);
+        IValueHandler ReturnHandler();
 
     }
 

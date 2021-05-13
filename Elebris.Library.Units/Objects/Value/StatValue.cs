@@ -29,8 +29,7 @@ namespace Elebris.Rpg.Library.Units.Core.Models
         }
         public StatValue(float baseValue) : this()
         {
-            BaseValue = baseValue;
-
+            this.baseValue = baseValue;
         }
 
 
@@ -65,21 +64,17 @@ namespace Elebris.Rpg.Library.Units.Core.Models
         {
             get
             {
-                if (isDirty || lastBaseValue != BaseValue)
+                if (isDirty || lastBaseValue != baseValue)
                 {
-                    lastBaseValue = BaseValue;
+                    lastBaseValue = baseValue;
                     totalValue = CalculateFinalValue();
-                    AddedValue = totalValue = BaseValue;
+                    AddedValue = totalValue = baseValue;
                     isDirty = false;
                 }
                 return totalValue;
             }
         }
-        //if you are not sure what counts as a base value remember:
-        //the only values that should be assigned to base value are (true base, attribute-modified/class-increased(not passives in a class))
-        //this should only update when initializing or leveling, not otherwise.
-        public float BaseValue { get => baseValue; set => baseValue = value; }
-
+       
         public virtual bool RemoveAllModifiersFromSource(object source)
         {
             bool didRemove = false;
@@ -113,7 +108,7 @@ namespace Elebris.Rpg.Library.Units.Core.Models
         }
         public virtual float CalculateFinalValue()
         {
-            float finalValue = BaseValue;
+            float finalValue = baseValue;
             float sumPercentAdd = 0;
 
             for (int i = 0; i < valueModifiers.Count; i++)
@@ -148,4 +143,5 @@ namespace Elebris.Rpg.Library.Units.Core.Models
 
 
     }
+
 }

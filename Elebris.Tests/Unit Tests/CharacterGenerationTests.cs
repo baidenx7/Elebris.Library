@@ -37,7 +37,7 @@ namespace Elebris.Library.Tests
             //Arrange:Prepare test
 
             //Act: 
-            Assert.NotNull(_characterContainer.ExternalInteractionHandler);
+            Assert.NotNull(_characterContainer.PresentationHandler);
 
 
             //Assert: "This should be the outcome"

@@ -9,7 +9,7 @@ namespace Elebris.Rpg.Library.Units.Actions.Core
         public IActionBehaviour behaviour;
         public IActiveCoreAction containedAction;
 
-        public ActivatableAction(IActionBehaviour behaviour, IActiveCoreAction containedAction, ResourceBarValue cooldown)
+        public ActivatableAction(IActionBehaviour behaviour, IActiveCoreAction containedAction, MeasurementValue cooldown)
         {
             this.behaviour = behaviour;
             this.containedAction = containedAction;
@@ -17,7 +17,7 @@ namespace Elebris.Rpg.Library.Units.Actions.Core
         }
 
 
-        public ResourceBarValue cooldown { get; set; }
+        public MeasurementValue cooldown { get; set; }
 
 
     }

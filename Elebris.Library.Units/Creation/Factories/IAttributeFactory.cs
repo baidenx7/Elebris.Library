@@ -6,7 +6,7 @@ namespace Elebris.Library.Units.Creation
 {
     public interface IAttributeFactory
     {
-        Dictionary<string, StatValue> Retrieve();
+        Dictionary<string, CharacterStatValue> Retrieve();
 
     }
 }

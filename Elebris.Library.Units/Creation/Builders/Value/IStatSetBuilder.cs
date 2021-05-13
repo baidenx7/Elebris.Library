@@ -5,6 +5,6 @@ namespace Elebris.Library.Units.Creation
 {
     public interface IStatSetBuilder
     {
-        Dictionary<string, StatValue> GenerateStatSet();
+        Dictionary<string, CharacterStatValue> GenerateStatSet();
     }
 }

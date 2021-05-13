@@ -1,20 +1,21 @@
 ﻿using Elebris.Library.Units.Containers;
 using Elebris.Library.Units.Creation;
 using Elebris.Rpg.Library.Units.Resources.Handlers;
+using Elebris.Rpg.Library.Units.Values.Handlers;
 
 namespace Elebris.Library.Units.Creation
 {
-    public class ExternalInteractionHandlerFactory : IExternalInteractionHandlerFactory
+    public class PresentationHandlerFactory : IPresentationHandlerFactory
     {
         private readonly IResourceSetBuilder _resourceBuilder;
 
-        public ExternalInteractionHandlerFactory(IResourceSetBuilder resourceBuilder)
+        public PresentationHandlerFactory(IResourceSetBuilder resourceBuilder)
         {
             _resourceBuilder = resourceBuilder;
         }
-        public ExternalInteractionHandler ReturnHandler(Character character)
+        public InteractionHandler ReturnHandler(IValueHandler valuehandler)
         {
-            ExternalInteractionHandler handler = new(character, _resourceBuilder.Retrieve());
+            InteractionHandler handler = new(valuehandler, _resourceBuilder.Retrieve());
             return handler;
         }
 

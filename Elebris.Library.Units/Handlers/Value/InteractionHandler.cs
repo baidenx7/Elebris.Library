@@ -3,6 +3,7 @@ using Elebris.Library.Units.Creation;
 using Elebris.Rpg.Library.Units.Core.Handlers;
 using Elebris.Rpg.Library.Units.Resources.Enforcing;
 using Elebris.Rpg.Library.Units.Resources.Models;
+using Elebris.Rpg.Library.Units.Values.Handlers;
 using System.Collections.Generic;
 
 namespace Elebris.Rpg.Library.Units.Resources.Handlers
@@ -13,25 +14,25 @@ namespace Elebris.Rpg.Library.Units.Resources.Handlers
     /// </summary>
     /// 
 
-    public class ExternalInteractionHandler : CharacterHandler, IExternalInteractionHandler
+    public class InteractionHandler : ValueHandlerInteractor, IInteractionHandler
     {
 
-        private Dictionary<string, ResourceBarValue> StoredResourceBars { get; set; }
-        public ExternalInteractionHandler(Character character, Dictionary<string, ResourceBarValue> resourceSet) : base(character)
+        private Dictionary<string, MeasurementValue> StoredMeasurementValues { get; set; }
+        public InteractionHandler(IValueHandler valuehandler, Dictionary<string, MeasurementValue> resourceSet) : base(valuehandler)
         {
 
-            StoredResourceBars = resourceSet;
+            StoredMeasurementValues = resourceSet;
         }
 
 
-        public void ModifyResourceValue(string resources, float value)
+        public void ModifyMeasurementValue(string resources, float value)
         {
-            StoredResourceBars[resources].CurrentValue += value;
+            StoredMeasurementValues[resources].CurrentValue += value;
         }
 
-        public ResourceBarValue RetrieveResourceData(string value)
+        public MeasurementValue RetrieveResourceData(string value)
         {
-            return StoredResourceBars[value];
+            return StoredMeasurementValues[value];
         }
 
 

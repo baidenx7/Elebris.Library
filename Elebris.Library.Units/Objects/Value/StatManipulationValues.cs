@@ -7,9 +7,9 @@ namespace Elebris.Rpg.Library.Units.Values.Models
     public class StatManipulationValues
     {
 
-        internal CharacterValueHandler _handler;
+        internal ValueHandler _handler;
 
-        internal StatManipulationValues(CharacterValueHandler handler)
+        internal StatManipulationValues(ValueHandler handler)
         {
             _handler = handler;
 

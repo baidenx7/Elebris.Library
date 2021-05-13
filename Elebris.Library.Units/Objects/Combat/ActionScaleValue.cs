@@ -5,12 +5,12 @@ namespace Elebris.Rpg.Library.Units.Actions.Models
 
     public struct ActionScaleValue
     {
-        public readonly IRetrievableValue name;
-        public readonly IRetrievableValue _scaleStat;
+        public readonly string name;
+        public readonly string _scaleStat;
         public readonly float flat;
         public readonly float scale;
 
-        public ActionScaleValue(IRetrievableValue name, IRetrievableValue scalingStat = null, float flat = 0, float scale = 0)
+        public ActionScaleValue(string name, string scalingStat = null, float flat = 0, float scale = 0)
         {
             this.name = name;
             _scaleStat = scalingStat;

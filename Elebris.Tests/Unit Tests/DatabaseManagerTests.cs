@@ -1,4 +1,4 @@
-﻿using Elebris.Database.Manager.DataAccess;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +23,10 @@ namespace Elebris.Tests.Unit_Tests
         public void DataBaseReturnsStats_AssertTrue()
         {
 
-            DefaultCharacterStatData data = new();
-            var models = data.GetAllStatModels();
-            _output.WriteLine(models.Count.ToString());
-            Assert.True(models.Count > 1);
+        //    StatData data = new();
+        //    var models = data.GetAllStatModels();
+        //    _output.WriteLine(models.Count.ToString());
+        //    Assert.True(models.Count > 1);
         }
 
     }

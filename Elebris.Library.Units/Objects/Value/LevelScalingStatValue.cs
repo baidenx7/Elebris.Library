@@ -7,7 +7,7 @@ namespace Elebris.Rpg.Library.Units.Values.Models
 {
     public class LevelScalingStatValue : StatManipulationValues, IManipulationValue
     {
-        private readonly IRetrievableValue _affectedValue;
+        private readonly string _affectedValue;
 
         //private bool roundDown;
         private float genericBase; //regardless of attributes, the value will initialize here
@@ -17,13 +17,13 @@ namespace Elebris.Rpg.Library.Units.Values.Models
 
         private float attributeScale;
 
-        public IRetrievableValue GoverningValue { get; } //allows Characters to know what attribute(key) to send in (value)
+        public string GoverningValue { get; } //allows Characters to know what attribute(key) to send in (value)
 
 
         public LevelScalingStatValue(
-              CharacterValueHandler handler
-            , IRetrievableValue affectedValue
-            , AttributeRetrievableModel GoverningAttribute
+              ValueHandler handler
+            , string affectedValue
+            , string GoverningValue
             , float genericBase = 0
             , float genericScale = 0
             , float attributeScale = 0
@@ -32,7 +32,7 @@ namespace Elebris.Rpg.Library.Units.Values.Models
         {
 
             _affectedValue = affectedValue;
-            this.GoverningValue = GoverningAttribute;
+            this.GoverningValue = GoverningValue;
             this.genericBase = genericBase;
             this.genericScale = genericScale;
             this.initialScale = initialScale;

@@ -7,18 +7,18 @@ namespace Elebris.Library.Units.Creation
 {
     public class ResourceSetBuilder : IResourceSetBuilder
     {
-        private readonly Dictionary<string, ResourceBarValue> _storedResourceBars;
-        public ResourceSetBuilder(Dictionary<string, ResourceBarValue> storedResourceBars)
+        private readonly Dictionary<string, MeasurementValue> _storedMeasurementValues;
+        public ResourceSetBuilder(Dictionary<string, MeasurementValue> storedMeasurementValues)
         {
-            _storedResourceBars = storedResourceBars;
+            _storedMeasurementValues = storedMeasurementValues;
             GenerateResourceBars();
         }
-        public Dictionary<string, ResourceBarValue> Retrieve()
+        public Dictionary<string, MeasurementValue> Retrieve()
         {
 
-            Dictionary<string, ResourceBarValue> dict = new();
+            Dictionary<string, MeasurementValue> dict = new();
 
-            dict = _storedResourceBars.ToDictionary(entry => entry.Key,
+            dict = _storedMeasurementValues.ToDictionary(entry => entry.Key,
             entry => entry.Value);
             return dict;
 
@@ -35,7 +35,7 @@ namespace Elebris.Library.Units.Creation
 
         private void PopulateResource(Resource resource)
         {
-            _storedResourceBars[resource.ToString()] = new ResourceBarValue(1);
+            _storedMeasurementValues[resource.ToString()] = new MeasurementValue(resource.ToString());
         }
     }
 }

@@ -4,6 +4,7 @@ using Elebris.Library.Units.Objects.Progression;
 using Elebris.Rpg.Library.Units.Core.Handlers;
 using Elebris.Rpg.Library.Units.Data.Containers;
 using Elebris.Rpg.Library.Units.UnitClasses.Containers;
+using Elebris.Rpg.Library.Units.Values.Handlers;
 using System.Collections.Generic;
 
 namespace Elebris.Rpg.Library.Units.Data.Handlers
@@ -14,12 +15,12 @@ namespace Elebris.Rpg.Library.Units.Data.Handlers
     /// </summary>
     /// 
 
-    public class ProgressionHandler : CharacterHandler, IProgressionHandler
+    public class ProgressionHandler : ValueHandlerInteractor, IProgressionHandler
     {
         private Dictionary<string, CharacterClassModel> StoredClasses { get; set; }
         private Dictionary<string, CharacterProfessionModel> StoredProfessions { get; set; }
         private ProgressionValue CharacterExperience { get; set; }
-        public ProgressionHandler(Character character, Dictionary<string, CharacterClassModel> classSet, Dictionary<string, CharacterProfessionModel> professionSet) : base(character)
+        public ProgressionHandler(IValueHandler valuehandler, Dictionary<string, CharacterClassModel> classSet, Dictionary<string, CharacterProfessionModel> professionSet) : base(valuehandler)
         {
             StoredClasses = classSet;
             StoredProfessions = professionSet;

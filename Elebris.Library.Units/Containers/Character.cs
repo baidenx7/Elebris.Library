@@ -9,19 +9,19 @@ namespace Elebris.Library.Units.Containers
     public class Character
     {
         //Create a EnemyConstructorModel and CharacterConstructorModel that replaces all these individual calls?
-        public Character(IValueHandlerFactory valuefactory, IExternalInteractionHandlerFactory resourcefactory,
+        public Character(IValueHandlerFactory valuefactory, IPresentationHandlerFactory resourcefactory,
             IProgressionHandlerFactory progressionfactory)
         {
 
-            ValueHandler = valuefactory.ReturnHandler(this);
-            ExternalInteractionHandler = resourcefactory.ReturnHandler(this);
-            ProgressionHandler = progressionfactory.ReturnHandler(this);
+            ValueHandler = valuefactory.ReturnHandler();
+            PresentationHandler = resourcefactory.ReturnHandler(ValueHandler);
+            ProgressionHandler = progressionfactory.ReturnHandler(ValueHandler);
 
             //UpdateManipulators
         }
 
-        public IExternalInteractionHandler ExternalInteractionHandler { get; set; } //updated by valuehandlers values, but provides additional info
-        internal ICharacterValueHandler ValueHandler { get; set; } //contains a focal point for all stat requests
+        internal IValueHandler ValueHandler { get; set; } //contains a focal point for all stat requests
+        public IInteractionHandler PresentationHandler { get; set; } //updated by valuehandlers values, but provides additional info
         internal IProgressionHandler ProgressionHandler { get; set; } //updated by valuehandlers values, but provides additional info
 
         //InputResponseHandler controls AI, button/Hotbar use, menu navigation etc. 

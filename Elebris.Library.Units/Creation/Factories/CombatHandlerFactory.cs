@@ -1,6 +1,7 @@
 ﻿using Elebris.Library.Units.Containers;
 using Elebris.Library.Units.Creation;
 using Elebris.Rpg.Library.Units.Combat.Handlers;
+using Elebris.Rpg.Library.Units.Values.Handlers;
 
 namespace Elebris.Library.Units.Creation
 {
@@ -12,9 +13,9 @@ namespace Elebris.Library.Units.Creation
         {
             _weaknessBuilder = weaknessBuilder;
         }
-        public CombatHandler ReturnHandler(Character character)
+        public CombatHandler ReturnHandler(ValueHandler valuehandler)
         {
-            CombatHandler handler = new(character, _weaknessBuilder.Retrieve());
+            CombatHandler handler = new(valuehandler, _weaknessBuilder.Retrieve());
             return handler;
         }
     }

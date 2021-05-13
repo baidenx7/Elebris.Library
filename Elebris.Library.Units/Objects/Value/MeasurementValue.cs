@@ -1,18 +1,28 @@
-﻿using Elebris.Rpg.Library.Units.Core.Models;
+﻿
+using Elebris.Rpg.Library.Units.Core.Models;
+using Elebris.Rpg.Library.Units.Values.Handlers;
 
 namespace Elebris.Rpg.Library.Units.Resources.Models
 {
-    public class ResourceBarValue
+    public class MeasurementValue
     {
         private float currentValue;
         private float maxValue;
+        private readonly string _observedValue;
 
-        public ResourceBarValue(float maxValue, float missingValue = 0)
+        public MeasurementValue(string observedValue, float missingValue = 0)
         {
-            MaxValue = maxValue;
+            //observedValue; use this to hook up an event
+            MaxValue = 1;
             CurrentValue = MaxValue - missingValue;
+            _observedValue = observedValue;
         }
 
+        public void WireUp(IValueHandler handler)
+        {
+            MaxValue= handler.RetrieveValue(_observedValue).TotalValue;
+            //Add Event Listener
+        }
         public float CurrentValue
         {
             get => currentValue;

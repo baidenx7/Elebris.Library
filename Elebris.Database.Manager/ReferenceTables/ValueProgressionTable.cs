@@ -1,4 +1,4 @@
-﻿namespace Elebris.Rpg.Library.Units.Progression.Containers
+﻿namespace Elebris.Database.Manager
 {
     public class ValueProgressionTable
     {

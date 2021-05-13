@@ -6,6 +6,6 @@ namespace Elebris.Library.Units.Creation
 {
     public interface IResourceSetBuilder
     {
-        Dictionary<string, ResourceBarValue> Retrieve();
+        Dictionary<string, MeasurementValue> Retrieve();
     }
 }

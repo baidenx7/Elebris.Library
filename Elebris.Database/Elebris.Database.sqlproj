@@ -76,6 +76,8 @@
     <Build Include="dbo\Stored Procedures\spStat_GetById.sql" />
     <Build Include="dbo\Stored Procedures\spStat_Insert.sql" />
     <Build Include="dbo\Stored Procedures\spStat_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spStat_GetAllCharacterDefaults.sql" />
+    <Build Include="dbo\Tables\DefaultCharacterStats.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Elebris.Database.refactorlog" />
