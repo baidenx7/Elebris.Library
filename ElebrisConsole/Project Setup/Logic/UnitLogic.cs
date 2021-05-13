@@ -18,7 +18,7 @@ namespace Elebris
         }
         public void Process()
         {
-
+            _log.LogInformation($"Post Log From UnitLogic in External Item {_config.GetValue<string>("EntryPoint")}");
         }
     }
 }

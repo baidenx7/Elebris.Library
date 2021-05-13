@@ -28,7 +28,7 @@ namespace Elebris
             var host = Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
-
+                    //services.AddTransient<interface, concrete class>();
                 })
                 .UseSerilog()
                 .Build();
@@ -39,7 +39,7 @@ namespace Elebris
             builder.Register(context => config).As<IConfiguration>(); //Bind Microsoft Config to Autofac
             builder.Register(context => host).As<IHostBuilder>(); //Bind Microsoft Hosting to Autofac
             return builder.Build();
-
+            //https://alex-klaus.com/webapi-proj-without-autofac/
         }
 
         private static ContainerBuilder BuildContainer()

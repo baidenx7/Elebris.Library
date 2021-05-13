@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Elebris.Database", "Elebris.Database\Elebris.Database.sqlproj", "{1AB7FA8D-7CD2-4E5A-B81C-FAB694EA73B8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{36C907BD-5774-4651-862E-4C6490640A58}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Layer", "Application Layer", "{36C907BD-5774-4651-862E-4C6490640A58}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{94219CBE-0E3B-4638-9B0E-599C42BE2B90}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Layer", "Database Layer", "{94219CBE-0E3B-4638-9B0E-599C42BE2B90}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1E587066-5840-4AC7-AD79-4D84284BD653}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{1E587066-5840-4AC7-AD79-4D84284BD653}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{D5AC1B30-4EEC-4F24-B2DF-4710D7B706D7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Layer", "External Layer", "{D5AC1B30-4EEC-4F24-B2DF-4710D7B706D7}"
 	ProjectSection(SolutionItems) = preProject
 		Elebris.Rpg.Library\README.md = Elebris.Rpg.Library\README.md
 	EndProjectSection
